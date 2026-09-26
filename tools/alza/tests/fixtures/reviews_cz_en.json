@@ -1,0 +1,806 @@
+{
+ "self": {
+  "href": "https://webapi.alza.cz/api/catalog/v2/commodities/7927612/reviews?country=cz&limit=20",
+  "appLink": "commodityReviewsCollection",
+  "enabled": true
+ },
+ "paging": {
+  "limit": 20,
+  "size": 200,
+  "first": {
+   "href": "https://webapi.alza.cz/api/catalog/v2/commodities/7927612/reviews?country=cz&limit=20",
+   "appLink": "commodityReviewsCollection",
+   "enabled": true
+  },
+  "previous": null,
+  "next": {
+   "href": "https://webapi.alza.cz:443/api/catalog/v2/commodities/7927612/reviews?country=cz&limit=20&offset=20",
+   "appLink": "commodityReviewsCollection",
+   "enabled": true
+  },
+  "last": {
+   "href": "https://webapi.alza.cz:443/api/catalog/v2/commodities/7927612/reviews?country=cz&limit=20&offset=180",
+   "appLink": "commodityReviewsCollection",
+   "enabled": true
+  }
+ },
+ "value": [
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8733189/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "super"
+   ],
+   "negatives": [],
+   "name": "Reviewer 1",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase",
+    "tooltip": {
+     "text": "The reviewed product was purchased in our online shop. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 12/09/2026, variant iPhone 15 128GB black",
+   "reviewDate": "2026-09-12T08:16:32.967Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8640246/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Great satisfaction",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 2",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase - review from a price comparison website",
+    "tooltip": {
+     "text": "The reviewed product has been purchased on our eshop and rated through the price comparison website. In case of a half-star rating (3.5), we round up (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 24/07/2026, variant iPhone 15 128GB black",
+   "reviewDate": "2026-07-24T16:21:50Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 1.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8405304/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Apple says I have to wait for an update so I am 3 weeks without a working GPS. So I can now stick my iPhone in a drawer and pray that the next update will fix the problem! Never again!",
+   "positives": [],
+   "negatives": [
+    "GPS stopped working"
+   ],
+   "name": "Reviewer 3",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase",
+    "tooltip": {
+     "text": "The reviewed product was purchased in our online shop. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 31/03/2026, variant iPhone 15 128GB black",
+   "reviewDate": "2026-03-31T14:03:23.637Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/12.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8367817/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "satisfaction",
+    "super price"
+   ],
+   "negatives": [],
+   "name": "Reviewer 4",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase",
+    "tooltip": {
+     "text": "The reviewed product was purchased in our online shop. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 12/03/2026, variant iPhone 15 128GB black",
+   "reviewDate": "2026-03-12T21:34:50.48Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/11.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8221566/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "has everything it promises"
+   ],
+   "negatives": [],
+   "name": "Reviewer 5",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase - review from a price comparison website",
+    "tooltip": {
+     "text": "The reviewed product has been purchased on our eshop and rated through the price comparison website. In case of a half-star rating (3.5), we round up (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 24/01/2026, variant iPhone 15 128GB black",
+   "reviewDate": "2026-01-24T10:46:58Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/07.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8054424/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "everything great"
+   ],
+   "negatives": [
+    "The delivery was long."
+   ],
+   "name": "Reviewer 6",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase",
+    "tooltip": {
+     "text": "The reviewed product was purchased in our online shop. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 29/12/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-12-29T11:36:22.837Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 7,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7993247/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "The photos are excellent!",
+    "Functions",
+    "Quality workmanship",
+    "Video quality!",
+    "Phone speed",
+    "Sufficient battery capacity for everyday use",
+    "Speed of delivery alza"
+   ],
+   "negatives": [
+    "Sometimes the photos cannot be transferred to the computer via cable"
+   ],
+   "name": "Reviewer 7",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase",
+    "tooltip": {
+     "text": "The reviewed product was purchased in our online shop. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 18/12/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-12-18T13:03:57.15Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/15.jpg",
+   "images": [
+    {
+     "imageUrl": "https://image.alza.cz/Images/Users/4725180/reviews/standard/1613bb12-4616-4318-ab82-50c85d952c62.jpg",
+     "previewImageUrl": "https://image.alza.cz/Images/Users/4725180/reviews/standard/1613bb12-4616-4318-ab82-50c85d952c62.jpg?width=80&height=80"
+    },
+    {
+     "imageUrl": "https://image.alza.cz/Images/Users/4725180/reviews/standard/4773dc71-3ea4-4784-9bb2-e71b842f2fe9.jpg",
+     "previewImageUrl": "https://image.alza.cz/Images/Users/4725180/reviews/standard/4773dc71-3ea4-4784-9bb2-e71b842f2fe9.jpg?width=80&height=80"
+    }
+   ],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7852885/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "quality workmanship",
+    "IOS",
+    "power",
+    "takes good photos",
+    "beautiful display"
+   ],
+   "negatives": [
+    "display only 60hz",
+    "weaker battery compared to the competition"
+   ],
+   "name": "Reviewer 8",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase",
+    "tooltip": {
+     "text": "The reviewed product was purchased in our online shop. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 20/11/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-11-20T06:46:49.177Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/16.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7821163/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "It's working as it should."
+   ],
+   "negatives": [],
+   "name": "Reviewer 9",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase - review from a price comparison website",
+    "tooltip": {
+     "text": "The reviewed product has been purchased on our eshop and rated through the price comparison website. In case of a half-star rating (3.5), we round up (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 11/11/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-11-11T09:41:21Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7752019/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "price"
+   ],
+   "negatives": [],
+   "name": "Reviewer 10",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase - review from a price comparison website",
+    "tooltip": {
+     "text": "The reviewed product has been purchased on our eshop and rated through the price comparison website. In case of a half-star rating (3.5), we round up (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 30/10/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-10-30T16:33:07Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/07.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7670934/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "great mobile price/performance",
+    "user interface"
+   ],
+   "negatives": [
+    "light sagging"
+   ],
+   "name": "Reviewer 11",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase",
+    "tooltip": {
+     "text": "The reviewed product was purchased in our online shop. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 09/10/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-10-09T17:03:55.587Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 4.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7609457/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [],
+   "negatives": [
+    "60hz display"
+   ],
+   "name": "Reviewer 12",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase",
+    "tooltip": {
+     "text": "The reviewed product was purchased in our online shop. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 22/09/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-09-22T14:46:19.297Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/03.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7443363/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Super",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 13",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase - review from a price comparison website",
+    "tooltip": {
+     "text": "The reviewed product has been purchased on our eshop and rated through the price comparison website. In case of a half-star rating (3.5), we round up (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 05/08/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-08-05T15:37:39Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7444730/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "OK",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 14",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase - review from a price comparison website",
+    "tooltip": {
+     "text": "The reviewed product has been purchased on our eshop and rated through the price comparison website. In case of a half-star rating (3.5), we round up (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 04/08/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-08-04T05:09:15Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/18.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 7,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7410743/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "I was deciding between 15 and 16 and the price/performance worked out",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 15",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase",
+    "tooltip": {
+     "text": "The reviewed product was purchased in our online shop. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 30/07/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-07-30T12:39:24.45Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/08.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 5,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7315015/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Satisfaction"
+   ],
+   "negatives": [],
+   "name": "Reviewer 16",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase - review from a price comparison website",
+    "tooltip": {
+     "text": "The reviewed product has been purchased on our eshop and rated through the price comparison website. In case of a half-star rating (3.5), we round up (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 04/07/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-07-04T10:24:27Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 32,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7209369/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "I switched from android and so far I'm happy, it fits my hand better, I like the overall axis and clarity. The price is quite high considering the parameters, however, there is a very reliable system that lasts a really long time.",
+   "positives": [
+    "Power",
+    "High quality photos",
+    "IR face ID camera, unlike my previous phones (Samsung, xiaomi etc) it works perfectly even in complete darkness",
+    "USB C (finally)",
+    "Fast charging, 100% within an hour",
+    "Good display and luminosity",
+    "Very good speaker performance and sound quality",
+    "Magsafe",
+    "Smooth and simple system",
+    "No unnecessary third-party apps and extra crap",
+    "Battery without problem and without loss of capacity, it was supposedly solved before (apparently successfully), charging limit can be set, etc."
+   ],
+   "negatives": [
+    "Charging cable without cube, although this is no longer the fault of the manufacturer but the union",
+    "60Hz display",
+    "For the same price the competition offers sometimes more, e.g. the 120Hz display",
+    "no dual sim, only SIM and eSIM",
+    "expensive repairs and accessories",
+    "no fingerprint reader"
+   ],
+   "name": "Reviewer 17",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase",
+    "tooltip": {
+     "text": "The reviewed product was purchased in our online shop. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 13/06/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-06-13T10:35:05.877Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7166579/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Fast delivery, high quality, good communication with the store"
+   ],
+   "negatives": [],
+   "name": "Reviewer 18",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase - review from a price comparison website",
+    "tooltip": {
+     "text": "The reviewed product has been purchased on our eshop and rated through the price comparison website. In case of a half-star rating (3.5), we round up (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 03/06/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-06-03T07:32:21Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7147530/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Hello! I like everything about the stuff I ordered from you.",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 19",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase - review from a price comparison website",
+    "tooltip": {
+     "text": "The reviewed product has been purchased on our eshop and rated through the price comparison website. In case of a half-star rating (3.5), we round up (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 31/05/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-05-31T12:30:55Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 4.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7144865/actions?country=cz",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Quality"
+   ],
+   "negatives": [],
+   "name": "Reviewer 20",
+   "verifiedPurchaseTag": {
+    "label": "Verified purchase - review from a price comparison website",
+    "tooltip": {
+     "text": "The reviewed product has been purchased on our eshop and rated through the price comparison website. In case of a half-star rating (3.5), we round up (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.cz/article/3370.htm",
+       "appLink": "webView",
+       "name": "More information",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Rated 29/05/2025, variant iPhone 15 128GB black",
+   "reviewDate": "2025-05-29T14:40:35Z",
+   "commodityName": "iPhone 15 128GB black",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  }
+ ]
+}

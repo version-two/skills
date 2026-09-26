@@ -1,0 +1,6 @@
+[workspace]
+members = ["bazos", "alza"]
+resolver = "3"
+
+[profile.release]
+strip = true

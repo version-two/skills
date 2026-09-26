@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<title>Iphone bazár | Bazos.sk</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Bezplatná inzercia, online bazár - kúpte si nový byt alebo predaj staré auto, toto všetko hravo zvládne náš Bazoš - Vaše inzeráty.">
+<meta name="google-play-app" content="app-id=cz.ackee.bazos">
+<meta name="apple-itunes-app" content="app-id=1195042966">
+<meta property="fb:admins" content="1055875657">
+<meta property="og:image" content="https://www.bazos.sk/obrazky/bazoslogoface.png">
+<meta name="ROBOTS" content="NOINDEX">
+<link rel="stylesheet" href="https://www.bazos.sk/bazos67s.css" type="text/css"><link rel="preload" as="image" href="https://www.bazos.sk/obrazky/bazos.svg">
+<link rel="icon" href="https://www.bazos.sk/favicon.svg" type="image/svg+xml">
+<link rel="icon" HREF="https://www.bazos.sk/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="https://www.bazos.sk/apple-touch-icon.png">
+<link rel="search" type="application/opensearchdescription+xml" href="https://www.bazos.sk/search.xml" title="Bazoš.sk">
+
+<script async="async" src="https://www.google.com/adsense/search/ads.js"></script>
+<script type="text/javascript" charset="utf-8">
+(function(g,o){g[o]=g[o]||function(){(g[o]['q']=g[o]['q']||[]).push(
+  arguments)},g[o]['t']=1*new Date})(window,'_googCsa');
+</script><script>
+var xhr = new XMLHttpRequest();
+var naseptavac_value = '';
+function naseptavac(value) {
+  if (value=='')  {
+  	naseptavac_value = '';
+  	document.getElementById('vysledek').innerHTML='';
+  	}
+else {
+	if (naseptavac_value == value) {
+		return false;
+	}
+	naseptavac_value = value;
+	setTimeout(function () {
+		if (naseptavac_value != value) {
+			return false;
+		}
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4 && naseptavac_value == value){
+				document.getElementById('vysledek').innerHTML = this.responseText;
+			}
+ 		 };
+		xhr.open("POST", '/suggest.php');
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('rubnas=HP&qnas='+encodeURIComponent(naseptavac_value));
+	}, 250);
+}
+}
+
+var naseptavacpsc_value = '';
+function naseptavacpsc(value) {
+  if (value=='')  {
+  	naseptavacpsc_value = '';
+  	document.getElementById('vysledekpsc').innerHTML='<table cellpadding=\"3\" cellspacing=\"0\" class=\"tablenaspsc\"><tr><td class=\"act\" onclick=\"getLocation();\"><b>Inzeráty v okolí</b></td></tr></table>';
+  	}
+else {
+	if (naseptavacpsc_value == value) {
+		return false;
+	}
+	naseptavacpsc_value = value;
+	setTimeout(function () {
+		if (naseptavacpsc_value != value) {
+			return false;
+		}
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4 && naseptavacpsc_value == value){
+				document.getElementById('vysledekpsc').innerHTML = this.responseText;
+			}
+ 		 };
+		xhr.open("POST", '/suggestpsc.php');
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('qnaspsc='+encodeURIComponent(naseptavacpsc_value));
+	}, 250);
+}
+}
+
+function getLocation() {
+if (navigator.geolocation) {navigator.geolocation.getCurrentPosition(showPosition);}
+else {document.getElementById('hlokalita').value = '';}
+}
+function showPosition(position) {
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4){
+				document.getElementById('hlokalita').value = this.responseText;
+				document.forms['formt'].submit();
+			}
+ 		 };
+		xhr.open("POST", '/zip.php');
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('latitude='+encodeURIComponent(position.coords.latitude)+'&longitude='+encodeURIComponent(position.coords.longitude));
+}
+
+var agent_value = '';
+function agentclick() {
+  if (document.getElementById('agentmail').value=='')  {
+  	document.getElementById("agentmail").focus();
+    return false;
+  	}
+else {
+agent_value = document.getElementById('agentmail').value;
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4){
+				document.getElementById('overlay').innerHTML = this.responseText;
+			}
+  };
+xhr.open("POST", '/agent.php');
+xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+xhr.send('hledat=iphone&rubrikav=&hlokalita=&humkreis=25&cenaod=&cenado=&cat=&typ=&agentmail='+encodeURIComponent(agent_value));
+}
+}
+
+function odeslatrequest(value,params) {
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4){
+				document.getElementById('overlay').innerHTML = this.responseText;
+			}
+  };
+xhr.open("POST", value);
+xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+xhr.send(params);
+}
+function overlay() {
+	el = document.getElementById("overlay");
+	el.style.display = (el.style.display == "inline") ? "none" : "inline";
+}
+function odeslatakci(postaction,value1,value2,value3) {
+document.getElementById('postaction').value = postaction;
+document.getElementById("postv1").value = value1;
+document.getElementById("postv2").value = value2;
+document.getElementById("postv3").value = value3;
+document.formaction.submit();
+}
+</script>
+</head>
+
+<body>
+
+<div class="sirka">
+
+
+<div class="listalogor">
+<div class="listalogol"><a href="https://www.bazos.sk/" title="Bazos.sk - Inzercia, inzeráty"><img src="https://www.bazos.sk/obrazky/bazos.svg" width="199" height="34" alt="Bazos.sk - Inzercia, inzeráty"></a></div>
+<div class="listalogom"> <b>... inzercia pre každého</b></div>
+<div class="listalogop"><a href="https://www.bazos.sk/oblubene.php"><b>Obľúbené inzeráty</b></a> <a href="https://www.bazos.sk/moje-inzeraty.php"><b>Moje inzeráty</b></a> <a href="/pridat-inzerat.php"><b><span class=pridati>Pridať inzerát</span></b></a></div>
+</div>
+
+<form name="formt" id="formt" method=get action="/search.php">
+<div class="listah">
+<div class="rubriky">
+<b>
+Čo: <span class=vysokoli><span id="vysledek"></span><input type="search" onkeyup="naseptavac(this.value);" id=hledat name=hledat size="17" maxlength="256" value="iphone" autocomplete="off" title="Čo? Hľadaný výraz" ></span>
+
+<select name="rubriky" onchange='this.form.submit();' title="Vyber rubriku">
+<option value="www" selected>Všetky rubriky</option>
+<option value="auto">Auto</option>
+<option value="deti">Deti</option>
+<option value="dom">Dom a záhrada</option>
+<option value="elektro">Elektro</option>
+<option value="foto">Foto</option>
+<option value="hudba">Hudba</option>
+<option value="knihy">Knihy</option>
+<option value="mobil">Mobily</option>
+<option value="motocykle">Motocykle</option>
+<option value="nabytok">Nábytok</option>
+<option value="oblecenie">Oblečenie</option>
+<option value="pc">PC</option>
+<option value="praca">Práca</option>
+<option value="reality">Reality</option>
+<option value="sluzby">Služby</option>
+<option value="sport">Šport</option>
+<option value="stroje">Stroje</option>
+<option value="vstupenky">Vstupenky</option>
+<option value="zvierata">Zvieratá</option>
+<option value="ostatne">Ostatné</option>
+</select>
+
+PSČ (miesto): <span class=vysokolipsc><span id="vysledekpsc"></span><input type="search" name="hlokalita" id="hlokalita" onkeyup="naseptavacpsc(this.value);" onclick="naseptavacpsc(this.value);" value="" size="5" maxlength="25" autocomplete="off" title="Kde? PSČ (miesto)" style="-webkit-appearance: none;"></span>
+Okolie: <input name="humkreis" title="Okolie v km" value="25" size="3" style="width: 25px;"> km
+Cena od: <input name=cenaod title="Cena od €" maxlength="12" size="4" value=""> - do: <input name=cenado title="Cena do €" maxlength="12" size="4" value=""> €  <input type="submit" name="Submit" value="Hľadať">
+<input type="hidden" name="order" id="order"><input type="hidden" name="kitx" value="ano"></b>
+</div>
+</div>
+</form>
+<div class="drobky"><a href=https://www.bazos.sk/>Hlavná stránka</a> > <b>Vyhľadávanie</b> > <h1 class="nadpiskategorie">iphone</h1></div><br>
+
+
+<div class="flexmain"><div class="menuleft"><div class="nadpismenu">Inzercia</div>
+<div class="barvalmenu">
+<div class="barvaleva">
+<div align="center">
+
+<br>
+<a href="https://auto.bazos.sk/"><b>Auto</b></a>
+Inzeráty Celkom: 239099<br>
+Za 24 hodín: 13742<br><br>
+
+<br>
+<a href="https://deti.bazos.sk/"><b>Deti</b></a>
+Inzeráty Celkom: 85951<br>
+Za 24 hodín: 1863<br><br>
+
+<br>
+<a href="https://dom.bazos.sk/"><b>Dom a záhrada</b></a>
+Inzeráty Celkom: 72081<br>
+Za 24 hodín: 2490<br><br>
+
+<br>
+<a href="https://elektro.bazos.sk/"><b>Elektro</b></a>
+Inzeráty Celkom: 48654<br>
+Za 24 hodín: 1500<br><br>
+
+<br>
+<a href="https://foto.bazos.sk/"><b>Foto</b></a>
+Inzeráty Celkom: 8453<br>
+Za 24 hodín: 320<br><br>
+
+<br>
+<a href="https://hudba.bazos.sk/"><b>Hudba</b></a>
+Inzeráty Celkom: 16037<br>
+Za 24 hodín: 465<br><br>
+
+<br>
+<a href="https://knihy.bazos.sk/"><b>Knihy</b></a>
+Inzeráty Celkom: 22542<br>
+Za 24 hodín: 444<br><br>
+
+<br>
+<a href="https://mobil.bazos.sk/"><b>Mobily</b></a>
+Inzeráty Celkom: 17606<br>
+Za 24 hodín: 1236<br><br>
+
+<br>
+<a href="https://motocykle.bazos.sk/"><b>Motocykle</b></a>
+Inzeráty Celkom: 35117<br>
+Za 24 hodín: 1436<br><br>
+
+<br>
+<a href="https://nabytok.bazos.sk/"><b>Nábytok</b></a>
+Inzeráty Celkom: 47558<br>
+Za 24 hodín: 1524<br><br>
+
+<br>
+<a href="https://oblecenie.bazos.sk/"><b>Oblečenie</b></a>
+Inzeráty Celkom: 69186<br>
+Za 24 hodín: 1663<br><br>
+
+<br>
+<a href="https://pc.bazos.sk/"><b>PC</b></a>
+Inzeráty Celkom: 34627<br>
+Za 24 hodín: 1641<br><br>
+
+<br>
+<a href="https://praca.bazos.sk/"><b>Práca</b></a>
+Inzeráty Celkom: 9801<br>
+Za 24 hodín: 1466<br><br>
+
+<br>
+<a href="https://reality.bazos.sk/"><b>Reality</b></a>
+Inzeráty Celkom: 64073<br>
+Za 24 hodín: 5649<br><br>
+
+<br>
+<a href="https://sluzby.bazos.sk/"><b>Služby</b></a>
+Inzeráty Celkom: 18429<br>
+Za 24 hodín: 2641<br><br>
+
+<br>
+<a href="https://stroje.bazos.sk/"><b>Stroje</b></a>
+Inzeráty Celkom: 44987<br>
+Za 24 hodín: 1870<br><br>
+
+<br>
+<a href="https://sport.bazos.sk/"><b>Šport</b></a>
+Inzeráty Celkom: 62723<br>
+Za 24 hodín: 2130<br><br>
+
+<br>
+<a href="https://vstupenky.bazos.sk/"><b>Vstupenky</b></a>
+Inzeráty Celkom: 1939<br>
+Za 24 hodín: 152<br><br>
+
+<br>
+<a href="https://zvierata.bazos.sk/"><b>Zvieratá</b></a>
+Inzeráty Celkom: 24543<br>
+Za 24 hodín: 1226<br><br>
+
+<br>
+<a href="https://ostatne.bazos.sk/"><b>Ostatné</b></a>
+Inzeráty Celkom: 90306<br>
+Za 24 hodín: 2135<br><br>
+
+</div>
+</div></div>
+
+<br><br>
+
+
+
+</div><div class="maincontent">
+
+
+<div class="listainzerat inzeratyflex">
+<div class="inzeratynadpis"><img src="https://www.bazos.sk/obrazky/list.gif" width="18" height="16" alt="List inzerátov" class=gallerylista> <form name="formgal" id="formgal" method="post" style="display: inline;"><input type="hidden" name="gal" value="g"><input type="image" alt="Submit" src="https://www.bazos.sk/obrazky/gallery.gif" width="18" height="16" class="gallerylist inputgal"></form> Zobrazených 1-20 inzerátov z 6 552</div>
+<div class="inzeratycena"><b><span onclick="document.getElementById('order').value=1;document.forms['formt'].submit();" class="paction">Cena</span></b></div>
+<div class="inzeratylok">Lokalita</div>
+<div class="inzeratyview"><span onclick="document.getElementById('order').value=3;document.forms['formt'].submit();" class="paction">Zobrazenie</span></div>
+</div><form name="formaction" method="post" style="display: inline;"><input type="hidden" id="postaction" name="postaction" value=""><input type="hidden" id="postv1" name="postv1" value=""><input type="hidden" id="postv2" name="postv2" value=""><input type="hidden" id="postv3" name="postv3" value=""></form><button type="button" onclick="odeslatrequest('/agent.php','teloverit=');overlay();">Nové inzeráty e-mailom</button>
+	<div id="overlay">
+     <div></div>
+</div>
+
+<div id="container_one"></div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.sk/inzerat/195410373/volkswagen-tiguan-20-tdi.php"><img src="https://www.bazos.sk/img/1t/373/195410373.jpg?t=1790335886" class="obrazek" alt="Volkswagen Tiguan 2.0 TDI" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://auto.bazos.sk/inzerat/195410373/volkswagen-tiguan-20-tdi.php">Volkswagen Tiguan 2.0 TDI</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 5.11. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predam:
+
+
+✅Volkswagen Tiguan 2.0 TDI Life BlueMotion Tech
+
+✅rok vyr.11/2013
+103kW, manual, 
+174.180Km
+
+
+✅
+2 zonova klimatizacia,
+Tempomat,
+Vyhrievane predne sedadla,
+Parkovacie senzory predne + zadne,
+Parkovaci assistent,
+Asistent rozjazdu do kopca,
+Multifunkcny volant,
+Palubny poc ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  10 890 €</span></b></div>
+<div class="inzeratylok">Prešov<br>080 01</div>
+<div class="inzeratyview">1334 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195410373');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195410373');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5942630','3201799','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195410373','auto');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.sk/inzerat/195408866/volkswagen-tiguan-20-tdi-4motion.php"><img src="https://www.bazos.sk/img/1t/866/195408866.jpg?t=1789983869" class="obrazek" alt="Volkswagen Tiguan 2.0 TDI  4Motion" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://auto.bazos.sk/inzerat/195408866/volkswagen-tiguan-20-tdi-4motion.php">Volkswagen Tiguan 2.0 TDI  4Motion</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 28.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predam:
+
+
+✅Volkswagen Tiguan 2.0 TDI Sport & Style 4Motion
+
+✅rok vyr.10/2013
+103kW, manual, 4x4,
+145.030Km
+
+👌Dovoz IT - absolutne ziadna korozia.
+
+✅
+2 zonova klimatizacia,
+Tempomat,
+Parkovacie senzory predne + zadne,
+Parkovaci assistent,
+Asistent rozjazdu do kopca,
+Multifunkcny vola ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  10 890 €</span></b></div>
+<div class="inzeratylok">Prešov<br>080 01</div>
+<div class="inzeratyview">3247 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195408866');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195408866');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5942630','3201799','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195408866','auto');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://elektro.bazos.sk/inzerat/195893617/aurender-n20-referencny-sietovy-prehravac-1-tb-ssd.php"><img src="https://www.bazos.sk/img/1t/617/195893617.jpg?t=1790332738" class="obrazek" alt="Aurender N20 – referenčný sieťový prehrávač / 1 TB SSD" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://elektro.bazos.sk/inzerat/195893617/aurender-n20-referencny-sietovy-prehravac-1-tb-ssd.php">Aurender N20 – referenčný sieťový prehrávač / 1 TB SSD</a></h2><span class=velikost10> - <span title="TOP 7x Platí do 23.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Aurender N20 – referenčný sieťový prehrávač / hudobný server, 1 TB SSD
+
+Predám špičkový streamer Aurender N20 z referenčnej rady kórejského výrobcu Aurender, s interným 1 TB SSD.
+
+Stav: výborný, používaný v domácom high-end systéme, nefajčiarska domácnosť, bez poškodenia.
+
+O prístroji:
+N20 je ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  6 900 €</span></b></div>
+<div class="inzeratylok">Bratislava<br>811 02</div>
+<div class="inzeratyview">33 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195893617');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195893617');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5466964','4817824','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195893617','elektro');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.sk/inzerat/195356728/volkswagen-tiguan-14-tsi-comfortline-2017.php"><img src="https://www.bazos.sk/img/1t/728/195356728.jpg?t=1790322950" class="obrazek" alt="VOLKSWAGEN TIGUAN 1.4 TSI COMFORTLINE | 2017 | LANE ASSIST" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://auto.bazos.sk/inzerat/195356728/volkswagen-tiguan-14-tsi-comfortline-2017.php">VOLKSWAGEN TIGUAN 1.4 TSI COMFORTLINE | 2017 | LANE ASSIST</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 21.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Ponúkam na predaj zachovalý Volkswagen Tiguan 1.4 TSI s manuálnou prevodovkou
+
+• Prvý majiteľ
+• Nefajčiar
+• Pôvodný lak - nehavarované!
+• Dovoz Nemecko
+• Kompletná servisná história
+• 2 Kľúče
+• Garancia pôvodu a stavu najazdených kilometrov! - Ku každému vozidlu obdržíte ODO - Pass
+
+* Rok  ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  13 890 €</span></b></div>
+<div class="inzeratylok">Bánovce nad Bebravou<br>957 01</div>
+<div class="inzeratyview">1838 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195356728');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195356728');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','0','2645037','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195356728','auto');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195868345/predam-iphone-14-pro-256-gb.php"><img src="https://www.bazos.sk/img/1t/345/195868345.jpg?t=1790255323" class="obrazek" alt="PREDÁM iPhone 14 Pro 256 GB" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195868345/predam-iphone-14-pro-256-gb.php">PREDÁM iPhone 14 Pro 256 GB</a></h2><span class=velikost10> - <span title="TOP 5x Platí do 19.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predám Apple <b>iphone</b> 14 Pro s 256GB úložiskom v čiernom matnom farebnom prevedení. Telefón je vo výbornom 100 % stave, bez poškodenia, bez škrabancov, používaný v ochrannom kryte a s ochranným sklom na displeji. Telefón predávam v originálnom stave s originálnou batériou. Zdravie batérie 82 %.
+
+Len ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   350 €</span></b></div>
+<div class="inzeratylok">Bratislava<br>841 04</div>
+<div class="inzeratyview">372 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195868345');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195868345');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','13598174','13764367','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195868345','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195703627/predam-apple-iphone-17-pro-max-256-gb.php"><img src="https://www.bazos.sk/img/1t/627/195703627.jpg?t=1789833847" class="obrazek" alt="Predám Apple iPhone 17 Pro Max 256 GB." width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195703627/predam-apple-iphone-17-pro-max-256-gb.php">Predám Apple iPhone 17 Pro Max 256 GB.</a></h2><span class=velikost10> - <span title="TOP 7x Platí do 17.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predám Apple <b>iphone</b> 17 Pro Max 256 GB vo farbe Cosmic Orange.
+
+Telefón bol zakúpený v októbri 2025 u oficiálneho predajcu v Nitre, takže jeho pôvod je overiteľný. Používala ho manželka veľmi šetrne. Od prvého dňa bol chránený ochranným sklom a nosený v originálnom Apple kryte.
+
+Telefón je vo výborno ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  1 150 €</span></b></div>
+<div class="inzeratylok">Nitra<br>949 01</div>
+<div class="inzeratyview">1651 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195703627');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195703627');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','13678864','13857156','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195703627','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195767391/iphone-17-pro-max-256-gb.php"><img src="https://www.bazos.sk/img/1t/391/195767391.jpg?t=1790000291" class="obrazek" alt="iPhone 17 PRO MAX 256 GB" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195767391/iphone-17-pro-max-256-gb.php">iPhone 17 PRO MAX 256 GB</a></h2><span class=velikost10> - <span title="TOP 5x Platí do 16.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predám <b>iphone</b> 17 PRO MAX.
+Mobil je v super stave, predné sklo je absolútne nepoškodené. Zadná strana a rohy telefónu sú jemne ošúchané z používania.</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  1 000 €</span></b></div>
+<div class="inzeratylok">Bratislava<br>811 03</div>
+<div class="inzeratyview">1214 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195767391');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195767391');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','0','13987922','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195767391','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195721967/iphone-17-pro-256-gb.php"><img src="https://www.bazos.sk/img/1t/967/195721967.jpg?t=1789897897" class="obrazek" alt="IPhone 17 pro 256 gb" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195721967/iphone-17-pro-256-gb.php">IPhone 17 pro 256 gb</a></h2><span class=velikost10> - <span title="TOP 5x Platí do 15.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predám <b>iphone</b> 17 pro 256 GB vo farbe Cosmic Orange. Zdravie batérie 91% v záruke ešte 1 rok. Bez jedinej bodky, škrabanca v 100% stave. Cena pevná. Len osobný odber.</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   900 €</span></b></div>
+<div class="inzeratylok">Zlaté Moravce<br>953 01</div>
+<div class="inzeratyview">2371 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195721967');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195721967');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','13713130','13896240','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195721967','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195808216/iphone-16-pro-max-256gb-rose-gold.php"><img src="https://www.bazos.sk/img/1t/216/195808216.jpg?t=1790263916" class="obrazek" alt="iPhone 16 Pro Max, 256gb Desert Titanium" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195808216/iphone-16-pro-max-256gb-rose-gold.php">iPhone 16 Pro Max, 256gb Desert Titanium</a></h2><span class=velikost10> - <span title="TOP 4x Platí do 14.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predám <b>iphone</b> 16 Pro Max, 256gb- Desert Titanium
+Životnosť batérie 92%
+<b>iphone</b> je v perfektnom stave, bez akéhokoľvek poškodenia. Nonstop nosený v obale+ všetky ochranné sklá.  
+Dôvod predaja- prechod na novší model. 
+Dohoda možná. 
+Viac info na tel./SMS/wh.</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   830 €</span></b></div>
+<div class="inzeratylok">Zvolen<br>960 01</div>
+<div class="inzeratyview">538 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195808216');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195808216');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5411525','3253909','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195808216','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195439744/predam-iphone-16-pro-256gb-silver.php"><img src="https://www.bazos.sk/img/1t/744/195439744.jpg?t=1790254444" class="obrazek" alt="Predam iPhone 16 pro 256gb silver" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195439744/predam-iphone-16-pro-256gb-silver.php">Predam iPhone 16 pro 256gb silver</a></h2><span class=velikost10> - <span title="TOP 5x Platí do 12.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predam <b>iphone</b> 16 pro bez škrabancov, nosený v obale s ochranným sklom. Plne funkčný ako nový 🙂
+</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   760 €</span></b></div>
+<div class="inzeratylok">Trenčín<br>911 01</div>
+<div class="inzeratyview">1590 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195439744');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195439744');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','1496165','5299609','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195439744','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195534170/iphone-16-pro-max-256gb.php"><img src="https://www.bazos.sk/img/1t/170/195534170.jpg?t=1789651107" class="obrazek" alt="iPhone 16 pro max 256gb" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195534170/iphone-16-pro-max-256gb.php">iPhone 16 pro max 256gb</a></h2><span class=velikost10> - <span title="TOP 5x Platí do 12.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predám použivany <b>iphone</b> 16 pro max 256 gb vo veľmi dobrom stave bez známok používania,vždy chránený obalom a ochranným sklom panzerglass S kapacítou batérie 95% viď foto Tel predám iba osobne aj s novým koženým obalom a sklom panzerglass privacy Cena 730 EUR pevná Iba osobne Tel neposielam Tel je do ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   730 €</span></b></div>
+<div class="inzeratylok">Liptovský Mikuláš<br>031 01</div>
+<div class="inzeratyview">2218 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195534170');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195534170');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5606588','4383431','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195534170','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195864735/iphone-15-yellow-baterie-100-top.php"><img src="https://www.bazos.sk/img/1t/735/195864735.jpg?t=1790269497" class="obrazek" alt="iPhone 15 Yellow BATERIE 100% TOP" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195864735/iphone-15-yellow-baterie-100-top.php">iPhone 15 Yellow BATERIE 100% TOP</a></h2><span class=velikost10> - <span title="TOP 3x Platí do 12.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Nabízím k prodeji tento nádherný ZÁNOVNÍ plně funkční <b>iphone</b> 15 kapacity úložiště 128 GB krásné žluté barevné varianty v TOP STAVU, jako nový, s KONDICÍ BATERIE 100% a KOMPLETNÍM novým BALENÍM, prakticky koupíte nový kus se vším všudy.
+
+Telefon je ve zcela ŠPIČKOVÉM stavu, je zcela ORIGINÁLNÍ, PLN ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   480 €</span></b></div>
+<div class="inzeratylok">Čadca<br>022 01</div>
+<div class="inzeratyview">107 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195864735');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195864735');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5273910','3948733','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195864735','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195858319/iphone-16-pro-max-256gb.php"><img src="https://www.bazos.sk/img/1t/319/195858319.jpg?t=1790267426" class="obrazek" alt="Iphone 16 pro max" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195858319/iphone-16-pro-max-256gb.php">Iphone 16 pro max</a></h2><span class=velikost10> - <span title="TOP 3x Platí do 12.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predám <b>iphone</b> 16 pro max, 256gb. Kupovaný pred dvoma rokmi. Zdravie baterky 83%. Na fotke sú znázornené malé škrabance, ktoré sú viditeľné len z blízka. Inak je v top stave.</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   819 €</span></b></div>
+<div class="inzeratylok">Trnava<br>917 01</div>
+<div class="inzeratyview">124 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195858319');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195858319');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','13963696','14185615','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195858319','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195842715/apple-iphone-14-128gb-midnight.php"><img src="https://www.bazos.sk/img/1t/715/195842715.jpg?t=1790184822" class="obrazek" alt="Apple IPhone 14 128GB Midnight" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195842715/apple-iphone-14-128gb-midnight.php">Apple IPhone 14 128GB Midnight</a></h2><span class=velikost10> - <span title="TOP 3x Platí do 11.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Na predaj <b>iphone</b> 14 128 GB, v dobrom stave, používaný, mierne nedokonalosti vidno na foto (na boku), displej a zadná strana bez škrabancov. stav batérie 98%, nosený v obale.
+
+Len osobný odber Trnava</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   250 €</span></b></div>
+<div class="inzeratylok">Trnava<br>917 01</div>
+<div class="inzeratyview">347 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195842715');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195842715');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','0','14152502','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195842715','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195840060/apple-iphone-17-pro-max-512-gb.php"><img src="https://www.bazos.sk/img/1t/060/195840060.jpg?t=1790178869" class="obrazek" alt="Apple iphone 17 pro Max 512 GB" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195840060/apple-iphone-17-pro-max-512-gb.php">Apple iphone 17 pro Max 512 GB</a></h2><span class=velikost10> - <span title="TOP 3x Platí do 11.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predám <b>iphone</b> 17 pro Max 512 GB v modrej farbe. Telefón bol kúpený 12.9.2025 v iStores. Telefón je vo výbornom stave.</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  1 299 €</span></b></div>
+<div class="inzeratylok">Spišská Nová Ves<br>052 01</div>
+<div class="inzeratyview">241 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195840060');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195840060');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5720165','4530966','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195840060','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195593181/apple-iphone-16e-128-gb-biely-100-bateria.php"><img src="https://www.bazos.sk/img/1t/181/195593181.jpg?t=1790323352" class="obrazek" alt="Apple iPhone 16e 128 GB – biely | 100 % batéria" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195593181/apple-iphone-16e-128-gb-biely-100-bateria.php">Apple iPhone 16e 128 GB – biely | 100 % batéria</a></h2><span class=velikost10> - <span title="TOP 5x Platí do 11.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predám Apple <b>iphone</b> 16e 128 GB v bielej farbe, používaný iba približne 3 týždne. V záruke do 08/2028. 
+
+Telefón je v perfektnom stave, ako nový.
+
+🔋 Batéria 100 % – iba 18 nabíjacích cyklov
+🛡️ ochranné sklo na displeji
+📷 ochranné sklo na šošovku fotoaparátu
+📱 3 ochranné kryty v cene
+📦 komplet ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   500 €</span></b></div>
+<div class="inzeratylok">Čadca<br>022 01</div>
+<div class="inzeratyview">2336 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195593181');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195593181');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','6188740','5180091','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195593181','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://sluzby.bazos.sk/inzerat/195673046/apple-iphone-18-pro-256gb-glacier-novy-nerozbaleny.php"><img src="https://www.bazos.sk/img/1t/046/195673046.jpg?t=1790238577" class="obrazek" alt="Apple iPhone 18 Pro 256GB Glacier - novy, nerozbaleny" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://sluzby.bazos.sk/inzerat/195673046/apple-iphone-18-pro-256gb-glacier-novy-nerozbaleny.php">Apple iPhone 18 Pro 256GB Glacier - novy, nerozbaleny</a></h2><span class=velikost10> - <span title="TOP 4x Platí do 10.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predam uplne novy Apple <b>iphone</b> 18 Pro 256GB  Glacier resp modry este nerozbaleny. Doklad, zaruka. Cena 1430€.
+
+Takisto mam 
+<b>iphone</b> 18 Pro 512GB Glacier - modry za 1650€
+<b>iphone</b> 18 Pro Max 512 GB Glacier - modry za 1820€
+<b>iphone</b> 18 Pro Max 512 GB Silver - strieborny za 1820€
+
+Pripadne vymenim za ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  1 430 €</span></b></div>
+<div class="inzeratylok">Bratislava<br>831 03</div>
+<div class="inzeratyview">1666 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195673046');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195673046');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','0','2400505','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195673046','sluzby');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195772019/predam-iphone-16-pro-128-gb.php"><img src="https://www.bazos.sk/img/1t/019/195772019.jpg?t=1790271799" class="obrazek" alt="Predám Iphone 16 pro 128 gb" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195772019/predam-iphone-16-pro-128-gb.php">Predám Iphone 16 pro 128 gb</a></h2><span class=velikost10> - <span title="TOP 3x Platí do 9.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Komplet balenie, stav nového telefónu, ešte dva mesiace v záruke, zdravie batérie 91%, pridám aj dva ochranné kryty. Dôvod predaja - kúpil som <b>iphone</b> 18 pro a tento už nepoužívam.</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   650 €</span></b></div>
+<div class="inzeratylok">Nitra<br>951 53</div>
+<div class="inzeratyview">353 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195772019');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195772019');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','0','6394508','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195772019','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195530662/predam-iphone-17-pro-max-512gb.php"><img src="https://www.bazos.sk/img/1t/662/195530662.jpg?t=1789379666" class="obrazek" alt="Predám iPhone 17 Pro Max 512GB" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195530662/predam-iphone-17-pro-max-512gb.php">Predám iPhone 17 Pro Max 512GB</a></h2><span class=velikost10> - <span title="TOP 5x Platí do 9.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>Predám <b>iphone</b> 17 Pro Max 512GB modrý v zaruke. K telefónu faktúra o kúpe. Na telefóne od začiatku ochranné sklo Panzerglass, zadny kryt priehladný Panzerglass a zadný kryt Pitaka, na ostrovčeku kamier ochranné sklo Panzerglass. Zdravie batérie 100%.</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  1 390 €</span></b></div>
+<div class="inzeratylok">Púchov<br>020 01</div>
+<div class="inzeratyview">1944 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195530662');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195530662');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5994834','4896187','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195530662','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://mobil.bazos.sk/inzerat/195750762/iphone-17-pro-max-1tb-cosmic-orange.php"><img src="https://www.bazos.sk/img/1t/762/195750762.jpg?t=1789974723" class="obrazek" alt="iPhone 17 Pro Max 1TB Cosmic Orange" width="170" height="128"></a>
+<h2 class=nadpis><a href="https://mobil.bazos.sk/inzerat/195750762/iphone-17-pro-max-1tb-cosmic-orange.php">iPhone 17 Pro Max 1TB Cosmic Orange</a></h2><span class=velikost10> - <span title="TOP 3x Platí do 9.10. 2026" class="ztop">TOP</span> - [25.9. 2026]</span><br>
+<div class=popis>- Ročný telefón má bežne známky používania, nič hrozné, displej úplne čistý bez škrabancov je k nemu kompletné balenie, nabíjací kábel, zdravie batérie 95%
+- Ešte 1 rok v záruke</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  1 390 €</span></b></div>
+<div class="inzeratylok">Žilina<br>010 01</div>
+<div class="inzeratyview">485 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','195750762');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','195750762');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','3582369','13955526','Predajca');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','195750762','mobil');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+<div id="container_two"></div><br>
+<br><div class="strankovani">Stránka: <b><span class=cisla>1</span></b> <a href="search.php?hledat=iphone&hlokalita=&humkreis=25&cenaod=&cenado=&order=&crz=20" rel="nofollow">2</a> <a href="search.php?hledat=iphone&hlokalita=&humkreis=25&cenaod=&cenado=&order=&crz=40" rel="nofollow">3</a> <a href="search.php?hledat=iphone&hlokalita=&humkreis=25&cenaod=&cenado=&order=&crz=60" rel="nofollow">4</a> <a href="search.php?hledat=iphone&hlokalita=&humkreis=25&cenaod=&cenado=&order=&crz=80" rel="nofollow">5</a> <a href="search.php?hledat=iphone&hlokalita=&humkreis=25&cenaod=&cenado=&order=&crz=100" rel="nofollow">6</a> <a href="search.php?hledat=iphone&hlokalita=&humkreis=25&cenaod=&cenado=&order=&crz=120" rel="nofollow">7</a> <a href="search.php?hledat=iphone&hlokalita=&humkreis=25&cenaod=&cenado=&order=&crz=140" rel="nofollow">8</a> <a href="search.php?hledat=iphone&hlokalita=&humkreis=25&cenaod=&cenado=&order=&crz=20" rel="nofollow"><b>Ďalšia</b></a></div><br><br><br>
+
+
+</div></div><script type="text/javascript" charset="utf-8">
+var pageOptions = {
+  'pubId': 'pub-3645948300403337',
+  'query' : "iphone",
+  'channel': '4622775456',
+  'linkTarget' : '_blank',
+  'personalizedAds' : 'false',
+  'ivt': false,
+'styleId' : '6171314811',  'hl': 'sk'
+};
+
+
+var adblock1 = {
+  'container': 'container_one',
+  'width': 'auto',
+  'maxTop' : 2
+};
+
+var adblock2 = {
+  'container': 'container_two',
+  'width': 'auto',
+  'number' : 2
+};
+
+_googCsa('ads', pageOptions, adblock2);</script>
+<br>
+
+&copy;2026 Bazoš - <b>Inzercia, bazár</b><br>
+<a href="https://www.bazos.sk/pomoc.php">Pomoc</a>, <a href="https://www.bazos.sk/otazky.php">Otázky</a>, <a href="https://www.bazos.sk/hodnotenie.php">Hodnotenie</a>, <a href="https://www.bazos.sk/kontakt.php">Kontakt</a>, <a href="https://www.bazos.sk/reklama.php">Reklama</a>, <a href="https://www.bazos.sk/podmienky.php">Podmienky</a>, <a href="https://www.bazos.sk/ochrana-udajov.php">Ochrana údajov</a>, <a href="https://www.bazos.sk/rss.php?humkreis=25&hledat=iphone">RSS</a>, <form name="formvkm" id="formvkm" method="post" style="display: inline;"><input type="hidden" name="vkm" value="m"><input type="submit" class="vkm" value="Mobilná verzia"></form><br>
+Inzeráty celkom:<b>
+1013712</b>, inzercia za 24 hodín: <b>45593</b><br><br>
+<a href="https://www.bazos.sk/mapa-kategorie.php">Mapa kategórií</a>, <a href="https://www.bazos.sk/mapa-search.php">Najvyhľadávanejšie výrazy</a>, Tmavý motív: <form name="formdark" action="https://www.bazos.sk" method="post" style="display: inline;"><input type="hidden" name="darkmode" value="1"><input type="submit" class="vkm" value="vypnutý"></form><br>
+Krajiny: <a href="https://www.bazos.sk">Slovensko</a>, <a href="https://www.bazos.cz">Česká republika</a>, <a href="https://www.bazos.pl">Poľsko</a>, <a href="https://www.bazos.at">Rakúsko</a>
+<br>
+
+<br>
+</div>
+
+<script src="https://www.bazos.sk/cookie-consent.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"sk","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"cookie_domain": "bazos.sk"});
+});
+</script>
+<a href="#" id="open_preferences_center"> </a>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLZSNE9Z0C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HLZSNE9Z0C');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+{
+ "data": {
+  "self": {
+   "href": "https://www.alza.sk/api/router/legacy/catalog/product/6258665?pgrik=p__26752&ucik=u__401f1&country=SK&electronicContentOnly=False",
+   "appLink": "catalogProductDetail",
+   "enabled": true
+  },
+  "isDailySlasher": false,
+  "action_info": null,
+  "actions": [
+   {
+    "imageUrl": "https://image.alza.cz/Foto/Labels/StickerMedium/12SK.png",
+    "name": "Alza Benefit slevy"
+   }
+  ],
+  "actions_cnt": 1,
+  "artist": null,
+  "availabilityDesc": null,
+  "commodityLife": null,
+  "links": [],
+  "links_cnt": "0",
+  "extendedWarranty": null,
+  "gaCategory": "Elektronické knihy",
+  "gaPrice": 0.0,
+  "genre": null,
+  "imgs": [
+   {
+    "big_url": "https://image.alza.cz/Foto/f3/EK/EK18861.jpg",
+    "id": "EK18861",
+    "order": 1,
+    "origUrl": "https://image.alza.cz/Foto/f4/EK/EK18861.jpg",
+    "url": "https://image.alza.cz/Foto/f1/EK/EK18861.jpg"
+   }
+  ],
+  "imgs_cnt": 1,
+  "info_bottom": null,
+  "info_top": null,
+  "isFav": false,
+  "favListsIds": [],
+  "is_in_stock": false,
+  "labels": [],
+  "desc": null,
+  "parameterGroups": null,
+  "parameterGroupsCount": 0,
+  "rating_list": null,
+  "rcmCredits": 0,
+  "related_commodity_cnt": 0,
+  "related_commodity": [],
+  "reliability": 0.0,
+  "reliabilityText": "",
+  "reviews": null,
+  "reviews_cnt": 0,
+  "reviews_count": 0,
+  "salePercentage": null,
+  "sales": 0,
+  "seo_categories": [
+   {
+    "id": 18853838,
+    "name": "Najpredávanejšie, najlepšie e-knihy o dejinách",
+    "catType": "CATEGORY",
+    "catTypeId": 0
+   },
+   {
+    "id": 18853838,
+    "name": "E-knihy o dejinách recenzie",
+    "catType": "CATEGORY",
+    "catTypeId": 0
+   },
+   {
+    "id": 18853838,
+    "name": "Lacné e-knihy o dejinách",
+    "catType": "CATEGORY",
+    "catTypeId": 0
+   },
+   {
+    "id": 18853838,
+    "name": "Lacné e-knihy o dejinách Nakladatel Dušan Žárský - ŽÁR",
+    "catType": "PRODUCER",
+    "catTypeId": 4489
+   },
+   {
+    "id": 18853710,
+    "name": "Elektronické knihy",
+    "catType": "CATEGORY",
+    "catTypeId": 0
+   },
+   {
+    "id": 18853710,
+    "name": "Elektronické knihy Nakladatel Dušan Žárský - ŽÁR",
+    "catType": "PRODUCER",
+    "catTypeId": 4489
+   }
+  ],
+  "seo_categories_cnt": 6,
+  "showBuyExpres": false,
+  "technologies": null,
+  "technologiesCount": 0,
+  "tracks": null,
+  "tracks_cnt": 0,
+  "video_list": [],
+  "videos_cnt": 0,
+  "warranty": "24 mesiacov",
+  "pubYear": 0,
+  "previewEpub": null,
+  "previewKindle": null,
+  "previewPdf": "https://dwn.alza.cz/ebook/nahled/pdf2/EK18861",
+  "previewPdfReader": null,
+  "previewAudioBook": null,
+  "previewTrackOrder": 0,
+  "albumName": null,
+  "interpretName": null,
+  "trackLength": null,
+  "trackGenres": null,
+  "previewTrack": null,
+  "isResponsive": true,
+  "eshop": "Media",
+  "children": [],
+  "cpriceNoCurrency": null,
+  "currency": "Euro",
+  "quantityDiscountsCnt": 0,
+  "quantityDiscounts": null,
+  "availabilityStatus": 1,
+  "variantsParams": null,
+  "bundleInfo": null,
+  "productVariantsInfo": null,
+  "hasHistoryIssues": false,
+  "recommendedForRent": null,
+  "discussionPostCount": 0,
+  "accessories_cnt": null,
+  "accessories": null,
+  "avail_postfix_delivery": null,
+  "currentIssueId": null,
+  "showGuaranteedShoppingLists": false,
+  "freeDeliveryType": 0,
+  "model": null,
+  "threeDimensionalModel": {
+   "urlObjectGlb": null,
+   "urlObjectUsdz": null,
+   "tooltip": null
+  },
+  "awards": [],
+  "articles": [],
+  "showDelayedPaymentButton": false,
+  "isScoreUserLevelOk": false,
+  "delayedPaymentPriceWithVat": "0 €",
+  "delayedPaymentRemainingPriceWithVat": "0 €",
+  "deliveryAvailabilities": null,
+  "showUpsellDialog": false,
+  "isMobileDevice": false,
+  "descriptionBeforeDiscount": "Najnižšia cena za 30 dní predchádzajúcich zľavneniu. <a href=\"/pre-pripad-nakupu-zo-skladu-spolocnosti-alzacz-as#ceny\" style=\"text-decoration: underline;\">Podmienky a podrobnejšie informácie</a>.",
+  "descriptionBeforeDiscountRichText": {
+   "text": "Najnižšia cena za 30 dní predchádzajúcich zľavneniu. <action name=\"terms\" />",
+   "actions": {
+    "terms": {
+     "href": "https://m.alza.sk/obchodni-podminky-art10.htm",
+     "appLink": "webView",
+     "name": "Podmienky a podrobnejšie informácie.",
+     "enabled": true
+    }
+   }
+  },
+  "producerId": 4489,
+  "cashBackArticleUrl": null,
+  "descPageUrl": null,
+  "breadcrumb": [
+   {
+    "category": {
+     "clientAction": {
+      "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18854340?pgri=p__26752&ui=u__401f1",
+      "appLink": "catalogLocalTitlePage",
+      "enabled": true
+     },
+     "name": "Knihy a poukazy",
+     "meta": {
+      "href": "https://m.alza.sk/services/restservice.svc/v1/category/18854340?t=SECTION",
+      "rel": [
+       "self"
+      ],
+      "method": "GET"
+     }
+    }
+   },
+   {
+    "category": {
+     "clientAction": {
+      "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18853710?pgri=p__26752&ui=u__401f1",
+      "appLink": "catalogLocalTitlePage",
+      "enabled": true
+     },
+     "name": "Elektronické knihy",
+     "meta": {
+      "href": "https://m.alza.sk/services/restservice.svc/v1/category/18853710?t=CATEGORY",
+      "rel": [
+       "self"
+      ],
+      "method": "GET"
+     }
+    }
+   },
+   {
+    "category": {
+     "clientAction": {
+      "href": "https://m.alza.sk/services/restservice.svc/v1/category/18853742?t=CATEGORY",
+      "appLink": "catalogCategory",
+      "enabled": true
+     },
+     "name": "Náučné a odborné",
+     "meta": {
+      "href": "https://m.alza.sk/services/restservice.svc/v1/category/18853742?t=CATEGORY",
+      "rel": [
+       "self"
+      ],
+      "method": "GET"
+     }
+    }
+   },
+   {
+    "category": {
+     "clientAction": {
+      "href": "https://m.alza.sk/services/restservice.svc/v1/category/18853912?t=CATEGORY",
+      "appLink": "catalogCategory",
+      "enabled": true
+     },
+     "name": "Spoločenské, humanitné vedy",
+     "meta": {
+      "href": "https://m.alza.sk/services/restservice.svc/v1/category/18853912?t=CATEGORY",
+      "rel": [
+       "self"
+      ],
+      "method": "GET"
+     }
+    }
+   },
+   {
+    "category": {
+     "clientAction": {
+      "href": "https://m.alza.sk/services/restservice.svc/v1/category/18853838?t=CATEGORY",
+      "appLink": "catalogCategory",
+      "enabled": true
+     },
+     "name": "Dejiny",
+     "meta": {
+      "href": "https://m.alza.sk/services/restservice.svc/v1/category/18853838?t=CATEGORY",
+      "rel": [
+       "self"
+      ],
+      "method": "GET"
+     }
+    }
+   }
+  ],
+  "variantGroups": null,
+  "buyerInfo": null,
+  "ingredients": null,
+  "ingredientsPageUrl": null,
+  "legalClause": null,
+  "productVariants": null,
+  "manuals": null,
+  "purchasedTogetherCarouselAction": {
+   "href": "https://webapi.alza.cz/api/carousels/v1/commodities/6258665/purchasedTogether?country=SK&pgrik=p__26752&ucik=u__401f1",
+   "appLink": "carousel",
+   "enabled": true
+  },
+  "commodityDetail": {
+   "href": "https://www.alza.sk/api/catalog/commodities/6258665?ucik=u__401f1&pgrik=p__26752&country=SK",
+   "appLink": "commodityDetail",
+   "enabled": true
+  },
+  "reviewStats": {
+   "href": "https://webapi.alza.cz/api/catalog/v2/commodities/6258665/reviewStats?country=SK&pgrik=p__26752&ucik=u__401f1",
+   "appLink": "reviewStats",
+   "enabled": true
+  },
+  "reviewsDetail": null,
+  "priceGuaranteeTooltip": null,
+  "priceGuaranteeDialog": null,
+  "buyback": null,
+  "quickOrder": null,
+  "priceInfo": {
+   "priceWithoutVat": null,
+   "priceWithVat": "Cena nebola stanovená",
+   "comparePrice": null,
+   "discountRate": null,
+   "pricePrefix": null,
+   "pricePostfix": null,
+   "discountReason": null,
+   "gaPriceWithoutVat": null,
+   "priceNoCurrency": null,
+   "delayedPaymentPriceWithVat": null
+  },
+  "priceInfoV2": {
+   "priceWithoutVat": null,
+   "delayedPaymentPriceWithVat": null,
+   "delayedPaymentRemainingPriceWithVat": null,
+   "instalmentPrice": null,
+   "instalmentCount": null,
+   "neoPriceWithVat": null,
+   "referentialPricePerUnitText": null,
+   "promoPrices": [],
+   "priceWithVat": "Cena nebola stanovená",
+   "instalmentsPriceWithVat": null,
+   "comparePrice": null,
+   "pricePrefix": null,
+   "pricePostfix": null,
+   "priceDescription": null,
+   "priceType": 0,
+   "priceGroupType": 0,
+   "headerText": null,
+   "headerIconUrl": null,
+   "priceSave": null,
+   "explanationPriceAction": null,
+   "unitPriceWithVat": null,
+   "unitName": null
+  },
+  "priceInfoV3": {
+   "promoPrices": [],
+   "mainPriceTag": {
+    "primaryPrice": "Cena nebola stanovená",
+    "primaryPricePrefix": null,
+    "primaryPricePostfix": null,
+    "primaryPriceNoCurrency": null,
+    "secondaryPrice": null,
+    "secondaryPricePrefix": "bez DPH ",
+    "secondaryPricePostfix": null,
+    "comparePrice": null,
+    "priceDescription": null,
+    "priceType": 0,
+    "priceGroupType": 0,
+    "headerText": null,
+    "headerIconUrl": null,
+    "priceSave": null,
+    "explanationPriceAction": null,
+    "footerPriceAction": null,
+    "calculatePriceActionForm": null,
+    "calculateInstallmentsPriceAction": null,
+    "footerIconUrl": null,
+    "codeToBuyWith": null
+   },
+   "alternativePriceTag": null
+  },
+  "cpriceTotal": null,
+  "is_comparable": true,
+  "priceTotal": null,
+  "promosWorth": null,
+  "ratingCount": 0,
+  "specParent": "Elektronická kniha ",
+  "userOwns": false,
+  "userOwnedContentId": null,
+  "navigationUrl": null,
+  "canChangeQuantity": false,
+  "canCashBack": false,
+  "cashBackItems": [],
+  "cashBackType": 0,
+  "cashBackPriceLabel": null,
+  "cashBackAnalytics": null,
+  "cashBackPrice": null,
+  "cashBackPercent": null,
+  "cashBackPriceDescription": null,
+  "cashBackPromoActions": null,
+  "cashBackPromoActionsV2": null,
+  "giftAdvisor": null,
+  "catalog_number": "978-80-867-2587-1",
+  "disclaimers": [],
+  "count": 0,
+  "onChangeItemCountClick": null,
+  "icons": [],
+  "viewerProductInfo": {
+   "href": "https://www.alza.sk/api/visitors/2f7d76c3-988e-4fce-afc2-32b1f5a75492/catalog/products/6258665",
+   "appLink": "viewerProductInfo",
+   "enabled": true
+  },
+  "deliveryPromo": null,
+  "deliveryPromos": null,
+  "personalizedAvailability": null,
+  "recommendation": 0,
+  "sortUnitPrice": null,
+  "floorCategoryId": null,
+  "floorCategoryName": null,
+  "sponsoredCommodityInfo": null,
+  "hazardStatements": null,
+  "precautionaryStatements": null,
+  "warningSymbols": null,
+  "id": 6258665,
+  "code": "EK18861",
+  "img": "https://image.alza.cz/products/EK18861/EK18861.jpg?width=190&height=190",
+  "name": "Rožnovské pivo",
+  "spec": "Elektronická kniha ",
+  "price": null,
+  "cprice": null,
+  "priceWithoutVat": null,
+  "avail": "Ihneď k čítaniu",
+  "avail_postfix": "",
+  "avail_postfix2": "",
+  "availLegend": null,
+  "avail_color": "398000",
+  "is_action": false,
+  "action_name": null,
+  "rating": 0.0,
+  "promo_cnt": 0,
+  "promos": [],
+  "order": 0,
+  "is_special_service": false,
+  "type": 4,
+  "year": 0,
+  "can_buy": false,
+  "orderItemId": null,
+  "iType": 0,
+  "maxCanBuy": 1,
+  "eshopType": 0,
+  "url": "https://www.alza.sk/media/roznovske-pivo-d6258665.htm",
+  "canStream": false,
+  "canUserStream": false,
+  "supplierCode": "160973",
+  "parentId": 0,
+  "minimumAmount": 1.0,
+  "amountInPack": 1.0,
+  "start_time": null,
+  "end_time": null,
+  "variant_type": 0,
+  "advertisements": [],
+  "priceNoCurrency": 0.0,
+  "categoryId": 18853838,
+  "categoryName": "Dejiny",
+  "inBasket": 0.0
+ },
+ "err": 0,
+ "favCnt": 0,
+ "basket_cnt": 0,
+ "basket_total_cnt": 0,
+ "msg": null,
+ "user_name": "",
+ "user_id": -1,
+ "vzt": 6877237562430233,
+ "countryID": 1,
+ "countryPhonePrefix": "421",
+ "premiumBooks": 0,
+ "premiumDelivery": 0,
+ "premiumValidTo": null,
+ "premiumRenew": false,
+ "serverTime": 1790418164
+}

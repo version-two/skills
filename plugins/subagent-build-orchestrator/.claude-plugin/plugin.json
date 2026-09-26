@@ -1,0 +1,14 @@
+{
+  "name": "subagent-build-orchestrator",
+  "version": "1.0.0",
+  "description": "Plan and run a large multi-month software build as a file-based plan driven by parallel, model-tiered subagents.",
+  "author": {
+    "name": "Version Two s.r.o.",
+    "email": "info@versiontwo.sk",
+    "url": "https://www.versiontwo.sk"
+  },
+  "homepage": "https://github.com/version-two/skills",
+  "repository": "https://github.com/version-two/skills",
+  "license": "MIT",
+  "keywords": ["planning", "subagents", "orchestration"]
+}

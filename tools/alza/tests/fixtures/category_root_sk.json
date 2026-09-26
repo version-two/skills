@@ -1,0 +1,1558 @@
+{
+ "analytics": {
+  "actions": {
+   "onView": {
+    "data": {
+     "cat_name": "Alza"
+    },
+    "event": "view_item_list",
+    "reportAction": null
+   }
+  }
+ },
+ "priceKiller": null,
+ "err": 0,
+ "favCnt": 0,
+ "basket_cnt": 0,
+ "basket_total_cnt": 0,
+ "msg": null,
+ "user_name": "",
+ "user_id": -1,
+ "vzt": 2426245745649381,
+ "countryID": 1,
+ "countryPhonePrefix": "421",
+ "premiumBooks": 0,
+ "premiumDelivery": 0,
+ "premiumValidTo": null,
+ "premiumRenew": false,
+ "serverTime": 1790416313,
+ "data_cnt": 25,
+ "data": [
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/1?t=ACTION&p=7",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18915710,
+   "name": "Akciové B2B ceny",
+   "img": "https://image.alza.cz/Foto/category/120/18915710_1.png",
+   "type": "sub",
+   "cat_type": "ACTION",
+   "child_cnt": 0,
+   "order": 1,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 7,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/akciove-b2b-ceny/e7.htm",
+   "description": {
+    "annotation": "Akciové B2B ceny vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18915710&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/1?t=ACTION&p=17",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18907652,
+   "name": "AlzaPlus+ zľavy",
+   "img": "https://image.alza.cz/Foto/category/120/18907652_1.png",
+   "type": "sub",
+   "cat_type": "ACTION",
+   "child_cnt": 0,
+   "order": 2,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 17,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/e17.htm",
+   "description": {
+    "annotation": "AlzaPlus+ zľavy vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18907652&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/1?t=ACTION&p=49",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18902576,
+   "name": "Alza dni - elektro",
+   "img": "https://image.alza.cz/Foto/category/120/18902576.jpg",
+   "type": "sub",
+   "cat_type": "ACTION",
+   "child_cnt": 0,
+   "order": 3,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 49,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/e49.htm",
+   "description": {
+    "annotation": "Alza dni - elektro vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18902576&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/1?t=ACTION&p=53",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18919654,
+   "name": "Alza Benefit",
+   "img": "https://image.alza.cz/Foto/category/120/18919654.png",
+   "type": "sub",
+   "cat_type": "ACTION",
+   "child_cnt": 0,
+   "order": 4,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 53,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/benefit-slevy/e53.htm",
+   "description": {
+    "annotation": "Alza Benefit vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18919654&catType=v&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18905185?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18902952,
+   "name": "Apple novinky",
+   "img": "https://image.alza.cz/Foto/category/120/18902952.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 5,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/18905185.htm",
+   "description": {
+    "annotation": "Apple vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18902952&catType=v&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18890259?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18890259,
+   "name": "Mobily, smart hodinky, tablety",
+   "img": "https://image.alza.cz/Foto/category/120/18890259.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 6,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18890259?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/mobily-smart-hodinky-tablety",
+   "description": {
+    "annotation": "Mobily, smart hodinky a tablety vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18890259&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18890188?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18890188,
+   "name": "Počítače a notebooky",
+   "img": "https://image.alza.cz/Foto/category/120/18890188.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 7,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18890188?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/pocitace-a-notebooky",
+   "description": {
+    "annotation": "Počítače a notebooky vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18890188&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18853682?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18853682,
+   "name": "Gaming, hry a zábava",
+   "img": "https://image.alza.cz/Foto/category/120/18853682.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 8,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18853682?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/gaming",
+   "description": {
+    "annotation": "Bonus:Steelbook ibado vypredania!##PARSE_DATE###Kúpiť »"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18852655?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18852655,
+   "name": "TV, foto, audio-video",
+   "img": "https://image.alza.cz/Foto/category/120/18852655.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 9,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18852655?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/tv-foto-audio-video",
+   "description": {
+    "annotation": "TV, foto, audio, video vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18852655&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18852758?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18852758,
+   "name": "Veľké spotrebiče",
+   "img": "https://image.alza.cz/Foto/category/120/18852758_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 10,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18852758?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/velke-spotrebice",
+   "description": {
+    "annotation": ""
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18901355?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18901355,
+   "name": "Domáce a osobné spotrebiče",
+   "img": "https://image.alza.cz/Foto/category/120/18901355_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 11,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18901355?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/domace-a-osobne-spotrebice",
+   "description": {
+    "annotation": "Domáce a osobné spotrebiče vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18901355&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18923375?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18923375,
+   "name": "AI pre firmy",
+   "img": "https://image.alza.cz/Foto/category/120/18923375.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 12,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/ai-pre-firmy/18923375.htm",
+   "description": {
+    "annotation": "AI pre firmy vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18923375&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18857643?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18857643,
+   "name": "Kuchynské a domáce potreby",
+   "img": "https://image.alza.cz/Foto/category/120/18857643_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 13,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18857643?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/dom-a-domace-potreby",
+   "description": {
+    "annotation": "Kuchynské a domáce potreby vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18857643&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18851104?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18851104,
+   "name": "Hračky, pre deti a bábätká",
+   "img": "https://image.alza.cz/Foto/category/120/18851104_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 14,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18851104?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/hracky",
+   "description": {
+    "annotation": "Hračky a výbava pre bábätká vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18851104&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18855850?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18855850,
+   "name": "Dom, dielňa a záhrada",
+   "img": "https://image.alza.cz/Foto/category/120/18855850_2.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 15,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18855850?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/hobby",
+   "description": {
+    "annotation": "Brutálne zľavy od 12. 11. 2018 do 25. 11. 2018\r\nNiekoľkokrát denne pridávame nové produkty\r\nPoskytnutie zľavy je podmienené riadnym dokončením objednávky, nielen vložením tovaru do košíka. \r\nZ každého akciového produktu je možné zakúpiť maximálne jeden kus..."
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18855843?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18855843,
+   "name": "SmartHome",
+   "img": "https://image.alza.cz/Foto/category/120/18855843.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 16,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18855843?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/smarthome-inteligentna-domacnost/18855843.htm",
+   "description": {
+    "annotation": "Vytvorením inteligentnej domácnosti budete môcť ovládať osvetlenie, elektroinštaláciu, termostat, domáci alarm, kamery alebo zámky dverí na diaľku cez inteligentný telefón, tablet, ale aj počítač alebo televízor. Inteligentnú domácnosť si môžete ľahko...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18855843&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18855766?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18855766,
+   "name": "Drogéria",
+   "img": "https://image.alza.cz/Foto/category/120/18855766_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 17,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18855766?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/maxi",
+   "description": {
+    "annotation": "Drogéria vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18855766&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18852918?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18852918,
+   "name": "Kozmetika, parfumy a krása",
+   "img": "https://image.alza.cz/Foto/category/120/18852918_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 18,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18852918?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/beauty",
+   "description": {
+    "annotation": "Kozmetika, parfumy a krása vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18852918&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18868987?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18868987,
+   "name": "Chovateľské potreby",
+   "img": "https://image.alza.cz/Foto/category/120/18868987.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 19,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18868987?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/pet",
+   "description": {
+    "annotation": "Chovateľské potreby vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18868987&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18855692?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18855692,
+   "name": "Šport a outdoor",
+   "img": "https://image.alza.cz/Foto/category/120/18855692.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 20,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18855692?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/sport",
+   "description": {
+    "annotation": "Šport a outdoor vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18855692&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18856699?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18856699,
+   "name": "Auto-moto",
+   "img": "https://image.alza.cz/Foto/category/120/18856699_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 21,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18856699?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/auto",
+   "description": {
+    "annotation": "Auto-moto vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18856699&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18890842?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18890842,
+   "name": "Kancelária a papiernictvo",
+   "img": "https://image.alza.cz/Foto/category/120/18890842.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 22,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18890842?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/kancelarske-potreby",
+   "description": {
+    "annotation": "Kancelárske potreby vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18890842&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18854340?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18854340,
+   "name": "Knihy a poukazy",
+   "img": "https://image.alza.cz/Foto/category/120/18854340.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 23,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18854340?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/media",
+   "description": {
+    "annotation": "Knihy, audioknihy a e-knihy vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18854340&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18874562?pgri=p__26752&ui=u__401f1",
+    "appLink": "navigationHomePageSection",
+    "enabled": true
+   },
+   "id": 18874562,
+   "name": "Zdravie",
+   "img": "https://image.alza.cz/Foto/category/120/18874562_3.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 24,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18874562?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/zdravie",
+   "description": {
+    "annotation": "Zdravie vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18874562&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18876334?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18876334,
+   "name": "Potraviny",
+   "img": "https://image.alza.cz/Foto/category/120/18876334_3.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 25,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/potraviny-a-napoje/18876334.htm",
+   "description": {
+    "annotation": "Nápoje a potraviny v našom každodennom živote hrajú kľúčovú úlohu. Ideálne je vyberať si také produkty, ktoré nielen výborne chutia, ale taktiež sú prospešné nášmu zdraviu. Nápoje, ako je káva a čaje, vám pomôžu pri každodennej regenerácii. Neviete si rady...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18876334&direct=1"
+   },
+   "descriptionPromo": null
+  }
+ ],
+ "breadcrumbs": [
+  {
+   "category": {
+    "clientAction": {
+     "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/1?pgri=p__26752&ui=u__401f1",
+     "appLink": "catalogLocalTitlePage",
+     "enabled": true
+    },
+    "name": "Alza",
+    "meta": {
+     "href": "https://m.alza.sk/services/restservice.svc/v1/category/1?t=CATEGORY",
+     "rel": [
+      "self"
+     ],
+     "method": "GET"
+    }
+   }
+  }
+ ],
+ "cat_name": "Alza",
+ "ltp": true,
+ "localTitlePageLink": {
+  "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/1?pgri=p__26752&ui=u__401f1",
+  "appLink": "catalogLocalTitlePage",
+  "enabled": true
+ },
+ "current": {
+  "disclaimers": [],
+  "actionCarouselBanner": null,
+  "categorySponsoredCarousel": null,
+  "sorts": [
+   {
+    "sort": 0,
+    "description": "Odporúčame"
+   },
+   {
+    "sort": 7,
+    "description": "Najpredávanejšie"
+   },
+   {
+    "sort": 1,
+    "description": "Najlacnejšie"
+   },
+   {
+    "sort": 2,
+    "description": "Najdrahšie"
+   },
+   {
+    "sort": 6,
+    "description": "Podľa recenzií"
+   },
+   {
+    "sort": 5,
+    "description": "Od najnovších"
+   }
+  ],
+  "self": {
+   "href": "https://www.alza.sk/api/catalog/v1/homePage/userNavigation",
+   "appLink": "navigationHomePage",
+   "enabled": true
+  },
+  "id": 1,
+  "name": "Alza",
+  "img": null,
+  "type": "sub",
+  "cat_type": "CATEGORY",
+  "child_cnt": 0,
+  "order": 0,
+  "producer": 0,
+  "children": null,
+  "cat_type_id": 0,
+  "ltp": true,
+  "localTitlePageLink": {
+   "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/1?pgri=p__26752&ui=u__401f1",
+   "appLink": "catalogLocalTitlePage",
+   "enabled": true
+  },
+  "url": "https://www.alza.sk/",
+  "description": {
+   "annotation": "Alza vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na Alza.sk?",
+   "moreInfoLinkText": "Pokračovať",
+   "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=1&direct=1"
+  },
+  "descriptionPromo": null
+ }
+}

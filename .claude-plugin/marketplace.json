@@ -1,0 +1,41 @@
+{
+  "name": "version-two",
+  "owner": {
+    "name": "Version Two s.r.o.",
+    "email": "info@versiontwo.sk",
+    "url": "https://www.versiontwo.sk"
+  },
+  "metadata": {
+    "description": "Claude Code skills by Version Two s.r.o.: bazos.sk / bazos.cz and Alza search CLIs, a large-build subagent orchestration method, and flaunch release tooling."
+  },
+  "plugins": [
+    {
+      "name": "bazos",
+      "source": "./plugins/bazos",
+      "description": "Search and read bazos.sk / bazos.cz classified ads with a bundled CLI (filters, locations, prices, full ad details).",
+      "category": "search",
+      "tags": ["bazos", "classifieds", "slovakia", "czechia", "second-hand"]
+    },
+    {
+      "name": "alza",
+      "source": "./plugins/alza",
+      "description": "Search Alza (alza.sk, .cz, .hu, .at, .de) products with a bundled CLI: parametric filters, prices, stock, product details and reviews.",
+      "category": "search",
+      "tags": ["alza", "e-commerce", "prices", "slovakia", "czechia"]
+    },
+    {
+      "name": "subagent-build-orchestrator",
+      "source": "./plugins/subagent-build-orchestrator",
+      "description": "Plan and run a large multi-month software build as a file-based plan driven by parallel, model-tiered subagents.",
+      "category": "development",
+      "tags": ["planning", "subagents", "orchestration"]
+    },
+    {
+      "name": "flaunch",
+      "source": "./plugins/flaunch",
+      "description": "Expert guidance for the flaunch CLI: build, version bump, upload and notification for any project, via built-in or custom project types.",
+      "category": "development",
+      "tags": ["flaunch", "release", "build", "versioning", "releasehub"]
+    }
+  ]
+}

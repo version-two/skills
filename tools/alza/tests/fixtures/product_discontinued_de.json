@@ -1,0 +1,423 @@
+{
+ "data": {
+  "self": {
+   "href": "https://www.alza.de/api/router/legacy/catalog/product/217600?pgrik=p__26752&ucik=u__401f1&country=DE&electronicContentOnly=False",
+   "appLink": "catalogProductDetail",
+   "enabled": true
+  },
+  "isDailySlasher": false,
+  "action_info": null,
+  "actions": null,
+  "actions_cnt": 0,
+  "artist": null,
+  "availabilityDesc": null,
+  "commodityLife": null,
+  "links": [
+   {
+    "id": 62993589,
+    "name": "Herstellerwebsite",
+    "url": "http://parrot-ardrone.cz/"
+   }
+  ],
+  "links_cnt": "1",
+  "extendedWarranty": null,
+  "gaCategory": "Drohnen",
+  "gaPrice": 0.0,
+  "genre": null,
+  "imgs": [
+   {
+    "big_url": "https://image.alza.cz/Foto/f3/PR/PR102q.jpg",
+    "id": "PR102q",
+    "order": 1,
+    "origUrl": "https://image.alza.cz/Foto/f4/PR/PR102q.jpg",
+    "url": "https://image.alza.cz/Foto/f1/PR/PR102q.jpg"
+   }
+  ],
+  "imgs_cnt": 1,
+  "info_bottom": "<p>Für die Batterie oder den Akku, die Teil des Produkts sein können, gilt eine Lebensdauer von sechs Monaten, da es sich um Verbrauchsmaterial handelt.</p>",
+  "info_top": null,
+  "isFav": false,
+  "favListsIds": [],
+  "is_in_stock": false,
+  "labels": [],
+  "desc": null,
+  "parameterGroups": null,
+  "parameterGroupsCount": 0,
+  "rating_list": null,
+  "rcmCredits": 0,
+  "related_commodity_cnt": 0,
+  "related_commodity": [],
+  "reliability": 0.0,
+  "reliabilityText": "",
+  "reviews": null,
+  "reviews_cnt": 0,
+  "reviews_count": 0,
+  "salePercentage": null,
+  "sales": 1,
+  "seo_categories": [
+   {
+    "id": 18860058,
+    "name": "Meist verkaufte, beste drohnen-Ersatzteile",
+    "catType": "CATEGORY",
+    "catTypeId": 0
+   },
+   {
+    "id": 18860058,
+    "name": "Drohnen-Ersatzteile bewertungen",
+    "catType": "CATEGORY",
+    "catTypeId": 0
+   },
+   {
+    "id": 18860058,
+    "name": "Günstige drohnen-Ersatzteile",
+    "catType": "CATEGORY",
+    "catTypeId": 0
+   },
+   {
+    "id": 18860058,
+    "name": "Günstige drohnen-Ersatzteile Parrot",
+    "catType": "PRODUCER",
+    "catTypeId": 1815
+   },
+   {
+    "id": 18860058,
+    "name": "Drohnen-Ersatzteile",
+    "catType": "CATEGORY",
+    "catTypeId": 0
+   },
+   {
+    "id": 18860058,
+    "name": "Drohnen-Ersatzteile Parrot",
+    "catType": "PRODUCER",
+    "catTypeId": 1815
+   }
+  ],
+  "seo_categories_cnt": 6,
+  "showBuyExpres": false,
+  "technologies": null,
+  "technologiesCount": 0,
+  "tracks": null,
+  "tracks_cnt": 0,
+  "video_list": [],
+  "videos_cnt": 0,
+  "warranty": "24 Monate",
+  "pubYear": 0,
+  "previewEpub": null,
+  "previewKindle": null,
+  "previewPdf": null,
+  "previewPdfReader": null,
+  "previewAudioBook": null,
+  "previewTrackOrder": 0,
+  "albumName": null,
+  "interpretName": null,
+  "trackLength": null,
+  "trackGenres": null,
+  "previewTrack": null,
+  "isResponsive": true,
+  "eshop": "Alza",
+  "children": [],
+  "cpriceNoCurrency": null,
+  "currency": "Euro",
+  "quantityDiscountsCnt": 0,
+  "quantityDiscounts": null,
+  "availabilityStatus": -1,
+  "variantsParams": null,
+  "bundleInfo": null,
+  "productVariantsInfo": null,
+  "hasHistoryIssues": false,
+  "recommendedForRent": null,
+  "discussionPostCount": 0,
+  "accessories_cnt": null,
+  "accessories": null,
+  "avail_postfix_delivery": null,
+  "currentIssueId": null,
+  "showGuaranteedShoppingLists": false,
+  "freeDeliveryType": 0,
+  "model": null,
+  "threeDimensionalModel": {
+   "urlObjectGlb": null,
+   "urlObjectUsdz": null,
+   "tooltip": null
+  },
+  "awards": [],
+  "articles": [],
+  "showDelayedPaymentButton": false,
+  "isScoreUserLevelOk": false,
+  "delayedPaymentPriceWithVat": "1,33 €",
+  "delayedPaymentRemainingPriceWithVat": "2,66 €",
+  "deliveryAvailabilities": null,
+  "showUpsellDialog": false,
+  "isMobileDevice": false,
+  "descriptionBeforeDiscount": "Der niedrigste Preis in den letzten 30 Tagen vor dem Rabatt. <a href=\"/agb#preise\" style=\"text-decoration: underline;\">Bedingungen und weitere detaillierte Informationen. </a>",
+  "descriptionBeforeDiscountRichText": {
+   "text": "Der niedrigste Preis in den letzten 30 Tagen vor dem Rabatt.<action name=\"terms\" />",
+   "actions": {
+    "terms": {
+     "href": "https://m.alza.de/gesch%C3%A4ftsbedingungen-art10.htm",
+     "appLink": "webView",
+     "name": "Bedingungen und weitere detaillierte Informationen.",
+     "enabled": true
+    }
+   }
+  },
+  "producerId": 1815,
+  "cashBackArticleUrl": null,
+  "descPageUrl": "https://m.alza.de/descriptionpage?cCode=PR102q&culture=de-DE",
+  "breadcrumb": [
+   {
+    "category": {
+     "clientAction": {
+      "href": "https://www.alza.de/api/catalog/v1/homePage/categories/18852655?pgri=p__26752&ui=u__401f1",
+      "appLink": "catalogLocalTitlePage",
+      "enabled": true
+     },
+     "name": "Foto, Audio/Video",
+     "meta": {
+      "href": "https://m.alza.de/services/restservice.svc/v1/category/18852655?t=SECTION",
+      "rel": [
+       "self"
+      ],
+      "method": "GET"
+     }
+    }
+   },
+   {
+    "category": {
+     "clientAction": {
+      "href": "https://m.alza.de/services/restservice.svc/v1/category/18855539?t=CATEGORY",
+      "appLink": "catalogCategory",
+      "enabled": true
+     },
+     "name": "Drohnen",
+     "meta": {
+      "href": "https://m.alza.de/services/restservice.svc/v1/category/18855539?t=CATEGORY",
+      "rel": [
+       "self"
+      ],
+      "method": "GET"
+     }
+    }
+   },
+   {
+    "category": {
+     "clientAction": {
+      "href": "https://m.alza.de/services/restservice.svc/v1/category/18855550?t=CATEGORY",
+      "appLink": "catalogCategory",
+      "enabled": true
+     },
+     "name": "Zubehör ",
+     "meta": {
+      "href": "https://m.alza.de/services/restservice.svc/v1/category/18855550?t=CATEGORY",
+      "rel": [
+       "self"
+      ],
+      "method": "GET"
+     }
+    }
+   },
+   {
+    "category": {
+     "clientAction": {
+      "href": "https://m.alza.de/services/restservice.svc/v1/category/18860058?t=CATEGORY",
+      "appLink": "catalogCategory",
+      "enabled": true
+     },
+     "name": "Ersatzteile",
+     "meta": {
+      "href": "https://m.alza.de/services/restservice.svc/v1/category/18860058?t=CATEGORY",
+      "rel": [
+       "self"
+      ],
+      "method": "GET"
+     }
+    }
+   }
+  ],
+  "variantGroups": null,
+  "buyerInfo": null,
+  "ingredients": null,
+  "ingredientsPageUrl": null,
+  "legalClause": null,
+  "productVariants": null,
+  "manuals": null,
+  "purchasedTogetherCarouselAction": {
+   "href": "https://webapi.alza.cz/api/carousels/v1/commodities/217600/purchasedTogether?country=DE&pgrik=p__26752&ucik=u__401f1",
+   "appLink": "carousel",
+   "enabled": true
+  },
+  "commodityDetail": {
+   "href": "https://www.alza.de/api/catalog/commodities/217600?ucik=u__401f1&pgrik=p__26752&country=DE",
+   "appLink": "commodityDetail",
+   "enabled": true
+  },
+  "reviewStats": {
+   "href": "https://webapi.alza.cz/api/catalog/v2/commodities/217600/reviewStats?country=DE&pgrik=p__26752&ucik=u__401f1",
+   "appLink": "reviewStats",
+   "enabled": true
+  },
+  "reviewsDetail": null,
+  "priceGuaranteeTooltip": null,
+  "priceGuaranteeDialog": null,
+  "buyback": null,
+  "quickOrder": null,
+  "priceInfo": {
+   "priceWithoutVat": null,
+   "priceWithVat": null,
+   "comparePrice": null,
+   "discountRate": null,
+   "pricePrefix": null,
+   "pricePostfix": null,
+   "discountReason": null,
+   "gaPriceWithoutVat": null,
+   "priceNoCurrency": null,
+   "delayedPaymentPriceWithVat": null
+  },
+  "priceInfoV2": {
+   "priceWithoutVat": null,
+   "delayedPaymentPriceWithVat": null,
+   "delayedPaymentRemainingPriceWithVat": null,
+   "instalmentPrice": null,
+   "instalmentCount": null,
+   "neoPriceWithVat": null,
+   "referentialPricePerUnitText": null,
+   "promoPrices": [],
+   "priceWithVat": null,
+   "instalmentsPriceWithVat": null,
+   "comparePrice": null,
+   "pricePrefix": null,
+   "pricePostfix": null,
+   "priceDescription": null,
+   "priceType": 0,
+   "priceGroupType": 0,
+   "headerText": null,
+   "headerIconUrl": null,
+   "priceSave": null,
+   "explanationPriceAction": null,
+   "unitPriceWithVat": null,
+   "unitName": null
+  },
+  "priceInfoV3": {
+   "promoPrices": [],
+   "mainPriceTag": {
+    "primaryPrice": null,
+    "primaryPricePrefix": null,
+    "primaryPricePostfix": null,
+    "primaryPriceNoCurrency": null,
+    "secondaryPrice": null,
+    "secondaryPricePrefix": null,
+    "secondaryPricePostfix": null,
+    "comparePrice": null,
+    "priceDescription": null,
+    "priceType": 0,
+    "priceGroupType": 0,
+    "headerText": null,
+    "headerIconUrl": null,
+    "priceSave": null,
+    "explanationPriceAction": null,
+    "footerPriceAction": null,
+    "calculatePriceActionForm": null,
+    "calculateInstallmentsPriceAction": null,
+    "footerIconUrl": null,
+    "codeToBuyWith": null
+   },
+   "alternativePriceTag": null
+  },
+  "cpriceTotal": null,
+  "is_comparable": false,
+  "priceTotal": null,
+  "promosWorth": null,
+  "ratingCount": 0,
+  "specParent": "Drohnen-Zubehör - für den AR.Drone 2.0 Quadrocopter",
+  "userOwns": false,
+  "userOwnedContentId": null,
+  "navigationUrl": null,
+  "canChangeQuantity": false,
+  "canCashBack": false,
+  "cashBackItems": [],
+  "cashBackType": 0,
+  "cashBackPriceLabel": null,
+  "cashBackAnalytics": null,
+  "cashBackPrice": null,
+  "cashBackPercent": null,
+  "cashBackPriceDescription": null,
+  "cashBackPromoActions": null,
+  "cashBackPromoActionsV2": null,
+  "giftAdvisor": null,
+  "catalog_number": "PF070020AA",
+  "disclaimers": [],
+  "count": 0,
+  "onChangeItemCountClick": null,
+  "icons": [],
+  "viewerProductInfo": {
+   "href": "https://www.alza.de/api/visitors/6e24ec41-7fa9-48f1-bd87-c73655ff82c8/catalog/products/217600",
+   "appLink": "viewerProductInfo",
+   "enabled": true
+  },
+  "deliveryPromo": null,
+  "deliveryPromos": null,
+  "personalizedAvailability": null,
+  "recommendation": 0,
+  "sortUnitPrice": null,
+  "floorCategoryId": null,
+  "floorCategoryName": null,
+  "sponsoredCommodityInfo": null,
+  "hazardStatements": null,
+  "precautionaryStatements": null,
+  "warningSymbols": null,
+  "id": 217600,
+  "code": "PR102q",
+  "img": "https://image.alza.cz/products/PR102q/PR102q.jpg?width=190&height=190",
+  "name": "Parrot AR.Drone Fixing Tape",
+  "spec": "Drohnen-Zubehör - für den AR.Drone 2.0 Quadrocopter",
+  "price": null,
+  "cprice": null,
+  "priceWithoutVat": null,
+  "avail": "Verkauf beendet",
+  "avail_postfix": "",
+  "avail_postfix2": "",
+  "availLegend": null,
+  "avail_color": "e0621f",
+  "is_action": false,
+  "action_name": null,
+  "rating": 0.0,
+  "promo_cnt": 0,
+  "promos": [],
+  "order": 0,
+  "is_special_service": false,
+  "type": 0,
+  "year": 0,
+  "can_buy": false,
+  "orderItemId": null,
+  "iType": 0,
+  "maxCanBuy": null,
+  "eshopType": 0,
+  "url": "https://www.alza.de/parrot-ar-drone-fixing-tape-d217600.htm",
+  "canStream": false,
+  "canUserStream": false,
+  "parentId": 0,
+  "minimumAmount": 1.0,
+  "amountInPack": 1.0,
+  "start_time": null,
+  "end_time": null,
+  "variant_type": 0,
+  "advertisements": [],
+  "categoryId": 18860058,
+  "categoryName": "Ersatzteile",
+  "inBasket": 0.0
+ },
+ "err": 0,
+ "favCnt": 0,
+ "basket_cnt": 0,
+ "basket_total_cnt": 0,
+ "msg": null,
+ "user_name": "",
+ "user_id": -1,
+ "vzt": 2319439338221566,
+ "countryID": 3,
+ "countryPhonePrefix": "49",
+ "premiumBooks": 0,
+ "premiumDelivery": 0,
+ "premiumValidTo": null,
+ "premiumRenew": false,
+ "serverTime": 1790417830
+}

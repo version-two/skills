@@ -1,0 +1,890 @@
+{
+ "analytics": {
+  "actions": {
+   "onView": {
+    "data": {
+     "cat_name": "Počítače a notebooky"
+    },
+    "event": "view_item_list",
+    "reportAction": null
+   }
+  }
+ },
+ "priceKiller": null,
+ "err": 0,
+ "favCnt": 0,
+ "basket_cnt": 0,
+ "basket_total_cnt": 0,
+ "msg": null,
+ "user_name": "",
+ "user_id": -1,
+ "vzt": 8362923754125565,
+ "countryID": 1,
+ "countryPhonePrefix": "421",
+ "premiumBooks": 0,
+ "premiumDelivery": 0,
+ "premiumValidTo": null,
+ "premiumRenew": false,
+ "serverTime": 1790416313,
+ "data_cnt": 16,
+ "data": [
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [],
+   "self": {
+    "webLink": "https://www.alza.sk/18890188-e17.htm",
+    "href": "https://www.alza.sk/services/restservice.svc/v1/category/18890188?t=ACTION&p=17",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 0,
+   "name": "AlzaPlus+ zľavy",
+   "img": "https://cdn.alza.cz/Foto/category/icon/938ce584-63fb-47ec-9e58-ed4a0761bc81.png",
+   "type": null,
+   "cat_type": "BOOST",
+   "child_cnt": 0,
+   "order": 0,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": null,
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [],
+   "self": {
+    "webLink": "https://www.alza.sk/18890188-e49.htm",
+    "href": "https://www.alza.sk/services/restservice.svc/v1/category/18890188?t=ACTION&p=49",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 0,
+   "name": "Alza dni - Elektro",
+   "img": "https://cdn.alza.cz/Foto/category/icon/359e24d3-9778-4c70-b4f1-5fa4978eb2f9.jpg",
+   "type": null,
+   "cat_type": "BOOST",
+   "child_cnt": 0,
+   "order": 0,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": null,
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [],
+   "self": {
+    "webLink": "https://www.alza.sk/18890188-e110.htm",
+    "href": "https://www.alza.sk/services/restservice.svc/v1/category/18890188?t=ACTION&p=110",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 0,
+   "name": "Logitech G nová generácia",
+   "img": "https://cdn.alza.cz/Foto/category/icon/76014e6e-c9c4-4b36-8b18-c6bbff9e6ff3.png",
+   "type": null,
+   "cat_type": "BOOST",
+   "child_cnt": 0,
+   "order": 0,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": null,
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": {
+    "href": "https://webapi.alza.cz/api/catalog/v1/categories/18842920/banners/action?country=SK&pgrik=p__26752&ucik=u__401f1",
+    "appLink": "categoryActionBanner",
+    "enabled": true
+   },
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18842920?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18842920,
+   "name": "Notebooky",
+   "img": "https://image.alza.cz/Foto/category/120/18842920.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 1,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/notebooky/18842920.htm",
+   "description": {
+    "annotation": "Chystáte sa kúpiť nový notebook, ale neviete, pre ktorý sa rozhodnúť? Pomôžeme vám zistiť, aký druh notebooku je pre vás ten pravý a podľa akých parametrov si ho zo širokej ponuky vybrať.",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18842920&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": {
+    "href": "https://webapi.alza.cz/api/catalog/v1/categories/18852653/banners/action?country=SK&pgrik=p__26752&ucik=u__401f1",
+    "appLink": "categoryActionBanner",
+    "enabled": true
+   },
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18852653?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18852653,
+   "name": "Počítače",
+   "img": "https://image.alza.cz/Foto/category/120/18852653_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 2,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/pocitace/18852653.htm",
+   "description": {
+    "annotation": "Medzi stolné PC patria výkonné herné zostavy, pracovné stanice či kompaktné All In One modely. Rozhodli ste sa pre stolný počítač a neviete, ako sa v mnohých parametroch vyznať a čo si vybrať? Poradíme vám.",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18852653&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18852654?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18852654,
+   "name": "Komponenty",
+   "img": "https://image.alza.cz/Foto/category/120/18852654.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 3,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/komponenty/18852654.htm",
+   "description": {
+    "annotation": "Chcete si postaviť vlastné výkonné herné PC na hranie najnovších hier na plné detaily, výkonnú pracovnú stanicu alebo spoľahlivý kancelársky počítač a neviete, aký zvoliť hardvér? Nebojte sa! PC komponenty vám radi pomôžeme vybrať.",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18852654&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18912296?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18912296,
+   "name": "AI, umelá inteligencia",
+   "img": "https://image.alza.cz/Foto/category/120/18912296_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 4,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/ai-umela-inteligencia/18912296.htm",
+   "description": {
+    "annotation": "Umelá inteligencia (AI) je dnes veľmi diskutovanou témou a môžeme sa s ňou stretnúť takmer na každom rohu. Vďaka neustávajúcemu technologickému vývoju je tiež súčasťou celého radu moderných zariadení – mobilných telefónov, notebookov, stolných počítačov či...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18912296&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18842948?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18842948,
+   "name": "Monitory",
+   "img": "https://image.alza.cz/Foto/ImgGalery/IkonyPatra/PC_doplnky/60/monitory.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 5,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/lcd-monitory/18842948.htm",
+   "description": {
+    "annotation": "Monitor je neoddeliteľnou súčasťou každej PC zostavy. Mnohé monitory síce môžete používať na viac účelov, rozdiely medzi nimi ale sú, a to najmä v kvalite a vlastnostiach obrazu. Nižšie vám poradíme, na čo sa pri výbere zamerať a aký typ zariadenia či...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18842948&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18842916?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18842916,
+   "name": "Sieťové prvky",
+   "img": "https://image.alza.cz/Foto/ImgGalery/IkonyPatra/PC_doplnky/60/sitove-prvky.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 6,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/sietove-prvky/18842916.htm",
+   "description": {
+    "annotation": "Do kategórie sieťové prvky spadajú všetky zariadenia, ktoré sa podieľajú nielen na tvorbe internetového pripojenia. Okrem štandardných prvkov, ako je router, switch alebo ethernetový kábel, tu nájdete napríklad aj sieťové úložiská NAS, LTE modemy a rad...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18842916&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18851089?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "id": 18851089,
+   "name": "Tlačiarne a skenery",
+   "img": "https://image.alza.cz/Foto/category/120/18851089_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 7,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": true,
+   "localTitlePageLink": {
+    "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18851089?pgri=p__26752&ui=u__401f1",
+    "appLink": "catalogLocalTitlePage",
+    "enabled": true
+   },
+   "url": "https://www.alza.sk/tlaciarne-a-skenery/18851089.htm",
+   "description": {
+    "annotation": "Kancelárske potreby sa vám budú hodiť ako v domácnosti, tak na vašom písacom stole v kancelárii. Vďaka nim budete mať svoje zošívačky, nožnice, pečiatky a veľa ďalších kancelárskych potrieb vždy po ruke. Pre pohodlnejšie trávenie času pri práci vám...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18851089&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18860415?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18860415,
+   "name": "Softvér",
+   "img": "https://image.alza.cz/Foto/category/120/18860415.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 8,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/softver/18860415.htm",
+   "description": {
+    "annotation": "Hardvér a softvér sú základné časti každého počítača. Zatiaľ čo hardvér predstavuje fyzickú časť systému, softvér sa stará o tú vnútornú (programovú), ktorá nám prináša všetky užitočné funkcie aj zábavu od komplexných produktívnych analytických programov...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18860415&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18843223?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18843223,
+   "name": "Projektory",
+   "img": "https://image.alza.cz/Foto/ImgGalery/IkonyPatra/PC_doplnky/60/projektory.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 9,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/projektory/18843223.htm",
+   "description": {
+    "annotation": "Chcete si vychutnať obľúbený film alebo seriál plnými dúškami? Projektory vám umožnia premietnuť akékoľvek médium na veľkú plochu. Či už túžite po dokonalom filmovom zážitku, alebo hľadáte vhodný projektor do kancelárie, v širokej ponuke si určite...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18843223&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18861668?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18861668,
+   "name": "Príslušenstvo",
+   "img": "https://image.alza.cz/Foto/category/120/18861668_1.png",
+   "type": "related",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 10,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/prislusenstvo/18861668.htm",
+   "description": {
+    "annotation": "Pre počítač\n\t\t\tPre notebooky"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18859989?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18881587,
+   "name": "VR okuliare",
+   "img": "https://image.alza.cz/Foto/category/120/18859989.png",
+   "type": "related",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 11,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/okuliare-na-virtualnu-realitu/18859989.htm",
+   "description": {
+    "annotation": "VR okuliare sprostredkovávajú priestorový 3D obraz a umožňujú sledovať virtuálne prostredie z pohľadu prvej osoby, často aj s presným snímaním pohybov hlavy a rúk. V širokej ponuke na vás čakajú ako samostatné bezdrôtové modely s vlastným procesorom, tak...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18859989&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Odporúčame"
+    },
+    {
+     "sort": 7,
+     "description": "Najpredávanejšie"
+    },
+    {
+     "sort": 1,
+     "description": "Najlacnejšie"
+    },
+    {
+     "sort": 2,
+     "description": "Najdrahšie"
+    },
+    {
+     "sort": 6,
+     "description": "Podľa recenzií"
+    },
+    {
+     "sort": 5,
+     "description": "Od najnovších"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.sk/services/restservice.svc/v1/category/18862952?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18862952,
+   "name": "3D tlač",
+   "img": "https://image.alza.cz/Foto/category/120/18862952_1.png",
+   "type": "related",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 12,
+   "producer": 0,
+   "children": [],
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.sk/3d-tlac/18862952.htm",
+   "description": {
+    "annotation": "3D tlač alebo tlač trojrozmerných objektov už nejakú dobu nie je výsadou moderných laboratórií. Vďaka rozšíreniu technológie a dostupnosti 3D tlačiarní ju dnes využívajú nielen profesionáli, ale aj umelci či domáci majstri. Ako 3D tlač funguje a aké...",
+    "moreInfoLinkText": "Pokračovať",
+    "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18862952&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [],
+   "self": {
+    "href": "https://www.alza.sk/koniec-podpory-pre-windows-10",
+    "appLink": "webView",
+    "enabled": true
+   },
+   "id": 0,
+   "name": "Koniec podpory Windows 10",
+   "img": "https://image.alza.cz/Foto/ImgGalery/Icons/wizard.png",
+   "type": null,
+   "cat_type": "WIZARD",
+   "child_cnt": 0,
+   "order": 0,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": null,
+   "descriptionPromo": null
+  }
+ ],
+ "breadcrumbs": [
+  {
+   "category": {
+    "clientAction": {
+     "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18890188?pgri=p__26752&ui=u__401f1",
+     "appLink": "catalogLocalTitlePage",
+     "enabled": true
+    },
+    "name": "Počítače a notebooky",
+    "meta": {
+     "href": "https://m.alza.sk/services/restservice.svc/v1/category/18890188?t=SECTION",
+     "rel": [
+      "self"
+     ],
+     "method": "GET"
+    }
+   }
+  }
+ ],
+ "cat_name": "Počítače a notebooky",
+ "ltp": true,
+ "localTitlePageLink": {
+  "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18890188?pgri=p__26752&ui=u__401f1",
+  "appLink": "catalogLocalTitlePage",
+  "enabled": true
+ },
+ "current": {
+  "disclaimers": [],
+  "actionCarouselBanner": null,
+  "categorySponsoredCarousel": null,
+  "sorts": [
+   {
+    "sort": 0,
+    "description": "Odporúčame"
+   },
+   {
+    "sort": 7,
+    "description": "Najpredávanejšie"
+   },
+   {
+    "sort": 1,
+    "description": "Najlacnejšie"
+   },
+   {
+    "sort": 2,
+    "description": "Najdrahšie"
+   },
+   {
+    "sort": 6,
+    "description": "Podľa recenzií"
+   },
+   {
+    "sort": 5,
+    "description": "Od najnovších"
+   }
+  ],
+  "self": {
+   "href": "https://m.alza.sk/api/catalog/v1/homePage/categories/18890188?pgri=p__26752&ui=u__401f1",
+   "appLink": "navigationHomePageSection",
+   "enabled": true
+  },
+  "id": 18890188,
+  "name": "Počítače a notebooky",
+  "img": "https://image.alza.cz/Foto/category/120/18890188.png",
+  "type": "sub",
+  "cat_type": "CATEGORY",
+  "child_cnt": 0,
+  "order": 0,
+  "producer": 0,
+  "children": null,
+  "cat_type_id": 0,
+  "ltp": true,
+  "localTitlePageLink": {
+   "href": "https://www.alza.sk/api/catalog/v1/homePage/categories/18890188?pgri=p__26752&ui=u__401f1",
+   "appLink": "catalogLocalTitlePage",
+   "enabled": true
+  },
+  "url": "https://www.alza.sk/pocitace-a-notebooky",
+  "description": {
+   "annotation": "Počítače a notebooky vieme doručiť už v deň objednávky! Stačí, aby bol vybraný tovar na sklade. Vytvorte si objednávku z pohodlia domova a nechajte si ju doručiť na vašu adresu, do AlzaBoxu alebo do jednej z našich pobočiek. Prečo ešte nakupovať na...",
+   "moreInfoLinkText": "Pokračovať",
+   "moreInfoUrl": "https://m.alza.sk/CategoryDescriptionPage?catId=18890188&direct=1"
+  },
+  "descriptionPromo": null
+ }
+}

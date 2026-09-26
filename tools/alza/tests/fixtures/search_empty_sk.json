@@ -1,0 +1,50 @@
+{
+ "shareURL": "https://m.alza.sk/search.htm?exps=xyzqqqzzvvv",
+ "totalUnfiltered": 0,
+ "searchVariant": "Algolia",
+ "eshopCertificates": [],
+ "sorts": [
+  {
+   "sort": 0,
+   "description": "Odporúčame"
+  },
+  {
+   "sort": 1,
+   "description": "Najlacnejšie"
+  },
+  {
+   "sort": 2,
+   "description": "Najdrahšie"
+  },
+  {
+   "sort": 6,
+   "description": "Podľa recenzií"
+  },
+  {
+   "sort": 5,
+   "description": "Od najnovších"
+  }
+ ],
+ "err": 0,
+ "favCnt": 0,
+ "basket_cnt": 0,
+ "basket_total_cnt": 0,
+ "msg": null,
+ "user_name": "",
+ "user_id": -1,
+ "vzt": 6510489280893192,
+ "countryID": 1,
+ "countryPhonePrefix": "421",
+ "premiumBooks": 0,
+ "premiumDelivery": 0,
+ "premiumValidTo": null,
+ "premiumRenew": false,
+ "serverTime": 1790416304,
+ "display_cnt": 0,
+ "data1_cnt": 0,
+ "data2_cnt": 0,
+ "data1": [],
+ "data2": [],
+ "total": 0,
+ "has_next": false
+}

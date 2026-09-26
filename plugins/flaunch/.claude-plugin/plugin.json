@@ -1,0 +1,14 @@
+{
+  "name": "flaunch",
+  "version": "1.0.0",
+  "description": "Expert guidance for the flaunch CLI: build, version bump, upload and notification for any project, via built-in or custom project types.",
+  "author": {
+    "name": "Version Two s.r.o.",
+    "email": "info@versiontwo.sk",
+    "url": "https://www.versiontwo.sk"
+  },
+  "homepage": "https://github.com/version-two/skills",
+  "repository": "https://github.com/version-two/skills",
+  "license": "MIT",
+  "keywords": ["flaunch", "release", "build", "versioning", "releasehub"]
+}

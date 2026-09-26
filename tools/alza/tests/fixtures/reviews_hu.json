@@ -1,0 +1,808 @@
+{
+ "self": {
+  "href": "https://webapi.alza.cz/api/catalog/v2/commodities/7927612/reviews?country=hu&limit=20",
+  "appLink": "commodityReviewsCollection",
+  "enabled": true
+ },
+ "paging": {
+  "limit": 20,
+  "size": 188,
+  "first": {
+   "href": "https://webapi.alza.cz/api/catalog/v2/commodities/7927612/reviews?country=hu&limit=20",
+   "appLink": "commodityReviewsCollection",
+   "enabled": true
+  },
+  "previous": null,
+  "next": {
+   "href": "https://webapi.alza.cz:443/api/catalog/v2/commodities/7927612/reviews?country=hu&limit=20&offset=20",
+   "appLink": "commodityReviewsCollection",
+   "enabled": true
+  },
+  "last": {
+   "href": "https://webapi.alza.cz:443/api/catalog/v2/commodities/7927612/reviews?country=hu&limit=20&offset=180",
+   "appLink": "commodityReviewsCollection",
+   "enabled": true
+  }
+ },
+ "value": [
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/5816043/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Korrekt telefon"
+   ],
+   "negatives": [],
+   "name": "Reviewer 1",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás",
+    "tooltip": {
+     "text": "Az értékelt terméket a mi webáruházunkban vásárolták. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2024. 11. 03., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2024-11-03T10:09:00.023Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/hu.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/13.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 1.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8405304/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [],
+   "negatives": [
+    "A GPS nem működik"
+   ],
+   "name": "Reviewer 2",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás",
+    "tooltip": {
+     "text": "Az értékelt terméket a mi webáruházunkban vásárolták. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2026. 03. 31., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2026-03-31T14:03:23.637Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/12.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8367817/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Elégedettség",
+    "szuper ár"
+   ],
+   "negatives": [],
+   "name": "Reviewer 3",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás",
+    "tooltip": {
+     "text": "Az értékelt terméket a mi webáruházunkban vásárolták. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2026. 03. 12., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2026-03-12T21:34:50.48Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/11.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8221566/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "mindent tud, amit ígér"
+   ],
+   "negatives": [],
+   "name": "Reviewer 4",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás - árösszehasonlítóból származó értékelés",
+    "tooltip": {
+     "text": "Az érétkelt terméket a webáruházban vásárolták, és az összehasonlító oldalán értékelték. Feles értékkel ellátott értékelés (3,5) esetén felfelé kerekítünk (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2026. 01. 24., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2026-01-24T10:46:58Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/07.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8054424/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "minden nagyszerű"
+   ],
+   "negatives": [
+    "A szállítás hosszú volt."
+   ],
+   "name": "Reviewer 5",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás",
+    "tooltip": {
+     "text": "Az értékelt terméket a mi webáruházunkban vásárolták. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 12. 29., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-12-29T11:36:22.837Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 7,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7993247/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "A fotók kiválóak!",
+    "Funkciók",
+    "Minőségi kidolgozás",
+    "Videó minőség!",
+    "Telefonsebesség",
+    "Elegendő akkumulátor kapacitás a mindennapi használathoz",
+    "Szállítási sebesség alza"
+   ],
+   "negatives": [
+    "Néha a fényképeket nem lehet átvinni a számítógépre kábelen keresztül."
+   ],
+   "name": "Reviewer 6",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás",
+    "tooltip": {
+     "text": "Az értékelt terméket a mi webáruházunkban vásárolták. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 12. 18., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-12-18T13:03:57.15Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/15.jpg",
+   "images": [
+    {
+     "imageUrl": "https://image.alza.cz/Images/Users/4725180/reviews/standard/1613bb12-4616-4318-ab82-50c85d952c62.jpg",
+     "previewImageUrl": "https://image.alza.cz/Images/Users/4725180/reviews/standard/1613bb12-4616-4318-ab82-50c85d952c62.jpg?width=80&height=80"
+    },
+    {
+     "imageUrl": "https://image.alza.cz/Images/Users/4725180/reviews/standard/4773dc71-3ea4-4784-9bb2-e71b842f2fe9.jpg",
+     "previewImageUrl": "https://image.alza.cz/Images/Users/4725180/reviews/standard/4773dc71-3ea4-4784-9bb2-e71b842f2fe9.jpg?width=80&height=80"
+    }
+   ],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7852885/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "minőségi kivitelezés",
+    "IOS",
+    "teljesítmény",
+    "jó fotókat készít",
+    "gyönyörű kijelző"
+   ],
+   "negatives": [
+    "kijelző csak 60hz",
+    "gyengébb akkumulátor a versenytársakhoz képest"
+   ],
+   "name": "Reviewer 7",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás",
+    "tooltip": {
+     "text": "Az értékelt terméket a mi webáruházunkban vásárolták. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 11. 20., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-11-20T06:46:49.177Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/16.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7821163/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Megfelelően működik."
+   ],
+   "negatives": [],
+   "name": "Reviewer 8",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás - árösszehasonlítóból származó értékelés",
+    "tooltip": {
+     "text": "Az érétkelt terméket a webáruházban vásárolták, és az összehasonlító oldalán értékelték. Feles értékkel ellátott értékelés (3,5) esetén felfelé kerekítünk (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 11. 11., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-11-11T09:41:21Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7752019/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Ára"
+   ],
+   "negatives": [],
+   "name": "Reviewer 9",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás - árösszehasonlítóból származó értékelés",
+    "tooltip": {
+     "text": "Az érétkelt terméket a webáruházban vásárolták, és az összehasonlító oldalán értékelték. Feles értékkel ellátott értékelés (3,5) esetén felfelé kerekítünk (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 10. 30., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-10-30T16:33:07Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/07.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7670934/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "nagyszerű mobil ár/teljesítmény",
+    "felhasználói felület"
+   ],
+   "negatives": [
+    "könnyű megereszkedés"
+   ],
+   "name": "Reviewer 10",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás",
+    "tooltip": {
+     "text": "Az értékelt terméket a mi webáruházunkban vásárolták. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 10. 09., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-10-09T17:03:55.587Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 4.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7609457/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [],
+   "negatives": [
+    "60hz kijelző"
+   ],
+   "name": "Reviewer 11",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás",
+    "tooltip": {
+     "text": "Az értékelt terméket a mi webáruházunkban vásárolták. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 09. 22., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-09-22T14:46:19.297Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/03.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7443363/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Szuper",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 12",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás - árösszehasonlítóból származó értékelés",
+    "tooltip": {
+     "text": "Az érétkelt terméket a webáruházban vásárolták, és az összehasonlító oldalán értékelték. Feles értékkel ellátott értékelés (3,5) esetén felfelé kerekítünk (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 08. 05., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-08-05T15:37:39Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7444730/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "OK",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 13",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás - árösszehasonlítóból származó értékelés",
+    "tooltip": {
+     "text": "Az érétkelt terméket a webáruházban vásárolták, és az összehasonlító oldalán értékelték. Feles értékkel ellátott értékelés (3,5) esetén felfelé kerekítünk (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 08. 04., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-08-04T05:09:15Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/18.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 7,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7410743/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "A 15 és a 16 között döntöttem, és az ár/teljesítmény alapján alakult ki",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 14",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás",
+    "tooltip": {
+     "text": "Az értékelt terméket a mi webáruházunkban vásárolták. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 07. 30., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-07-30T12:39:24.45Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/08.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 5,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7315015/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Elégedettség"
+   ],
+   "negatives": [],
+   "name": "Reviewer 15",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás - árösszehasonlítóból származó értékelés",
+    "tooltip": {
+     "text": "Az érétkelt terméket a webáruházban vásárolták, és az összehasonlító oldalán értékelték. Feles értékkel ellátott értékelés (3,5) esetén felfelé kerekítünk (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 07. 04., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-07-04T10:24:27Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 32,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7209369/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Androidról váltottam, és eddig elégedett vagyok, jobban illeszkedik a kezemhez, tetszik az általános tengely és a tisztaság. Az ár a paramétereket figyelembe véve meglehetősen magas, azonban egy nagyon megbízható rendszerről van szó, amely nagyon hosszú ideig tart.",
+   "positives": [
+    "Teljesítmény",
+    "Kiváló minőségű fotók",
+    "IR arcazonosító kamera, az előző telefonjaimmal ellentétben (Samsung, xiaomi stb.) még teljes sötétségben is tökéletesen működik.",
+    "USB C (végre)",
+    "Gyors töltés, 100% egy órán belül",
+    "Jó kijelző és fényerő",
+    "Nagyon jó hangszóró teljesítmény és hangminőség",
+    "Magsafe",
+    "Sima és egyszerű rendszer",
+    "Nincsenek felesleges harmadik féltől származó alkalmazások és extra szarságok",
+    "Akkumulátor probléma és kapacitásvesztés nélkül, állítólag korábban is megoldották (látszólag sikeresen), beállítható a töltési határérték stb."
+   ],
+   "negatives": [
+    "Töltőkábel kocka nélkül, bár ez már nem a gyártó, hanem a szakszervezet hibája.",
+    "60 Hz-es kijelző",
+    "Ugyanazért az árért a konkurencia néha többet kínál, például a 120 Hz-es kijelzőt.",
+    "nincs dual sim, csak SIM és eSIM",
+    "drága javítások és tartozékok",
+    "nincs ujjlenyomat-olvasó"
+   ],
+   "name": "Reviewer 16",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás",
+    "tooltip": {
+     "text": "Az értékelt terméket a mi webáruházunkban vásárolták. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 06. 13., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-06-13T10:35:05.877Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7166579/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Gyors szállítás, kiváló minőség, jó kommunikáció a boltban"
+   ],
+   "negatives": [],
+   "name": "Reviewer 17",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás - árösszehasonlítóból származó értékelés",
+    "tooltip": {
+     "text": "Az érétkelt terméket a webáruházban vásárolták, és az összehasonlító oldalán értékelték. Feles értékkel ellátott értékelés (3,5) esetén felfelé kerekítünk (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 06. 03., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-06-03T07:32:21Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7147530/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Helló! Minden tetszik a nálatok rendelt cuccokban.",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 18",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás - árösszehasonlítóból származó értékelés",
+    "tooltip": {
+     "text": "Az érétkelt terméket a webáruházban vásárolták, és az összehasonlító oldalán értékelték. Feles értékkel ellátott értékelés (3,5) esetén felfelé kerekítünk (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 05. 31., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-05-31T12:30:55Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 4.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7144865/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Minőségi"
+   ],
+   "negatives": [],
+   "name": "Reviewer 19",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás - árösszehasonlítóból származó értékelés",
+    "tooltip": {
+     "text": "Az érétkelt terméket a webáruházban vásárolták, és az összehasonlító oldalán értékelték. Feles értékkel ellátott értékelés (3,5) esetén felfelé kerekítünk (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 05. 29., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-05-29T14:40:35Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7129695/actions?country=hu",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Minden a várakozásoknak megfelelően"
+   ],
+   "negatives": [],
+   "name": "Reviewer 20",
+   "verifiedPurchaseTag": {
+    "label": "Hitelesített vásárlás - árösszehasonlítóból származó értékelés",
+    "tooltip": {
+     "text": "Az érétkelt terméket a webáruházban vásárolták, és az összehasonlító oldalán értékelték. Feles értékkel ellátott értékelés (3,5) esetén felfelé kerekítünk (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.hu/article/3370.htm",
+       "appLink": "webView",
+       "name": "Több információ",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Értékelve: 2025. 05. 26., változat: iPhone 15 128GB fekete",
+   "reviewDate": "2025-05-26T10:53:19Z",
+   "commodityName": "iPhone 15 128GB fekete",
+   "isTranslated": true,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  }
+ ]
+}

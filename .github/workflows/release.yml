@@ -1,0 +1,115 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "bazos-v*"
+      - "alza-v*"
+
+permissions:
+  contents: write
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    outputs:
+      tool: ${{ steps.parse.outputs.tool }}
+      version: ${{ steps.parse.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+      - id: parse
+        shell: bash
+        run: |
+          tag="$GITHUB_REF_NAME"
+          tool="${tag%%-v*}"
+          version="${tag#*-v}"
+          crate=$(grep -m1 '^version' "tools/$tool/Cargo.toml" | cut -d'"' -f2)
+          launcher=$(grep -m1 '^VERSION=' "plugins/$tool/scripts/$tool" | cut -d= -f2)
+          plugin=$(grep -m1 '"version"' "plugins/$tool/.claude-plugin/plugin.json" | cut -d'"' -f4)
+          for v in "$crate" "$launcher" "$plugin"; do
+            if [ "$v" != "$version" ]; then
+              echo "::error::tag $tag does not match versions: Cargo.toml $crate, launcher $launcher, plugin.json $plugin"
+              exit 1
+            fi
+          done
+          echo "tool=$tool" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+  test:
+    needs: meta
+    runs-on: ubuntu-latest
+    env:
+      TOOL: ${{ needs.meta.outputs.tool }}
+    steps:
+      - uses: actions/checkout@v7
+      - run: rustup toolchain install stable --profile minimal --component clippy && rustup default stable
+      - working-directory: tools
+        run: |
+          cargo test --locked -p "$TOOL-cli"
+          cargo clippy --locked -p "$TOOL-cli" --all-targets -- -D warnings
+
+  build:
+    needs: [meta, test]
+    strategy:
+      matrix:
+        include:
+          - target: x86_64-unknown-linux-musl
+            runner: ubuntu-latest
+            asset: linux-x86_64
+          - target: aarch64-unknown-linux-musl
+            runner: ubuntu-24.04-arm
+            asset: linux-aarch64
+          - target: x86_64-apple-darwin
+            runner: macos-latest
+            asset: macos-x86_64
+          - target: aarch64-apple-darwin
+            runner: macos-latest
+            asset: macos-aarch64
+          - target: x86_64-pc-windows-msvc
+            runner: windows-latest
+            asset: windows-x86_64
+            ext: .exe
+    runs-on: ${{ matrix.runner }}
+    env:
+      TOOL: ${{ needs.meta.outputs.tool }}
+      VERSION: ${{ needs.meta.outputs.version }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+      - if: contains(matrix.target, 'musl')
+        run: sudo apt-get update && sudo apt-get install -y musl-tools
+      - run: rustup toolchain install stable --profile minimal --target ${{ matrix.target }} && rustup default stable
+      - working-directory: tools
+        run: cargo build --release --locked -p "$TOOL-cli" --target ${{ matrix.target }}
+      - run: |
+          name="$TOOL-$VERSION-${{ matrix.asset }}${{ matrix.ext }}"
+          mkdir dist
+          cp "tools/target/${{ matrix.target }}/release/$TOOL${{ matrix.ext }}" "dist/$name"
+          "dist/$name" --version
+          cd dist
+          if command -v sha256sum >/dev/null 2>&1; then
+            sha256sum "$name" > "$name.sha256"
+          else
+            shasum -a 256 "$name" > "$name.sha256"
+          fi
+      - uses: actions/upload-artifact@v7
+        with:
+          name: ${{ matrix.asset }}
+          path: dist/*
+          if-no-files-found: error
+
+  release:
+    needs: [meta, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          path: dist
+          merge-multiple: true
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          TOOL: ${{ needs.meta.outputs.tool }}
+          VERSION: ${{ needs.meta.outputs.version }}
+        run: gh release create "$GITHUB_REF_NAME" dist/* --repo "$GITHUB_REPOSITORY" --title "$TOOL $VERSION" --notes "$TOOL $VERSION binaries for Linux (x86_64, aarch64, static musl), macOS (x86_64, aarch64) and Windows (x86_64)."

@@ -1,0 +1,14 @@
+{
+  "name": "bazos",
+  "version": "0.1.0",
+  "description": "Search and read bazos.sk / bazos.cz classified ads with a bundled CLI (filters, locations, prices, full ad details).",
+  "author": {
+    "name": "Version Two s.r.o.",
+    "email": "info@versiontwo.sk",
+    "url": "https://www.versiontwo.sk"
+  },
+  "homepage": "https://github.com/version-two/skills",
+  "repository": "https://github.com/version-two/skills",
+  "license": "MIT",
+  "keywords": ["bazos", "classifieds", "slovakia", "czechia", "second-hand"]
+}

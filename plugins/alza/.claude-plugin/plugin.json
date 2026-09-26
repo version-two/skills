@@ -1,0 +1,14 @@
+{
+  "name": "alza",
+  "version": "0.1.0",
+  "description": "Search Alza (alza.sk, .cz, .hu, .at, .de) products with a bundled CLI: parametric filters, prices, stock, product details and reviews.",
+  "author": {
+    "name": "Version Two s.r.o.",
+    "email": "info@versiontwo.sk",
+    "url": "https://www.versiontwo.sk"
+  },
+  "homepage": "https://github.com/version-two/skills",
+  "repository": "https://github.com/version-two/skills",
+  "license": "MIT",
+  "keywords": ["alza", "e-commerce", "prices", "slovakia", "czechia"]
+}

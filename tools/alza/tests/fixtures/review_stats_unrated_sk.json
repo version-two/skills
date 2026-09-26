@@ -1,0 +1,121 @@
+{
+ "self": {
+  "href": "https://webapi.alza.cz/api/catalog/v2/commodities/13276464/reviewStats?country=SK&pgrik=p__26752&ucik=u__401f1",
+  "appLink": "reviewStats",
+  "enabled": true
+ },
+ "name": "Biblické příběhy",
+ "image": "https://image.alza.cz/products/EK61349/EK61349.jpg",
+ "detailAction": {
+  "webLink": "https://www.alza.sk/biblicke-pribehy-d13276464.htm",
+  "href": "https://www.alza.sk/api/router/legacy/catalog/product/13276464?country=sk&pgrik=p__26752&ucik=u__401f1",
+  "appLink": "catalogProductDetail",
+  "enabled": true
+ },
+ "addToBasketAction": {
+  "appLink": "addToBasketWithNavigationToCrossSell",
+  "form": {
+   "method": "POST",
+   "value": [
+    {
+     "name": "items",
+     "value": [
+      {
+       "method": "POST",
+       "value": [
+        {
+         "name": "commodityId",
+         "value": 13276464,
+         "itemType": "integer",
+         "isHidden": true,
+         "isEnabled": true
+        },
+        {
+         "name": "count",
+         "value": 1,
+         "itemType": "decimal",
+         "isHidden": true,
+         "isEnabled": true
+        },
+        {
+         "name": "pricePerItem",
+         "itemType": "decimal",
+         "isHidden": true,
+         "isEnabled": true
+        },
+        {
+         "name": "services",
+         "value": [],
+         "itemType": "set",
+         "isHidden": true,
+         "isEnabled": true
+        },
+        {
+         "name": "hooks",
+         "value": [],
+         "itemType": "set",
+         "isHidden": true,
+         "isEnabled": true
+        }
+       ],
+       "rel": [
+        "form"
+       ],
+       "href": "https://www.alza.sk/"
+      }
+     ],
+     "itemType": "objectArray",
+     "isHidden": true,
+     "isEnabled": true
+    }
+   ],
+   "rel": [
+    "form"
+   ],
+   "href": "https://www.alza.sk/api/basket/v1/items"
+  },
+  "enabled": true
+ },
+ "commodityReviewsAction": {
+  "href": "https://webapi.alza.cz/api/catalog/v2/commodities/13276464/reviews?country=SK&limit=10",
+  "appLink": "userCommodityReviews",
+  "enabled": true
+ },
+ "ratingAverage": null,
+ "ratingCount": 0,
+ "reviewCount": 0,
+ "reviewCountTooltip": "Počet textových recenzií vrátane preložených recenzií zo zahraničia.",
+ "purchaseCountFormatted": null,
+ "showPurchaseCount": true,
+ "recommendationRate": null,
+ "recommendationRateTooltip": "Percento recenzií s nadpriemerným hodnotením.",
+ "ratings": [
+  {
+   "value": 1,
+   "count": 0
+  },
+  {
+   "value": 2,
+   "count": 0
+  },
+  {
+   "value": 3,
+   "count": 0
+  },
+  {
+   "value": 4,
+   "count": 0
+  },
+  {
+   "value": 5,
+   "count": 0
+  }
+ ],
+ "complaint": {
+  "rate": null,
+  "type": 0,
+  "description": "neznáma reklamovanosť",
+  "tooltip": "Miera reklamovanosti sa vypočíta, keď si produkt kúpi aspoň 30 zákazníkov."
+ },
+ "reviewsSummary": null
+}

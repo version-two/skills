@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<title>Bazos.sk - Inzercia, bazár</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Bezplatná inzercia, online bazár - kúpte si nový byt alebo predaj staré auto, toto všetko hravo zvládne náš Bazoš - Vaše inzeráty.">
+<meta name="google-play-app" content="app-id=cz.ackee.bazos">
+<meta name="apple-itunes-app" content="app-id=1195042966">
+<link rel="canonical" href="https://www.bazos.sk/"><meta property="fb:admins" content="1055875657">
+<meta property="og:image" content="https://www.bazos.sk/obrazky/bazoslogoface.png">
+<link rel="stylesheet" href="https://www.bazos.sk/bazos67hp.css" type="text/css"><script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "WebSite",
+"url": "https://www.bazos.sk",
+"potentialAction": {
+"@type": "SearchAction",
+"target": "https://www.bazos.sk/search.php?hledat={q}&rubriky=www&hlokalita=&humkreis=25&cenaod=&cenado=&Submit=Hľadať&kitx=ano&a=1",
+"query-input": "required name=q"}
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Organization",
+"url": "https://www.bazos.sk",
+"logo": "https://www.bazos.sk/obrazky/bazos.svg"
+}
+</script>
+<link rel="preload" as="image" href="https://www.bazos.sk/obrazky/bazos.svg">
+<link rel="icon" href="https://www.bazos.sk/favicon.svg" type="image/svg+xml">
+<link rel="icon" HREF="https://www.bazos.sk/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="https://www.bazos.sk/apple-touch-icon.png">
+<link rel="search" type="application/opensearchdescription+xml" href="https://www.bazos.sk/search.xml" title="Bazoš.sk">
+
+<link rel="alternate" hreflang="cs-CZ" href="https://www.bazos.cz/"><link rel="alternate" hreflang="sk-SK" href="https://www.bazos.sk/"><link rel="alternate" hreflang="de-AT" href="https://www.bazos.at/"><link rel="alternate" hreflang="pl-PL" href="https://www.bazos.pl/">
+<script>
+var xhr = new XMLHttpRequest();
+var naseptavac_value = '';
+function naseptavac(value) {
+  if (value=='')  {
+  	naseptavac_value = '';
+  	document.getElementById('vysledek').innerHTML='';
+  	}
+else {
+	if (naseptavac_value == value) {
+		return false;
+	}
+	naseptavac_value = value;
+	setTimeout(function () {
+		if (naseptavac_value != value) {
+			return false;
+		}
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4 && naseptavac_value == value){
+				document.getElementById('vysledek').innerHTML = this.responseText;
+			}
+ 		 };
+		xhr.open("POST", '/suggest.php');
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('rubnas=HP&qnas='+encodeURIComponent(naseptavac_value));
+	}, 250);
+}
+}
+
+var naseptavacpsc_value = '';
+function naseptavacpsc(value) {
+  if (value=='')  {
+  	naseptavacpsc_value = '';
+  	document.getElementById('vysledekpsc').innerHTML='<table cellpadding=\"3\" cellspacing=\"0\" class=\"tablenaspsc\"><tr><td class=\"act\" onclick=\"getLocation();\"><b>Inzeráty v okolí</b></td></tr></table>';
+  	}
+else {
+	if (naseptavacpsc_value == value) {
+		return false;
+	}
+	naseptavacpsc_value = value;
+	setTimeout(function () {
+		if (naseptavacpsc_value != value) {
+			return false;
+		}
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4 && naseptavacpsc_value == value){
+				document.getElementById('vysledekpsc').innerHTML = this.responseText;
+			}
+ 		 };
+		xhr.open("POST", '/suggestpsc.php');
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('qnaspsc='+encodeURIComponent(naseptavacpsc_value));
+	}, 250);
+}
+}
+
+function getLocation() {
+if (navigator.geolocation) {navigator.geolocation.getCurrentPosition(showPosition);}
+else {document.getElementById('hlokalita').value = '';}
+}
+function showPosition(position) {
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4){
+				document.getElementById('hlokalita').value = this.responseText;
+				document.forms['formt'].submit();
+			}
+ 		 };
+		xhr.open("POST", '/zip.php');
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('latitude='+encodeURIComponent(position.coords.latitude)+'&longitude='+encodeURIComponent(position.coords.longitude));
+}
+
+function odeslatakci(postaction,value1,value2,value3) {
+document.getElementById('postaction').value = postaction;
+document.getElementById("postv1").value = value1;
+document.getElementById("postv2").value = value2;
+document.getElementById("postv3").value = value3;
+document.formaction.submit();
+}
+</script>
+</head>
+
+<body>
+
+<div class="sirka">
+
+
+<div class="listalogor">
+<div class="listalogol"><a href="https://www.bazos.sk/" title="Bazos.sk - Inzercia, inzeráty"><img src="https://www.bazos.sk/obrazky/bazos.svg" width="199" height="34" alt="Bazos.sk - Inzercia, inzeráty"></a></div>
+<div class="listalogom"> <b>... inzercia pre každého</b></div>
+<div class="listalogop"><a href="https://www.bazos.sk/oblubene.php"><b>Obľúbené inzeráty</b></a> <a href="https://www.bazos.sk/moje-inzeraty.php"><b>Moje inzeráty</b></a> <a href="/pridat-inzerat.php"><b><span class=pridati>Pridať inzerát</span></b></a></div>
+</div>
+
+<form name="formt" id="formt" method=get action="/search.php">
+<div class="listah">
+<div class="rubriky">
+<b>
+Čo: <span class=vysokoli><span id="vysledek"></span><input type="search" onkeyup="naseptavac(this.value);" id=hledat name=hledat size="17" maxlength="256" value="" autocomplete="off" title="Čo? Hľadaný výraz" autofocus></span>
+
+<select name="rubriky" onchange='this.form.submit();' title="Vyber rubriku">
+<option value="www" selected>Všetky rubriky</option>
+<option value="auto">Auto</option>
+<option value="deti">Deti</option>
+<option value="dom">Dom a záhrada</option>
+<option value="elektro">Elektro</option>
+<option value="foto">Foto</option>
+<option value="hudba">Hudba</option>
+<option value="knihy">Knihy</option>
+<option value="mobil">Mobily</option>
+<option value="motocykle">Motocykle</option>
+<option value="nabytok">Nábytok</option>
+<option value="oblecenie">Oblečenie</option>
+<option value="pc">PC</option>
+<option value="praca">Práca</option>
+<option value="reality">Reality</option>
+<option value="sluzby">Služby</option>
+<option value="sport">Šport</option>
+<option value="stroje">Stroje</option>
+<option value="vstupenky">Vstupenky</option>
+<option value="zvierata">Zvieratá</option>
+<option value="ostatne">Ostatné</option>
+</select>
+
+PSČ (miesto): <span class=vysokolipsc><span id="vysledekpsc"></span><input type="search" name="hlokalita" id="hlokalita" onkeyup="naseptavacpsc(this.value);" onclick="naseptavacpsc(this.value);" value="" size="5" maxlength="25" autocomplete="off" title="Kde? PSČ (miesto)" style="-webkit-appearance: none;"></span>
+Okolie: <input name="humkreis" title="Okolie v km" value="25" size="3" style="width: 25px;"> km
+Cena od: <input name=cenaod title="Cena od €" maxlength="12" size="4" value=""> - do: <input name=cenado title="Cena do €" maxlength="12" size="4" value=""> €  <input type="submit" name="Submit" value="Hľadať">
+<input type="hidden" name="order" id="order"><input type="hidden" name="kitx" value="ano"></b>
+</div>
+</div>
+</form>
+<br>
+
+<div class="icontblrow">
+<div class="icontblcell"><span class="nadpisnahlavni"><a href="https://zvierata.bazos.sk/">Zvieratá</a></span><br><a href="https://zvierata.bazos.sk/pes/">Psy</a>, <a href="https://zvierata.bazos.sk/macka/">Mačky</a>, <a href="https://zvierata.bazos.sk/kon/">Kone</a>, ...<br><a href="https://zvierata.bazos.sk/"><img src="/obrazky/zvierata.svg" width="54" height="60" class="imgmain" alt="Zvieratá"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><a href="https://deti.bazos.sk/">Deti</a></span><br><a href="https://deti.bazos.sk/autosedacky/">Autosedačky</a>, <a href="https://deti.bazos.sk/kociky/">Kočíky</a>, ...<br><a href="https://deti.bazos.sk/"><img src="/obrazky/deti.svg" width="60" height="60" class="imgmain" alt="Deti"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><a href="https://reality.bazos.sk/">Reality</a></span><br><a href="https://reality.bazos.sk/predam/byt/">Byty predaj</a>, <a href="https://reality.bazos.sk/predam/dom/">Domy</a>...<br><a href="https://reality.bazos.sk/"><img src="/obrazky/reality.svg" width="65" height="60" class="imgmain" alt="Reality"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><a href="https://praca.bazos.sk/">Práca</a></span><br><a href="https://praca.bazos.sk/administrativa/">Administratíva</a>, <a href="https://praca.bazos.sk/brigada/">Brigády</a>, ...<br><a href="https://praca.bazos.sk/"><img src="/obrazky/praca.svg" width="65" height="46" class="imgmain" alt="Práca"></a></div>
+</div>
+<div class="icontblrow">
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://auto.bazos.sk/">Auto</a></span><br><a href="https://auto.bazos.sk/skoda/">Škoda</a>, <a href="https://auto.bazos.sk/fiat/">Fiat</a>, <a href="https://auto.bazos.sk/volkswagen/">VW</a>, ...<br><a href="https://auto.bazos.sk/"><img src="/obrazky/auto.svg" width="65" height="44" class="imgmain" alt="Auto"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://motocykle.bazos.sk/">Motocykle</a></span><br><a href="https://motocykle.bazos.sk/cestne/">Cestné motocykle</a>, <a href="https://motocykle.bazos.sk/skutre/">Skútre</a>, ...<br><a href="https://motocykle.bazos.sk/"><img src="/obrazky/motocykle.svg" width="65" height="34" class="imgmain" alt="Motocykle"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://stroje.bazos.sk/">Stroje</a></span><br><a href="https://stroje.bazos.sk/drevoobrabacie/">Drevoobrábacie</a>, <a href="https://stroje.bazos.sk/kovoobrabacie/">Kovoobrábacie</a> ...<br><a href="https://stroje.bazos.sk/"><img src="/obrazky/stroje.svg" width="65" height="47" class="imgmain" alt="Stroje"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://dom.bazos.sk/">Dom a záhrada</a></span><br><a href="https://dom.bazos.sk/kosacky/">Kosačky</a>, <a href="https://dom.bazos.sk/kotle/">Kotle, Bojlery</a> ...<br><a href="https://dom.bazos.sk/"><img src="/obrazky/dom.svg" width="65" height="54" class="imgmain" alt="Dom a záhrada"></a></div>
+</div>
+<div class="icontblrow">
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://pc.bazos.sk/">PC</a></span><br><a href="https://pc.bazos.sk/notebook/">Notebooky</a>, <a href="https://pc.bazos.sk/pc/">Počítače</a>, ...<br><a href="https://pc.bazos.sk/"><img src="/obrazky/pc.svg" width="65" height="60" class="imgmain" alt="Počítače"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://mobil.bazos.sk/">Mobily</a></span><br><a href="https://mobil.bazos.sk/apple/">Apple</a>, <a href="https://mobil.bazos.sk/google/">Google</a>, <a href="https://mobil.bazos.sk/samsung/">Samsung</a>, ...<br><a href="https://mobil.bazos.sk/"><img src="/obrazky/mobil.svg" width="46" height="60" class="imgmain" alt="Mobily"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://foto.bazos.sk/">Foto</a></span><br><a href="https://foto.bazos.sk/digitalne/">Fotoaparáty</a>, <a href="https://foto.bazos.sk/videokamery/">Videokamery</a>, ...<br><a href="https://foto.bazos.sk/"><img src="/obrazky/foto.svg" width="65" height="46" class="imgmain" alt="Fotoaparáty"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://elektro.bazos.sk/">Elektro</a></span><br><a href="https://elektro.bazos.sk/autoradia/">Autorádia</a>, <a href="https://elektro.bazos.sk/chladnicky/">Chladničky</a>, ...<br><a href="https://elektro.bazos.sk/"><img src="/obrazky/elektro.svg" width="43" height="59" class="imgmain" alt="Elektro"></a></div>
+</div>
+<div class="icontblrow">
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://sport.bazos.sk/">Šport</a></span><br><a href="https://sport.bazos.sk/horska/">Horské bicykle</a>, <a href="https://sport.bazos.sk/lyze/">Lyže</a>, ...<br><a href="https://sport.bazos.sk/"><img src="/obrazky/sport.svg" width="65" height="40" class="imgmain" alt="Šport"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://hudba.bazos.sk/">Hudba</a></span><br><a href="https://hudba.bazos.sk/bicie/">Bicie nástroje</a>, <a href="https://hudba.bazos.sk/skusobne/">Skúšobne</a> ...<br><a href="https://hudba.bazos.sk/"><img src="/obrazky/hudba.svg" width="65" height="56" class="imgmain" alt="Hudba"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://vstupenky.bazos.sk/">Vstupenky</a></span><br><a href="https://vstupenky.bazos.sk/letenky/">Letenky</a>, <a href="https://vstupenky.bazos.sk/hudba/">Hudba, Koncerty</a>, ...<br><a href="https://vstupenky.bazos.sk/"><img src="/obrazky/vstupenky.svg" width="65" height="55" class="imgmain" alt="Vstupenky"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://knihy.bazos.sk/">Knihy</a></span><br><a href="https://knihy.bazos.sk/beletria/">Beletria</a>, <a href="https://knihy.bazos.sk/ucebnice/">Učebnice</a>, ...<br><a href="https://knihy.bazos.sk/"><img src="/obrazky/knihy.svg" width="43" height="60" class="imgmain" alt="Knihy"></a></div>
+</div>
+<div class="icontblrow">
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://nabytok.bazos.sk/">Nábytok</a></span><br><a href="https://nabytok.bazos.sk/kuchyne/">Kuchyne</a>, <a href="https://nabytok.bazos.sk/sedacie/">Sedacie súpravy</a> ...<br><a href="https://nabytok.bazos.sk/"><img src="/obrazky/nabytok.svg" width="65" height="60" class="imgmain" alt="Nábytok"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://oblecenie.bazos.sk/">Oblečenie</a></span><br><a href="https://oblecenie.bazos.sk/obuv/">Obuv</a>, <a href="https://oblecenie.bazos.sk/sperky/">Šperky</a>, <a href="https://oblecenie.bazos.sk/hodinky/">Hodinky</a> ...<br><a href="https://oblecenie.bazos.sk/"><img src="/obrazky/oblecenie.svg" width="53" height="60" class="imgmain" alt="Oblečenie"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://sluzby.bazos.sk/">Služby</a></span><br><a href="https://sluzby.bazos.sk/doucovanie/">Doučovanie</a>, <a href="https://sluzby.bazos.sk/ubytovanie/">Ubytovanie</a>, ...<br><a href="https://sluzby.bazos.sk/"><img src="/obrazky/sluzby.svg" width="40" height="60" class="imgmain" alt="Služby"></a></div>
+<div class="icontblcell"><span class="nadpisnahlavni"><br><a href="https://ostatne.bazos.sk/">Ostatné</a></span><br><a href="https://ostatne.bazos.sk/starozitnosti/">Starožitnosti</a>, <a href="https://ostatne.bazos.sk/zberatelstvo/">Zberateľstvo</a> ...<br><a href="https://ostatne.bazos.sk/"><img src="/obrazky/ostatne.svg" width="44" height="60" class="imgmain" alt="Ostatné"></a></div>
+</div>
+
+<br>
+
+&copy;2026 Bazoš - <b>Inzercia, bazár</b><br>
+<a href="https://www.bazos.sk/pomoc.php">Pomoc</a>, <a href="https://www.bazos.sk/otazky.php">Otázky</a>, <a href="https://www.bazos.sk/hodnotenie.php">Hodnotenie</a>, <a href="https://www.bazos.sk/kontakt.php">Kontakt</a>, <a href="https://www.bazos.sk/reklama.php">Reklama</a>, <a href="https://www.bazos.sk/podmienky.php">Podmienky</a>, <a href="https://www.bazos.sk/ochrana-udajov.php">Ochrana údajov</a>, <a href="https://www.bazos.sk/rss.php">RSS</a>, <form name="formvkm" id="formvkm" method="post" style="display: inline;"><input type="hidden" name="vkm" value="m"><input type="submit" class="vkm" value="Mobilná verzia"></form><br>
+Inzeráty celkom:<b>
+1013712</b>, inzercia za 24 hodín: <b>45593</b><br><br>
+<a href="https://www.bazos.sk/mapa-kategorie.php">Mapa kategórií</a>, <a href="https://www.bazos.sk/mapa-search.php">Najvyhľadávanejšie výrazy</a>, Tmavý motív: <form name="formdark" action="https://www.bazos.sk" method="post" style="display: inline;"><input type="hidden" name="darkmode" value="1"><input type="submit" class="vkm" value="vypnutý"></form><br>
+Krajiny: <a href="https://www.bazos.sk">Slovensko</a>, <a href="https://www.bazos.cz">Česká republika</a>, <a href="https://www.bazos.pl">Poľsko</a>, <a href="https://www.bazos.at">Rakúsko</a>
+<br>
+
+<br>
+</div>
+
+<script src="https://www.bazos.sk/cookie-consent.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"sk","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"cookie_domain": "bazos.sk"});
+});
+</script>
+<a href="#" id="open_preferences_center"> </a>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLZSNE9Z0C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HLZSNE9Z0C');
+</script>
+
+</body>
+</html>

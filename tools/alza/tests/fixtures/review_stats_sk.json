@@ -1,0 +1,121 @@
+{
+ "self": {
+  "href": "https://webapi.alza.cz/api/catalog/v2/commodities/7927612/reviewStats?country=SK&pgrik=p__26752&ucik=u__401f1",
+  "appLink": "reviewStats",
+  "enabled": true
+ },
+ "name": "iPhone 15 128 GB čierny",
+ "image": "https://image.alza.cz/products/RI045b1/RI045b1.jpg",
+ "detailAction": {
+  "webLink": "https://www.alza.sk/iphone-15-128-gb-cierny-d7927612.htm",
+  "href": "https://www.alza.sk/api/router/legacy/catalog/product/7927612?country=sk&pgrik=p__26752&ucik=u__401f1",
+  "appLink": "catalogProductDetail",
+  "enabled": true
+ },
+ "addToBasketAction": {
+  "appLink": "addToBasketWithNavigationToCrossSell",
+  "form": {
+   "method": "POST",
+   "value": [
+    {
+     "name": "items",
+     "value": [
+      {
+       "method": "POST",
+       "value": [
+        {
+         "name": "commodityId",
+         "value": 7927612,
+         "itemType": "integer",
+         "isHidden": true,
+         "isEnabled": true
+        },
+        {
+         "name": "count",
+         "value": 1,
+         "itemType": "decimal",
+         "isHidden": true,
+         "isEnabled": true
+        },
+        {
+         "name": "pricePerItem",
+         "itemType": "decimal",
+         "isHidden": true,
+         "isEnabled": true
+        },
+        {
+         "name": "services",
+         "value": [],
+         "itemType": "set",
+         "isHidden": true,
+         "isEnabled": true
+        },
+        {
+         "name": "hooks",
+         "value": [],
+         "itemType": "set",
+         "isHidden": true,
+         "isEnabled": true
+        }
+       ],
+       "rel": [
+        "form"
+       ],
+       "href": "https://www.alza.sk/"
+      }
+     ],
+     "itemType": "objectArray",
+     "isHidden": true,
+     "isEnabled": true
+    }
+   ],
+   "rel": [
+    "form"
+   ],
+   "href": "https://www.alza.sk/api/basket/v1/items"
+  },
+  "enabled": true
+ },
+ "commodityReviewsAction": {
+  "href": "https://webapi.alza.cz/api/catalog/v2/commodities/7927612/reviews?country=SK&limit=10",
+  "appLink": "userCommodityReviews",
+  "enabled": true
+ },
+ "ratingAverage": 4.9,
+ "ratingCount": 1168,
+ "reviewCount": 248,
+ "reviewCountTooltip": "Počet textových recenzií vrátane preložených recenzií zo zahraničia.",
+ "purchaseCountFormatted": "20 000+",
+ "showPurchaseCount": true,
+ "recommendationRate": 0.96,
+ "recommendationRateTooltip": "Percento recenzií s nadpriemerným hodnotením.",
+ "ratings": [
+  {
+   "value": 1,
+   "count": 18
+  },
+  {
+   "value": 2,
+   "count": 9
+  },
+  {
+   "value": 3,
+   "count": 17
+  },
+  {
+   "value": 4,
+   "count": 70
+  },
+  {
+   "value": 5,
+   "count": 1054
+  }
+ ],
+ "complaint": {
+  "rate": 0.0113,
+  "type": 1,
+  "description": "nízka reklamovanosť",
+  "tooltip": "Tento produkt je vo svojej kategórii nadpriemerne spoľahlivý."
+ },
+ "reviewsSummary": null
+}

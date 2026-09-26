@@ -1,0 +1,872 @@
+{
+ "shareURL": "https://m.alza.de/search.htm?exps=notebook",
+ "totalUnfiltered": 1628,
+ "searchVariant": null,
+ "eshopCertificates": [],
+ "sorts": [
+  {
+   "sort": 0,
+   "description": "Empfohlen"
+  },
+  {
+   "sort": 1,
+   "description": "Preis aufsteigend"
+  },
+  {
+   "sort": 2,
+   "description": "Preis absteigend"
+  },
+  {
+   "sort": 6,
+   "description": "Nach Bewertung"
+  },
+  {
+   "sort": 5,
+   "description": "Neuheiten"
+  }
+ ],
+ "err": 0,
+ "favCnt": 0,
+ "basket_cnt": 0,
+ "basket_total_cnt": 0,
+ "msg": null,
+ "user_name": "",
+ "user_id": -1,
+ "vzt": 8270768189905152,
+ "countryID": 3,
+ "countryPhonePrefix": "49",
+ "premiumBooks": 0,
+ "premiumDelivery": 0,
+ "premiumValidTo": null,
+ "premiumRenew": false,
+ "serverTime": 1790416312,
+ "display_cnt": 1,
+ "data1_cnt": 10,
+ "data2_cnt": 1,
+ "data1": [
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Empfohlen"
+    },
+    {
+     "sort": 7,
+     "description": "Meistverkauft"
+    },
+    {
+     "sort": 1,
+     "description": "Preis aufsteigend"
+    },
+    {
+     "sort": 2,
+     "description": "Preis absteigend"
+    },
+    {
+     "sort": 6,
+     "description": "Nach Bewertung"
+    },
+    {
+     "sort": 5,
+     "description": "Neuheiten"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.de/services/restservice.svc/v1/category/18911035?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18911035,
+   "name": "Copilot+ PC",
+   "img": "https://image.alza.cz/Foto/category/120/18911035_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 1,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.de/copilot-plus-pc/18911035.htm",
+   "description": {
+    "annotation": "Microsoft Copilot PC: Die schnellsten und intelligentesten Windows-Computer aller Zeiten\n\n        Ein Microsoft Copilot PC ist eine einzigartige Verbindung aus leistungsstarker künstlicher Intelligenz und dem Betriebssystem Microsoft Windows 11. Wenn Sie..."
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Empfohlen"
+    },
+    {
+     "sort": 7,
+     "description": "Meistverkauft"
+    },
+    {
+     "sort": 1,
+     "description": "Preis aufsteigend"
+    },
+    {
+     "sort": 2,
+     "description": "Preis absteigend"
+    },
+    {
+     "sort": 6,
+     "description": "Nach Bewertung"
+    },
+    {
+     "sort": 5,
+     "description": "Neuheiten"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.de/services/restservice.svc/v1/category/18843464?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18843464,
+   "name": "Home Office-Laptops und Büro-Laptops",
+   "img": "https://image.alza.cz/Foto/category/120/18843464_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 2,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.de/home-office-laptops-und-buero-laptops/18843464.htm",
+   "description": {
+    "annotation": "Möchten Sie ein Notebook für den täglichen Gebrauch, das das Surfen im Internet, Filme, Büroanwendungen und vielleicht einfache Spiele bewältigen kann? Wir stellen Ihnen die grundlegenden Kategorien vor und beraten Sie, welches Notebook das richtige für...",
+    "moreInfoLinkText": "Mehr",
+    "moreInfoUrl": "https://m.alza.de/CategoryDescriptionPage?catId=18843464&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Empfohlen"
+    },
+    {
+     "sort": 7,
+     "description": "Meistverkauft"
+    },
+    {
+     "sort": 1,
+     "description": "Preis aufsteigend"
+    },
+    {
+     "sort": 2,
+     "description": "Preis absteigend"
+    },
+    {
+     "sort": 6,
+     "description": "Nach Bewertung"
+    },
+    {
+     "sort": 5,
+     "description": "Neuheiten"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.de/services/restservice.svc/v1/category/18853299?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18853299,
+   "name": "Profi-Laptops",
+   "img": "https://image.alza.cz/Foto/category/120/18853299_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 3,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.de/profi-laptops/18853299.htm",
+   "description": {
+    "annotation": "Benötigen Sie einen praktischen Laptop, um Ihre Arbeit oder Ihr Studium zu erleichtern? Hier geben wir Ihnen einen Überblick über die wichtigsten Profi-Laptops und nützliche Tipps für die Auswahl des idealen Geräts.",
+    "moreInfoLinkText": "Mehr",
+    "moreInfoUrl": "https://m.alza.de/CategoryDescriptionPage?catId=18853299&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Empfohlen"
+    },
+    {
+     "sort": 7,
+     "description": "Meistverkauft"
+    },
+    {
+     "sort": 1,
+     "description": "Preis aufsteigend"
+    },
+    {
+     "sort": 2,
+     "description": "Preis absteigend"
+    },
+    {
+     "sort": 6,
+     "description": "Nach Bewertung"
+    },
+    {
+     "sort": 5,
+     "description": "Neuheiten"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.de/services/restservice.svc/v1/category/18854251?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18854251,
+   "name": "Touchscreen-Laptops",
+   "img": "https://image.alza.cz/Foto/category/120/18854251_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 4,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.de/touchscreen-laptops/18854251.htm",
+   "description": {
+    "annotation": "Sie möchten sich einen neuen Laptop anschaffen, hätten aber gerne einen Touchscreen wie bei einem Tablet? Wir stellen Ihnen die Grundtypen von Laptops mit Touchscreen vor, erklären die wichtigsten Unterschiede und geben Ihnen Tipps für die Auswahl eines...",
+    "moreInfoLinkText": "Mehr",
+    "moreInfoUrl": "https://m.alza.de/CategoryDescriptionPage?catId=18854251&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Empfohlen"
+    },
+    {
+     "sort": 7,
+     "description": "Meistverkauft"
+    },
+    {
+     "sort": 1,
+     "description": "Preis aufsteigend"
+    },
+    {
+     "sort": 2,
+     "description": "Preis absteigend"
+    },
+    {
+     "sort": 6,
+     "description": "Nach Bewertung"
+    },
+    {
+     "sort": 5,
+     "description": "Neuheiten"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.de/services/restservice.svc/v1/category/18854758?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18854758,
+   "name": "MacBook",
+   "img": "https://image.alza.cz/Foto/category/120/18854758_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 5,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.de/macbook/18854758.htm",
+   "description": {
+    "annotation": "Du liebst das iPhone?\n\n\t\t\t\t\t\tDu wirst auch den Mac lieben.\n\t\t\t\t\t\t\tDer Mac kann das.\n\t\t\t\t\t\tMehr Informationen\n\n\t\t\t\t\t\tMicrosoft 365 erfordert ein Abonnement. Apps sind im App Store erhältlich.\n\t\t\t\t\t\t\tDer Mac kann viel.\n\t\t\t\t\t\t\tSchnell....",
+    "moreInfoLinkText": "Mehr",
+    "moreInfoUrl": "https://m.alza.de/CategoryDescriptionPage?catId=18854758&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Empfohlen"
+    },
+    {
+     "sort": 7,
+     "description": "Meistverkauft"
+    },
+    {
+     "sort": 1,
+     "description": "Preis aufsteigend"
+    },
+    {
+     "sort": 2,
+     "description": "Preis absteigend"
+    },
+    {
+     "sort": 6,
+     "description": "Nach Bewertung"
+    },
+    {
+     "sort": 5,
+     "description": "Neuheiten"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.de/services/restservice.svc/v1/category/18865374?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18865374,
+   "name": "Lenovo Laptops",
+   "img": "https://image.alza.cz/Foto/category/120/18865374.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 6,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.de/lenovo-laptops/18865374.htm",
+   "description": {
+    "annotation": "Lenovo-Laptops\n\n\t\tDie Geschichte von Lenovo begann nicht im Silicon Valley, sondern im Jahr 1984 in einer kleinen Hütte in Peking. Eine Gruppe begeisterter Ingenieure gründete damals das Unternehmen Legend, das zwanzig Jahre später die Welt schockierte,..."
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Empfohlen"
+    },
+    {
+     "sort": 7,
+     "description": "Meistverkauft"
+    },
+    {
+     "sort": 1,
+     "description": "Preis aufsteigend"
+    },
+    {
+     "sort": 2,
+     "description": "Preis absteigend"
+    },
+    {
+     "sort": 6,
+     "description": "Nach Bewertung"
+    },
+    {
+     "sort": 5,
+     "description": "Neuheiten"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.de/services/restservice.svc/v1/category/18865373?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18865373,
+   "name": "Dell Laptops",
+   "img": "https://image.alza.cz/Foto/category/120/18865373_1.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 7,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.de/dell-laptops/18865373.htm",
+   "description": {
+    "annotation": "Dell Laptops können wir innerhalb von 24 Stunden versenden. Es reicht, wenn das konkrete Produkt auf Lager ist. Bestellen Sie bequem von zu Hause aus und lassen Sie sich die Ware an Ihre Adresse liefern. Finden Sie heraus, warum Sie bei Alza.de einkaufen...",
+    "moreInfoLinkText": "Mehr",
+    "moreInfoUrl": "https://m.alza.de/CategoryDescriptionPage?catId=18865373&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Empfohlen"
+    },
+    {
+     "sort": 7,
+     "description": "Meistverkauft"
+    },
+    {
+     "sort": 1,
+     "description": "Preis aufsteigend"
+    },
+    {
+     "sort": 2,
+     "description": "Preis absteigend"
+    },
+    {
+     "sort": 6,
+     "description": "Nach Bewertung"
+    },
+    {
+     "sort": 5,
+     "description": "Neuheiten"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.de/services/restservice.svc/v1/category/18865376?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18865376,
+   "name": "HP Laptops",
+   "img": "https://image.alza.cz/Foto/category/120/18865376.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 8,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.de/hp-laptops/18865376.htm",
+   "description": {
+    "annotation": "HP Laptops können wir innerhalb von 24 Stunden versenden. Es reicht, wenn das konkrete Produkt auf Lager ist. Bestellen Sie bequem von zu Hause aus und lassen Sie sich die Ware an Ihre Adresse liefern. Finden Sie heraus, warum Sie bei Alza.de einkaufen...",
+    "moreInfoLinkText": "Mehr",
+    "moreInfoUrl": "https://m.alza.de/CategoryDescriptionPage?catId=18865376&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Empfohlen"
+    },
+    {
+     "sort": 7,
+     "description": "Meistverkauft"
+    },
+    {
+     "sort": 1,
+     "description": "Preis aufsteigend"
+    },
+    {
+     "sort": 2,
+     "description": "Preis absteigend"
+    },
+    {
+     "sort": 6,
+     "description": "Nach Bewertung"
+    },
+    {
+     "sort": 5,
+     "description": "Neuheiten"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.de/services/restservice.svc/v1/category/18861358?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18861358,
+   "name": "Microsoft Surface",
+   "img": "https://image.alza.cz/Foto/category/120/18861358.png",
+   "type": "sub",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 9,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.de/microsoft-surface/18861358.htm",
+   "description": {
+    "annotation": "Copilot+ PCs der Spitzenklasse von Microsoft\n\n\t\tDas sind die neuen Microsoft Surface Copilot Plus PCs. Das neue Surface Pro 12\" Gerät funktioniert wie ein Laptop und spielt wie ein Tablet. Der neue Surface Laptop 13\" ist leichter als ein durchschnittlicher...",
+    "moreInfoLinkText": "Mehr",
+    "moreInfoUrl": "https://m.alza.de/CategoryDescriptionPage?catId=18861358&direct=1"
+   },
+   "descriptionPromo": null
+  },
+  {
+   "disclaimers": [],
+   "actionCarouselBanner": null,
+   "categorySponsoredCarousel": null,
+   "sorts": [
+    {
+     "sort": 0,
+     "description": "Empfohlen"
+    },
+    {
+     "sort": 7,
+     "description": "Meistverkauft"
+    },
+    {
+     "sort": 1,
+     "description": "Preis aufsteigend"
+    },
+    {
+     "sort": 2,
+     "description": "Preis absteigend"
+    },
+    {
+     "sort": 6,
+     "description": "Nach Bewertung"
+    },
+    {
+     "sort": 5,
+     "description": "Neuheiten"
+    }
+   ],
+   "self": {
+    "href": "https://m.alza.de/services/restservice.svc/v1/category/18843112?t=CATEGORY",
+    "appLink": "catalogCategory",
+    "enabled": true
+   },
+   "id": 18862746,
+   "name": "Laptop-Zubehör",
+   "img": "https://image.alza.cz/Foto/category/120/18862746.png",
+   "type": "related",
+   "cat_type": "CATEGORY",
+   "child_cnt": 0,
+   "order": 10,
+   "producer": 0,
+   "children": null,
+   "cat_type_id": 0,
+   "ltp": false,
+   "localTitlePageLink": null,
+   "url": "https://www.alza.de/laptop-zubehor/18843112.htm",
+   "description": {
+    "annotation": "Essentielles Laptop Zubehör für Ihr mobiles Büro\n\nDie Auswahl an Laptop Zubehör ist entscheidend für eine optimierte Arbeitsweise und mehr Komfort. Entdecken Sie unsere vielfältigen Angebote, die Ihr mobiles Büro komplettieren.",
+    "moreInfoLinkText": "Mehr",
+    "moreInfoUrl": "https://m.alza.de/CategoryDescriptionPage?catId=18843112&direct=1"
+   },
+   "descriptionPromo": null
+  }
+ ],
+ "data2": [
+  {
+   "self": {
+    "href": "https://www.alza.de/api/router/legacy/catalog/product/13448136?pgrik=p__26752&ucik=u__401f1&country=DE&electronicContentOnly=False",
+    "appLink": "catalogProductDetail",
+    "enabled": true
+   },
+   "priceInfo": {
+    "priceWithoutVat": "1.301,68 €",
+    "priceWithVat": "1.549 €",
+    "comparePrice": "1.620 €",
+    "discountRate": "-4 %",
+    "pricePrefix": null,
+    "pricePostfix": null,
+    "discountReason": null,
+    "gaPriceWithoutVat": 1301.6807,
+    "priceNoCurrency": 1549.0,
+    "delayedPaymentPriceWithVat": "516,33 €"
+   },
+   "priceInfoV2": {
+    "priceWithVat": "1.549 €",
+    "instalmentsPriceWithVat": null,
+    "comparePrice": "1.620 €",
+    "pricePrefix": null,
+    "pricePostfix": null,
+    "priceDescription": null,
+    "priceType": 4,
+    "priceGroupType": 0,
+    "headerText": "Ermäßigt -4 %",
+    "headerIconUrl": null,
+    "priceSave": null,
+    "explanationPriceAction": null,
+    "unitPriceWithVat": "1.549 €",
+    "unitName": "Stk.",
+    "priceWithoutVatNoCurrency": 1301.6807,
+    "priceNoCurrency": 1549.0
+   },
+   "priceInfoV3": {
+    "mainPriceTag": {
+     "primaryPrice": "1.549 €",
+     "primaryPricePrefix": null,
+     "primaryPricePostfix": null,
+     "primaryPriceNoCurrency": 1549.0,
+     "secondaryPrice": null,
+     "secondaryPricePrefix": null,
+     "secondaryPricePostfix": null,
+     "comparePrice": "1.620 €",
+     "priceDescription": null,
+     "priceType": 4,
+     "priceGroupType": 0,
+     "headerText": "Ermäßigt -4 %",
+     "headerIconUrl": null,
+     "priceSave": null,
+     "explanationPriceAction": null,
+     "footerPriceAction": null,
+     "calculatePriceActionForm": null,
+     "calculateInstallmentsPriceAction": null,
+     "footerIconUrl": null,
+     "codeToBuyWith": null
+    },
+    "alternativePriceTag": null
+   },
+   "cpriceTotal": null,
+   "is_comparable": true,
+   "priceTotal": null,
+   "promosWorth": null,
+   "ratingCount": 0,
+   "reviewsDetail": null,
+   "specParent": null,
+   "userOwns": false,
+   "userOwnedContentId": null,
+   "navigationUrl": null,
+   "canChangeQuantity": true,
+   "canCashBack": false,
+   "cashBackItems": [],
+   "cashBackType": 0,
+   "cashBackPriceLabel": null,
+   "cashBackAnalytics": null,
+   "cashBackPrice": null,
+   "cashBackPercent": null,
+   "cashBackPriceDescription": null,
+   "cashBackPromoActions": null,
+   "cashBackPromoActionsV2": null,
+   "giftAdvisor": null,
+   "catalog_number": null,
+   "disclaimers": [],
+   "count": 0,
+   "showUpsellDialog": false,
+   "onChangeItemCountClick": null,
+   "icons": [
+    {
+     "text": "Adapter im Lieferumfang",
+     "image": "https://cdn.alza.cz/Foto/CommodityIcons/charger.svg",
+     "clickAction": null
+    },
+    {
+     "text": "Adapterleistung: 65 - 65 W",
+     "image": "https://webapi.alza.cz/api/catalog/icons/dynamicIcon?path=https%3a%2f%2fcdn.alza.cz%2fFoto%2fCommodityIcons%2fcharger-dyn-5.svg&value=65-&value2=65%20W",
+     "clickAction": null
+    }
+   ],
+   "viewerProductInfo": {
+    "href": "https://www.alza.de/api/visitors/3fc211eb-c8d4-4005-9807-8b9acccc8f36/catalog/products/13448136",
+    "appLink": "viewerProductInfo",
+    "enabled": true
+   },
+   "deliveryPromo": null,
+   "deliveryPromos": [],
+   "personalizedAvailability": null,
+   "recommendation": 0,
+   "sortUnitPrice": null,
+   "floorCategoryId": null,
+   "floorCategoryName": null,
+   "sponsoredCommodityInfo": null,
+   "variantGroups": [],
+   "hazardStatements": null,
+   "precautionaryStatements": null,
+   "warningSymbols": null,
+   "analytics": {
+    "actions": {
+     "onClick": {
+      "data": {},
+      "event": null,
+      "reportAction": {
+       "method": "POST",
+       "value": [
+        {
+         "name": "commodityId",
+         "value": 13448136,
+         "itemType": "integer",
+         "isEnabled": true
+        },
+        {
+         "name": "visitorId",
+         "itemType": "string",
+         "isEnabled": true
+        },
+        {
+         "name": "userId",
+         "itemType": "integer",
+         "isEnabled": true
+        },
+        {
+         "name": "country",
+         "value": "DE",
+         "itemType": "string",
+         "isEnabled": true
+        },
+        {
+         "name": "countryId",
+         "value": 3,
+         "itemType": "integer",
+         "isEnabled": true
+        },
+        {
+         "name": "languageId",
+         "value": 5,
+         "itemType": "integer",
+         "isEnabled": true
+        },
+        {
+         "name": "productId",
+         "value": "d181960d-396a-f111-82b9-e09d73eac416",
+         "itemType": "string",
+         "isEnabled": true
+        },
+        {
+         "name": "pageType",
+         "value": 0,
+         "itemType": "integer",
+         "isEnabled": true
+        },
+        {
+         "name": "position",
+         "value": 1,
+         "itemType": "integer",
+         "isEnabled": true
+        },
+        {
+         "name": "queryId",
+         "itemType": "string",
+         "isEnabled": true
+        },
+        {
+         "name": "provider",
+         "itemType": "string",
+         "isEnabled": true
+        },
+        {
+         "name": "name",
+         "value": "Lenovo ThinkPad L16 Gen 2 Black",
+         "itemType": "string",
+         "isEnabled": true
+        },
+        {
+         "name": "item_brand",
+         "value": "Lenovo",
+         "itemType": "string",
+         "isEnabled": true
+        },
+        {
+         "name": "item_cat_seg_1",
+         "value": "Notebooky",
+         "itemType": "string",
+         "isEnabled": true
+        },
+        {
+         "name": "item_cat_seg_2",
+         "value": "Intel",
+         "itemType": "string",
+         "isEnabled": true
+        },
+        {
+         "name": "item_cat_seg_3",
+         "value": "Windows Pro",
+         "itemType": "string",
+         "isEnabled": true
+        },
+        {
+         "name": "consentGranted",
+         "value": true,
+         "itemType": "boolean",
+         "isEnabled": true
+        }
+       ],
+       "rel": [
+        "form"
+       ],
+       "href": "https://webapi.alza.cz/api/commodities/v1/adCommodityClick"
+      }
+     }
+    }
+   },
+   "id": 13448136,
+   "code": "NT047i07s5_AT",
+   "img": "https://image.alza.cz/products/NT047i07s5_AT/NT047i07s5_AT.jpg?width=190&height=190",
+   "name": "Lenovo ThinkPad L16 Gen 2 Black",
+   "spec": "Laptop - Intel Core Ultra 5 225U,  16\" IPS Antireflex 1920 × 1200,  RAM  16GB DDR5,  Intel Graphics,  SSD  512GB,  hintergrundbeleuchtete Tastatur,  Webkamera,  USB 3.2 Gen 1,  Fingerabdruckleser, WiFi 6E, Gewicht 1,79 kg,  Windows 11 Pro, <strong>ohne Adapter (muss separat erworben werden) </strong>",
+   "price": "1.549 €",
+   "cprice": "1.620 €",
+   "priceWithoutVat": "1.301,68 €",
+   "avail": "Auf Lager 2 Stk.",
+   "avail_postfix": null,
+   "avail_postfix2": null,
+   "availLegend": null,
+   "avail_color": "398000",
+   "is_action": true,
+   "action_name": "Preishammer",
+   "rating": 0.0,
+   "promo_cnt": 0,
+   "promos": [],
+   "order": 26,
+   "is_special_service": false,
+   "type": 0,
+   "year": 0,
+   "can_buy": true,
+   "itemType": "Commodity",
+   "orderItemId": null,
+   "iType": 0,
+   "maxCanBuy": null,
+   "eshopType": 0,
+   "url": "https://www.alza.de/lenovo-thinkpad-l16-gen-2-black-d13448136.htm",
+   "canStream": false,
+   "canUserStream": false,
+   "supplierCode": "21SA0016GE",
+   "parentId": 0,
+   "minimumAmount": 1.0,
+   "amountInPack": 0.0,
+   "start_time": null,
+   "end_time": null,
+   "variant_type": 0,
+   "priceNoCurrency": 1549.0,
+   "categoryName": null,
+   "inBasket": 0.0
+  }
+ ],
+ "total": 1,
+ "has_next": false
+}

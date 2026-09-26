@@ -1,0 +1,25 @@
+[package]
+name = "alza-cli"
+version = "0.1.0"
+edition = "2024"
+description = "Search alza.sk / alza.cz / alza.hu / alza.at / alza.de through the Alza mobile app API, JSON-first for agents"
+authors = ["Version Two s.r.o. <info@versiontwo.sk>", "Mario Chamuty"]
+homepage = "https://www.versiontwo.sk"
+repository = "https://github.com/version-two/skills"
+license = "MIT"
+publish = false
+
+[[bin]]
+name = "alza"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+futures = "0.3"
+regex = "1"
+reqwest = { version = "0.13", default-features = false, features = ["rustls", "gzip", "brotli"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time"] }
+url = "2"

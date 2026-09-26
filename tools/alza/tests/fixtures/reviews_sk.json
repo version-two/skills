@@ -1,0 +1,796 @@
+{
+ "self": {
+  "href": "https://webapi.alza.cz/api/catalog/v2/commodities/7927612/reviews?country=sk&limit=20",
+  "appLink": "commodityReviewsCollection",
+  "enabled": true
+ },
+ "paging": {
+  "limit": 20,
+  "size": 248,
+  "first": {
+   "href": "https://webapi.alza.cz/api/catalog/v2/commodities/7927612/reviews?country=sk&limit=20",
+   "appLink": "commodityReviewsCollection",
+   "enabled": true
+  },
+  "previous": null,
+  "next": {
+   "href": "https://webapi.alza.cz:443/api/catalog/v2/commodities/7927612/reviews?country=sk&limit=20&offset=20",
+   "appLink": "commodityReviewsCollection",
+   "enabled": true
+  },
+  "last": {
+   "href": "https://webapi.alza.cz:443/api/catalog/v2/commodities/7927612/reviews?country=sk&limit=20&offset=240",
+   "appLink": "commodityReviewsCollection",
+   "enabled": true
+  }
+ },
+ "value": [
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8566885/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Parádny ",
+    "Dlho vydrzi batéria - 5 dni",
+    "Veľká pamäť"
+   ],
+   "negatives": [],
+   "name": "Reviewer 1",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 14. 6. 2026, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2026-06-14T15:48:14Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/11.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8051513/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Skvelá kvalita, odporúčam"
+   ],
+   "negatives": [],
+   "name": "Reviewer 2",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 27. 12. 2025, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2025-12-27T11:19:04Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/7678295/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "výkon",
+    "batéria",
+    "kvalita fotiek je úžastná"
+   ],
+   "negatives": [],
+   "name": "Reviewer 3",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 12. 10. 2025, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2025-10-12T10:52:46.267Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 3,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/6173789/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "rýchlosť"
+   ],
+   "negatives": [],
+   "name": "Reviewer 4",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 22. 12. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-12-22T10:35:02.433Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/6053803/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Kvalita zvuku",
+    "Kvalita obrazu",
+    "Kvalita kamery",
+    "Kvalita mikrofonu",
+    "Slowmo 240fps",
+    "4k 60hz kamera",
+    "Bezdratove nabijanie"
+   ],
+   "negatives": [
+    "Baterka jasne ze",
+    "Zohreje sa dost pri pouzivani kamery aspon u mna"
+   ],
+   "name": "Reviewer 5",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 3. 12. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-12-03T10:47:49.993Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/04.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/5726036/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Cena kvalita"
+   ],
+   "negatives": [
+    "Jeden roh sa odlepuje"
+   ],
+   "name": "Reviewer 6",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 17. 10. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-10-17T08:07:32Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/08.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/5211023/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "tento produkt zodpovedá špecifikovanej kvalite."
+   ],
+   "negatives": [],
+   "name": "Reviewer 7",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 20. 6. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-06-20T07:06:50Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/5132838/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Darček ktorý veľmi potešil. Dúfam, že bude slúžiť k všetkej spokojnosti",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 8",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 31. 5. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-05-31T10:42:53.653Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/08.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/5110927/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Top produkt na trhu"
+   ],
+   "negatives": [],
+   "name": "Reviewer 9",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 23. 5. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-05-23T11:03:04Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 20,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/5105682/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "kvalitný telefón, s alzadni kupónom najlepšia cena na trhu"
+   ],
+   "negatives": [
+    "BALENIE!! telefón prišiel zabalený v sáčku ako z číny, krabica obúchaná, špinavá (doniesol mi to kuriér na adresu domov)",
+    "Volal mi pán z Alzy, aby som si kúpil okamžitú výmenu (z 99e na 91e), keby náhodou príde telefón poškodený, akoby dopredu vedel :)",
+    "telefón našťastie poškodený nebol, iba box viz. foto"
+   ],
+   "name": "Reviewer 10",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 22. 5. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-05-22T17:48:30.51Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [
+    {
+     "imageUrl": "https://image.alza.cz/Images/Users/12627745/reviews/standard/77e09e73-c9f9-44c9-858b-309b9783a3eb.jpg",
+     "previewImageUrl": "https://image.alza.cz/Images/Users/12627745/reviews/standard/77e09e73-c9f9-44c9-858b-309b9783a3eb.jpg?width=80&height=80"
+    },
+    {
+     "imageUrl": "https://image.alza.cz/Images/Users/12627745/reviews/standard/39573918-3f00-48e8-a673-3d8398a7a54e.jpg",
+     "previewImageUrl": "https://image.alza.cz/Images/Users/12627745/reviews/standard/39573918-3f00-48e8-a673-3d8398a7a54e.jpg?width=80&height=80"
+    },
+    {
+     "imageUrl": "https://image.alza.cz/Images/Users/12627745/reviews/standard/76bf9fa9-c72c-4fc2-a4fd-65aea12be343.jpg",
+     "previewImageUrl": "https://image.alza.cz/Images/Users/12627745/reviews/standard/76bf9fa9-c72c-4fc2-a4fd-65aea12be343.jpg?width=80&height=80"
+    }
+   ],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/5103217/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Super ako vždy",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 11",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 20. 5. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-05-20T06:56:37Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/5099061/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "Kompaktná veľkosť telefónu"
+   ],
+   "negatives": [],
+   "name": "Reviewer 12",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 19. 5. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-05-19T06:31:15Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/5080647/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Rýchly a kvalitný telefón",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 13",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 14. 5. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-05-14T08:11:22Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/07.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/4999532/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Nebudem popisovať zariadenie, na to sú iný odborníci. Telefóny Apple sú vynikajúce. Stále je tam však čo zlepšovať. Znova si však kúpim telefón od tejto značky.",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 14",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 19. 4. 2024, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2024-04-19T07:41:51Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/4501064/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "nic revolucne ale tato generacia zakladneho modelu je zvlast vhodny cas na upgrade kvoli normalnemu USB a novemu displayu",
+    "Cena pomerne k tomu ze bude 6 rokov aktualizovany. Iphony su takto relativne lacnejsie nez nez flagship Androidy ."
+   ],
+   "negatives": [
+    "60Hz display",
+    "nema teleobjektiv"
+   ],
+   "name": "Reviewer 15",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 29. 9. 2023, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2023-09-29T12:37:12Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/sk.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/14.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8733189/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "super"
+   ],
+   "negatives": [],
+   "name": "Reviewer 16",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 12. 9. 2026, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2026-09-12T08:16:32.967Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8640246/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "Velká spokojenost",
+   "positives": [],
+   "negatives": [],
+   "name": "Reviewer 17",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 24. 7. 2026, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2026-07-24T16:21:50Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/default.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 1.0,
+   "likeCount": 2,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8405304/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [],
+   "negatives": [
+    "nefunkční GPS"
+   ],
+   "name": "Reviewer 18",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 31. 3. 2026, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2026-03-31T14:03:23.637Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/12.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 0,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8367817/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "spokojenost",
+    "super cena"
+   ],
+   "negatives": [],
+   "name": "Reviewer 19",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope. <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 12. 3. 2026, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2026-03-12T21:34:50.48Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/11.jpg",
+   "images": [],
+   "response": null
+  },
+  {
+   "rating": 5.0,
+   "likeCount": 1,
+   "templatedReviewAction": {
+    "href": "https://webapi.alza.cz/api/users/%7BuserId%7D/review/8221566/actions?country=sk",
+    "appLink": "userReviewActions",
+    "enabled": true
+   },
+   "description": "",
+   "positives": [
+    "má vše co slibuje"
+   ],
+   "negatives": [],
+   "name": "Reviewer 20",
+   "verifiedPurchaseTag": {
+    "label": "Overený nákup – recenzie z porovnávača",
+    "tooltip": {
+     "text": "Recenzovaný produkt bol zakúpený v našom e-shope a ohodnotený cez porovnávač. V prípade polovičného hodnotenia (3,5) zaokrúhľujeme nahor (4). <action name=\"showExternal\" />.",
+     "actions": {
+      "showExternal": {
+       "href": "https://www.alza.sk/article/3370.htm",
+       "appLink": "webView",
+       "name": "Viac informácií",
+       "enabled": true
+      }
+     }
+    }
+   },
+   "reviewDetail": "Hodnotené 24. 1. 2026, variant iPhone 15 128 GB čierny",
+   "reviewDate": "2026-01-24T10:46:58Z",
+   "commodityName": "iPhone 15 128 GB čierny",
+   "isTranslated": false,
+   "flagUrl": "https://cdn.alza.cz/images/flags/country/cz.svg",
+   "avatarUrl": "https://image.alza.cz/Images/avatars/list/07.jpg",
+   "images": [],
+   "response": null
+  }
+ ]
+}
