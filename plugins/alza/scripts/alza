@@ -6,16 +6,16 @@ VERSION=0.1.0
 REPO=version-two/skills
 
 fail() {
-  msg=$(printf '%s' "$1" | sed 's/\\/\\\\/g; s/"/\\"/g')
+  msg=$(printf '%s' "$1" | tr '\n\r\t' '   ' | sed 's/\\/\\\\/g; s/"/\\"/g')
   printf '{"error":"install_error","message":"%s"}\n' "$msg" >&2
   exit 6
 }
 
 fetch() {
   if command -v curl >/dev/null 2>&1; then
-    curl -fsSL --retry 2 -o "$2" "$1" || fail "download failed: $1"
+    err=$(curl -fsSL --retry 2 -o "$2" "$1" 2>&1) || fail "download failed: $1: $err"
   elif command -v wget >/dev/null 2>&1; then
-    wget -q -O "$2" "$1" || fail "download failed: $1"
+    err=$(wget -nv -O "$2" "$1" 2>&1) || fail "download failed: $1: $err"
   else
     fail "curl or wget is required to download $TOOL"
   fi
