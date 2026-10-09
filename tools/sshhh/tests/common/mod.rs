@@ -1,5 +1,7 @@
 #![allow(dead_code)]
 
+pub mod sftp;
+
 use std::collections::{HashMap, HashSet};
 use std::net::SocketAddr;
 use std::sync::Arc;
@@ -40,6 +42,7 @@ pub struct Fixture {
     pub host_key: PublicKey,
     _dir: tempfile::TempDir,
     pub known_hosts: std::path::PathBuf,
+    pub fs: sftp::SftpFs,
 }
 
 pub fn new_key() -> PrivateKey {
@@ -63,11 +66,15 @@ pub async fn start_with_host_key(behaviour: Behaviour, host_key: PrivateKey) -> 
     });
     let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
     let addr = listener.local_addr().unwrap();
+    let dir = tempfile::tempdir().unwrap();
+    let known_hosts = dir.path().join("known_hosts");
+    let fs = sftp::SftpFs::new(dir.path().join("remote"));
+    let served = fs.clone();
     tokio::spawn(async move {
         loop {
             let Ok((socket, _)) = listener.accept().await else { return };
             let config = config.clone();
-            let handler = Conn { behaviour: behaviour.clone(), jobs: HashMap::new(), ptys: HashSet::new() };
+            let handler = Conn { behaviour: behaviour.clone(), jobs: HashMap::new(), ptys: HashSet::new(), channels: HashMap::new(), fs: served.clone() };
             tokio::spawn(async move {
                 if let Ok(session) = server::run_stream(config, socket, handler).await {
                     let _ = session.await;
@@ -75,9 +82,7 @@ pub async fn start_with_host_key(behaviour: Behaviour, host_key: PrivateKey) -> 
             });
         }
     });
-    let dir = tempfile::tempdir().unwrap();
-    let known_hosts = dir.path().join("known_hosts");
-    Fixture { addr, host_key: host_key.public_key().clone(), _dir: dir, known_hosts }
+    Fixture { addr, host_key: host_key.public_key().clone(), _dir: dir, known_hosts, fs }
 }
 
 impl Fixture {
@@ -146,6 +151,8 @@ struct Conn {
     behaviour: Behaviour,
     jobs: HashMap<ChannelId, Job>,
     ptys: HashSet<ChannelId>,
+    channels: HashMap<ChannelId, Channel<Msg>>,
+    fs: sftp::SftpFs,
 }
 
 fn unquote(quoted: &str) -> String {
@@ -198,11 +205,23 @@ impl server::Handler for Conn {
 
     async fn channel_open_session(
         &mut self,
-        _channel: Channel<Msg>,
+        channel: Channel<Msg>,
         reply: server::ChannelOpenHandle,
         _session: &mut Session,
     ) -> Result<(), Self::Error> {
+        self.channels.insert(channel.id(), channel);
         reply.accept().await;
+        Ok(())
+    }
+
+    async fn subsystem_request(&mut self, channel: ChannelId, name: &str, session: &mut Session) -> Result<(), Self::Error> {
+        match self.channels.remove(&channel) {
+            Some(open) if name == "sftp" => {
+                session.channel_success(channel)?;
+                russh_sftp::server::run(open.into_stream(), sftp::SftpHandler::new(self.fs.clone())).await;
+            }
+            _ => session.channel_failure(channel)?,
+        }
         Ok(())
     }
 

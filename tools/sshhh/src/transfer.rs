@@ -4,7 +4,8 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::{Instant, SystemTime, UNIX_EPOCH};
 
 use russh_sftp::client::SftpSession;
-use russh_sftp::protocol::{FileAttributes, OpenFlags};
+use russh_sftp::client::error::Error as SftpError;
+use russh_sftp::protocol::{FileAttributes, OpenFlags, StatusCode};
 use serde::Serialize;
 use sha2::{Digest, Sha256};
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
@@ -171,6 +172,7 @@ async fn publish(sftp: &SftpSession, temp: &str, target: &str, warnings: &mut Ve
 async fn discard_remote(sftp: &SftpSession, temp: &str, error: Error) -> Error {
     match sftp.remove_file(temp).await {
         Ok(()) => error,
+        Err(SftpError::Status(status)) if status.status_code == StatusCode::NoSuchFile => error,
         Err(e) => transfer("cleanup", temp, format!("{error}; the temporary file was left behind ({e})")),
     }
 }

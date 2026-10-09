@@ -230,6 +230,32 @@ async fn a_vault_failure_fails_the_operation_even_when_the_env_has_values() {
 }
 
 #[tokio::test]
+async fn policy_fields_on_the_vault_item_restrict_and_a_failed_fetch_is_an_error() {
+    let bw = Bw::new();
+    bw.item(
+        "guarded",
+        json!({ "login": {}, "fields": [
+            { "name": "READONLY", "value": "true", "type": 0 },
+            { "name": "DENY_PATHS", "value": "/etc/**;**/.env", "type": 0 },
+        ] }),
+    );
+    bw.item("plain", json!({ "login": {}, "fields": [] }));
+    let work = tempfile::tempdir().unwrap();
+    let cfg = config(work.path(), "G_VAULT=bw://guarded\nP_VAULT=bw://plain\nN_HOST=h\n");
+    let r = resolver(&bw, work.path());
+    let guarded = r.vault_policy(cfg.select(Some("g")).unwrap()).await.unwrap();
+    assert!(guarded.readonly);
+    assert_eq!(guarded.deny_paths, ["/etc/**", "**/.env"]);
+    assert!(!r.vault_policy(cfg.select(Some("p")).unwrap()).await.unwrap().is_restricted());
+    assert!(!r.vault_policy(cfg.select(Some("n")).unwrap()).await.unwrap().is_restricted());
+
+    let broken = Bw::new();
+    broken.put("locked", "");
+    let err = resolver(&broken, work.path()).vault_policy(cfg.select(Some("g")).unwrap()).await.unwrap_err();
+    assert_eq!(err.code(), "secret_unavailable");
+}
+
+#[tokio::test]
 async fn a_vault_item_without_a_host_is_missing_host() {
     let bw = Bw::new();
     bw.item("bare", json!({ "login": { "password": "p" }, "fields": [] }));
