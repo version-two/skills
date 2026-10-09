@@ -52,11 +52,12 @@ pub async fn start(behaviour: Behaviour) -> Fixture {
 }
 
 pub async fn start_with_host_key(behaviour: Behaviour, host_key: PrivateKey) -> Fixture {
-    let mut config = server::Config::default();
-    config.auth_rejection_time = Duration::from_millis(1);
-    config.auth_rejection_time_initial = Some(Duration::from_millis(1));
-    config.keys.push(host_key.clone());
-    let config = Arc::new(config);
+    let config = Arc::new(server::Config {
+        auth_rejection_time: Duration::from_millis(1),
+        auth_rejection_time_initial: Some(Duration::from_millis(1)),
+        keys: vec![host_key.clone()],
+        ..Default::default()
+    });
     let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
     let addr = listener.local_addr().unwrap();
     tokio::spawn(async move {

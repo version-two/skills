@@ -33,19 +33,44 @@ pub enum AuthMethod {
 #[derive(Debug)]
 pub struct Server {
     pub alias: String,
-    pub host: String,
-    pub port: u16,
-    pub user: String,
+    pub host: Option<String>,
+    pub port: Option<u16>,
+    pub user: Option<String>,
     pub pass: Option<SecretString>,
     pub key: Option<String>,
     pub key_pass: Option<SecretString>,
-    pub root_user: String,
+    pub root_user: Option<String>,
     pub root_pass: Option<SecretString>,
     pub sudo_pass: Option<SecretString>,
     pub escalate: Option<Escalate>,
-    pub auth: Vec<AuthMethod>,
+    pub auth: Option<Vec<AuthMethod>>,
     pub vault: Option<String>,
 }
+
+impl Server {
+    pub fn port(&self) -> u16 {
+        self.port.unwrap_or(DEFAULT_PORT)
+    }
+
+    pub fn user(&self) -> &str {
+        self.user.as_deref().unwrap_or(DEFAULT_USER)
+    }
+
+    pub fn root_user(&self) -> &str {
+        self.root_user.as_deref().unwrap_or(DEFAULT_USER)
+    }
+}
+
+/// Tool settings that can launch binaries or pick servers; honoured only from the global
+/// file, an explicit `--env` file or the process environment, never from a project `.env`.
+#[derive(Debug, Default, Clone, PartialEq, Eq)]
+pub struct Settings {
+    pub bw_bin: Option<String>,
+    pub bw_appdata: Option<PathBuf>,
+    pub bw_server: Option<String>,
+}
+
+const SETTING_KEYS: [&str; 3] = ["BW_BIN", "BW_APPDATA", "BW_SERVER"];
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct Warning {
@@ -61,6 +86,7 @@ pub struct Config {
     pub default_alias: Option<String>,
     pub sources: Vec<PathBuf>,
     pub warnings: Vec<Warning>,
+    pub settings: Settings,
 }
 
 pub struct LoadOptions {
@@ -101,24 +127,36 @@ pub fn process_env_from_os() -> BTreeMap<String, String> {
 impl Config {
     pub fn load(opts: &LoadOptions) -> Result<Config, Error> {
         let mut merged: BTreeMap<String, String> = BTreeMap::new();
+        let mut trusted: BTreeMap<String, String> = BTreeMap::new();
         let mut sources = Vec::new();
-        let mut layer = |path: &Path| -> Result<(), Error> {
+        let mut ignored = Vec::new();
+        let mut layer = |path: &Path, is_trusted: bool| -> Result<(), Error> {
             let text = std::fs::read_to_string(path)
                 .map_err(|e| Error::EnvRead { path: path.to_path_buf(), reason: e.kind().to_string() })?;
-            merged.extend(dotenv::parse(&text, path)?);
+            for (key, value) in dotenv::parse(&text, path)? {
+                if SETTING_KEYS.contains(&key.as_str()) {
+                    if is_trusted {
+                        trusted.insert(key, value);
+                    } else {
+                        ignored.push(key);
+                    }
+                } else {
+                    merged.insert(key, value);
+                }
+            }
             sources.push(path.to_path_buf());
             Ok(())
         };
 
         let mut searched = Vec::new();
         if let Some(file) = &opts.env_file {
-            layer(file)?;
+            layer(file, true)?;
         } else {
             if let Some(home) = &opts.home {
                 let global = home.join(".config").join("sshhh").join("servers.env");
                 searched.push(global.display().to_string());
                 if global.is_file() {
-                    layer(&global)?;
+                    layer(&global, true)?;
                 }
             }
             let mut dir = Some(opts.cwd.as_path());
@@ -129,10 +167,10 @@ impl Config {
                 searched.push(local.display().to_string());
                 if plain.is_file() || local.is_file() {
                     if plain.is_file() {
-                        layer(&plain)?;
+                        layer(&plain, false)?;
                     }
                     if local.is_file() {
-                        layer(&local)?;
+                        layer(&local, false)?;
                     }
                     break;
                 }
@@ -143,18 +181,36 @@ impl Config {
         let mut ssh_server = None;
         for (key, value) in &opts.process_env {
             if let Some(stripped) = key.strip_prefix(PROCESS_PREFIX) {
-                merged.insert(stripped.to_ascii_uppercase(), value.clone());
+                let stripped = stripped.to_ascii_uppercase();
+                if SETTING_KEYS.contains(&stripped.as_str()) {
+                    trusted.insert(stripped, value.clone());
+                } else {
+                    merged.insert(stripped, value.clone());
+                }
             } else if key == "SSH_SERVER" && !value.is_empty() {
                 ssh_server = Some(value.clone());
             }
         }
 
-        if merged.is_empty() {
+        if merged.is_empty() && trusted.is_empty() {
             return Err(Error::NoConfig { searched: searched.join(", ") });
         }
         let mut cfg = build(&merged, sources)?;
         if let Some(alias) = ssh_server {
             cfg.default_alias = Some(normalize_alias(&alias));
+        }
+        let non_empty = |key: &str| trusted.get(key).filter(|v| !v.is_empty()).cloned();
+        cfg.settings = Settings {
+            bw_bin: non_empty("BW_BIN"),
+            bw_appdata: non_empty("BW_APPDATA").map(PathBuf::from),
+            bw_server: non_empty("BW_SERVER"),
+        };
+        for key in ignored {
+            cfg.warnings.push(Warning {
+                warning: "ignored_in_project_file",
+                use_instead: format!("set SSHHH_{key} in the environment or {key} in ~/.config/sshhh/servers.env"),
+                key,
+            });
         }
         Ok(cfg)
     }
@@ -240,13 +296,19 @@ fn build(map: &BTreeMap<String, String>, sources: Vec<PathBuf>) -> Result<Config
         let invalid = |key: &'static str, reason: String| Error::InvalidValue { alias: alias.clone(), key, reason };
         let secret = |canonical: &'static str| get(canonical).map(|v| v.map(SecretString::from));
 
-        let Some(host) = get("HOST")? else {
+        let host = get("HOST")?;
+        let vault = keys
+            .get(VAULT_KEY)
+            .and_then(|c| c.names.first())
+            .map(|(_, v)| v.to_string())
+            .filter(|v| !v.is_empty());
+        if host.is_none() && vault.is_none() {
             incomplete.push(alias.clone());
             continue;
-        };
+        }
         let port = match get("PORT")? {
-            Some(p) => p.parse::<u16>().map_err(|_| invalid("PORT", "not a port number".into()))?,
-            None => DEFAULT_PORT,
+            Some(p) => Some(p.parse::<u16>().map_err(|_| invalid("PORT", "not a port number".into()))?),
+            None => None,
         };
         let escalate = match get("ESCALATE")?.as_deref().map(str::to_ascii_lowercase).as_deref() {
             None => None,
@@ -255,37 +317,21 @@ fn build(map: &BTreeMap<String, String>, sources: Vec<PathBuf>) -> Result<Config
             Some("none") => Some(Escalate::None),
             Some(_) => return Err(invalid("ESCALATE", "expected su, sudo or none".into())),
         };
-        let pass = secret("PASS")?;
-        let key = get("KEY")?;
         let auth = match get("AUTH")? {
-            Some(list) => parse_auth(&list).map_err(|reason| invalid("AUTH", reason))?,
-            None => {
-                let mut inferred = Vec::new();
-                if key.is_some() {
-                    inferred.push(AuthMethod::Key);
-                }
-                if pass.is_some() {
-                    inferred.extend([AuthMethod::Password, AuthMethod::Kbdint]);
-                }
-                inferred
-            }
+            Some(list) => Some(parse_auth(&list).map_err(|reason| invalid("AUTH", reason))?),
+            None => None,
         };
-        let vault = keys
-            .get(VAULT_KEY)
-            .and_then(|c| c.names.first())
-            .map(|(_, v)| v.to_string())
-            .filter(|v| !v.is_empty());
         servers.insert(
             alias.clone(),
             Server {
                 alias: alias.clone(),
                 host,
                 port,
-                user: get("USER")?.unwrap_or_else(|| DEFAULT_USER.into()),
-                pass,
-                key,
+                user: get("USER")?,
+                pass: secret("PASS")?,
+                key: get("KEY")?,
                 key_pass: secret("KEY_PASS")?,
-                root_user: get("ROOT_USER")?.unwrap_or_else(|| DEFAULT_USER.into()),
+                root_user: get("ROOT_USER")?,
                 root_pass: secret("ROOT_PASS")?,
                 sudo_pass: secret("SUDO_PASS")?,
                 escalate,
@@ -294,7 +340,7 @@ fn build(map: &BTreeMap<String, String>, sources: Vec<PathBuf>) -> Result<Config
             },
         );
     }
-    Ok(Config { servers, incomplete, default_alias, sources, warnings })
+    Ok(Config { servers, incomplete, default_alias, sources, warnings, settings: Settings::default() })
 }
 
 fn parse_auth(list: &str) -> Result<Vec<AuthMethod>, String> {
@@ -309,6 +355,17 @@ fn parse_auth(list: &str) -> Result<Vec<AuthMethod>, String> {
         });
     }
     if out.is_empty() { Err("empty list".into()) } else { Ok(out) }
+}
+
+pub fn infer_auth(has_key: bool, has_password: bool) -> Vec<AuthMethod> {
+    let mut methods = Vec::new();
+    if has_key {
+        methods.push(AuthMethod::Key);
+    }
+    if has_password {
+        methods.extend([AuthMethod::Password, AuthMethod::Kbdint]);
+    }
+    methods
 }
 
 fn classify(key: &str) -> Option<(String, &'static str, &'static str)> {
@@ -326,10 +383,10 @@ fn classify(key: &str) -> Option<(String, &'static str, &'static str)> {
     for (canonical, name) in specs {
         if key == name {
             consider(DEFAULT_ALIAS.to_string(), canonical, name);
-        } else if let Some(prefix) = key.strip_suffix(name).and_then(|p| p.strip_suffix('_')) {
-            if !prefix.is_empty() {
-                consider(normalize_alias(prefix), canonical, name);
-            }
+        } else if let Some(prefix) = key.strip_suffix(name).and_then(|p| p.strip_suffix('_'))
+            && !prefix.is_empty()
+        {
+            consider(normalize_alias(prefix), canonical, name);
         }
     }
     best
@@ -350,10 +407,27 @@ mod tests {
         let c = cfg("ZEUS_HOST=10.0.0.1\nZEUS_USER=deploy\nZEUS_PASS=p\nPROD_WEB_HOST=10.0.0.2\nPROD_WEB_PORT=2200\nPROD_WEB_KEY=~/.ssh/id\nDEFAULT=zeus\n");
         assert_eq!(c.aliases(), ["prod_web", "zeus"]);
         let z = c.select(None).unwrap();
-        assert_eq!((z.alias.as_str(), z.user.as_str(), z.port), ("zeus", "deploy", 22));
-        assert_eq!(z.auth, [AuthMethod::Password, AuthMethod::Kbdint]);
+        assert_eq!((z.alias.as_str(), z.user(), z.port()), ("zeus", "deploy", 22));
+        assert!(z.auth.is_none());
         let p = c.select(Some("PROD-WEB")).unwrap();
-        assert_eq!((p.port, p.auth.clone()), (2200, vec![AuthMethod::Key]));
+        assert_eq!((p.port, p.user()), (Some(2200), "root"));
+    }
+
+    #[test]
+    fn auth_is_inferred_from_what_is_present() {
+        assert_eq!(infer_auth(true, false), [AuthMethod::Key]);
+        assert_eq!(infer_auth(false, true), [AuthMethod::Password, AuthMethod::Kbdint]);
+        assert_eq!(infer_auth(true, true), [AuthMethod::Key, AuthMethod::Password, AuthMethod::Kbdint]);
+        assert!(infer_auth(false, false).is_empty());
+    }
+
+    #[test]
+    fn a_vault_reference_stands_in_for_a_missing_host() {
+        let c = cfg("ZEUS_VAULT=bw://zeus\nLONELY_PASS=x\n");
+        let z = c.select(Some("zeus")).unwrap();
+        assert!(z.host.is_none());
+        assert_eq!(z.vault.as_deref(), Some("bw://zeus"));
+        assert_eq!(c.incomplete, ["lonely"]);
     }
 
     #[test]
@@ -363,7 +437,7 @@ mod tests {
         assert_eq!(z.root_pass.as_ref().unwrap().expose_secret(), "r");
         assert_eq!(z.key_pass.as_ref().unwrap().expose_secret(), "k");
         assert_eq!(z.pass.as_ref().unwrap().expose_secret(), "p");
-        assert_eq!(z.root_user, "adm");
+        assert_eq!(z.root_user(), "adm");
         assert_eq!(c.aliases(), ["zeus"]);
     }
 
@@ -371,7 +445,7 @@ mod tests {
     fn bare_keys_form_default_and_legacy_keys_warn() {
         let c = cfg("SSH_HOST=h\nSSH_USER=u\nPASSWORD=p\nCERT=/k\nIP_NOT_A_KEY=1\n");
         let s = c.select(None).unwrap();
-        assert_eq!((s.alias.as_str(), s.host.as_str(), s.user.as_str()), ("default", "h", "u"));
+        assert_eq!((s.alias.as_str(), s.host.as_deref(), s.user()), ("default", Some("h"), "u"));
         let warned: Vec<&str> = c.warnings.iter().map(|w| w.key.as_str()).collect();
         assert_eq!(warned, ["CERT", "PASSWORD", "SSH_HOST", "SSH_USER"]);
         assert!(c.warnings.iter().any(|w| w.key == "SSH_HOST" && w.use_instead == "HOST"));
@@ -412,7 +486,7 @@ mod tests {
     fn empty_values_count_as_unset() {
         let c = cfg("Z_HOST=h\nZ_PASS=\nZ_KEY=\n");
         let z = c.select(None).unwrap();
-        assert!(z.pass.is_none() && z.key.is_none() && z.auth.is_empty());
+        assert!(z.pass.is_none() && z.key.is_none() && z.auth.is_none());
     }
 
     #[test]
@@ -435,9 +509,28 @@ mod tests {
         let opts = LoadOptions { env_file: None, cwd: sub, home: Some(home), process_env: env };
         let c = Config::load(&opts).unwrap();
         let z = c.select(None).unwrap();
-        assert_eq!((z.host.as_str(), z.user.as_str(), z.port), ("plain", "local", 2222));
+        assert_eq!((z.host.as_deref(), z.user(), z.port()), (Some("plain"), "local", 2222));
         assert_eq!(z.pass.as_ref().unwrap().expose_secret(), "g");
         assert_eq!(c.sources.len(), 3);
+    }
+
+    #[test]
+    fn launch_capable_settings_are_ignored_in_project_files() {
+        let dir = tempfile::tempdir().unwrap();
+        let home = dir.path().join("home");
+        let proj = dir.path().join("proj");
+        std::fs::create_dir_all(home.join(".config").join("sshhh")).unwrap();
+        std::fs::create_dir_all(&proj).unwrap();
+        std::fs::write(home.join(".config/sshhh/servers.env"), "BW_SERVER=https://vault.example.test\nBW_BIN=/opt/bw\n").unwrap();
+        std::fs::write(proj.join(".env"), "ZEUS_HOST=h\nBW_BIN=/tmp/evil\nBW_APPDATA=/tmp/evil\n").unwrap();
+        let env = BTreeMap::from([("SSHHH_BW_APPDATA".to_string(), "/data/bw".to_string())]);
+        let opts = LoadOptions { env_file: None, cwd: proj, home: Some(home), process_env: env };
+        let c = Config::load(&opts).unwrap();
+        assert_eq!(c.settings.bw_bin.as_deref(), Some("/opt/bw"));
+        assert_eq!(c.settings.bw_server.as_deref(), Some("https://vault.example.test"));
+        assert_eq!(c.settings.bw_appdata, Some(PathBuf::from("/data/bw")));
+        let ignored: Vec<&str> = c.warnings.iter().filter(|w| w.warning == "ignored_in_project_file").map(|w| w.key.as_str()).collect();
+        assert_eq!(ignored, ["BW_APPDATA", "BW_BIN"]);
     }
 
     #[test]

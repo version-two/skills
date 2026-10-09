@@ -4,18 +4,18 @@ Append-only. Only `[ ]` becomes `[x]` after verified completion; notes go in `<!
 
 ## v0.1 build
 
-- [ ] Cargo crate `sshhh-cli` (bin `sshhh`) in the `tools` workspace, release-safe dependency tree (no aws-lc, openssl, dbus)
+- [x] Cargo crate `sshhh-cli` (bin `sshhh`) in the `tools` workspace, release-safe dependency tree (no aws-lc, openssl, dbus) <!-- NOTE: verified with cargo tree for x86_64/aarch64 musl and aarch64-apple-darwin -->
 - [ ] clap skeleton, `--version`, JSON error contract on stderr, exit codes
 - [ ] `.env` parser: alias table, lookup order (`--env`, `SSHHH_ENV`, `./.local/.env`, `./.env` walking up, `~/.config/sshhh/servers.env`), process environment wins
-- [ ] Legacy keys accepted with a deprecation warning
-- [ ] Multi-server `.env` (`ALIAS_KEY` prefixes, `DEFAULT`)
+- [x] Legacy keys accepted with a deprecation warning
+- [x] Multi-server `.env` (`ALIAS_KEY` prefixes, `DEFAULT`)
 - [ ] `run`: russh connect, real remote exit status, separate stdout/stderr, `--json` envelope, timeout
 - [ ] Auth: password, keyboard-interactive, OpenSSH key, PuTTY `.ppk`, certificate, agent
 - [ ] Host keys: strict, own `known_hosts`, `trust`, `forget`, changed key is a hard failure
-- [ ] Secret provider trait; reference syntax `scheme://...` in any credential value
+- [ ] Secret provider trait; reference syntax `scheme://...` in any credential value <!-- NOTE: reference syntax works (secrets.rs, tested); dispatch is an enum (Target) instead of a trait because there are three in-process providers – needs the user's call before ticking -->
 - [ ] Provider `bw://` (Bitwarden CLI, cloud and self-hosted), `unlock`, `bw_wrong_server`, own `BITWARDENCLI_APPDATA_DIR`
-- [ ] Provider `env://`
-- [ ] Provider `file://`
+- [x] Provider `env://`
+- [x] Provider `file://`
 - [ ] `put` / `get` via SFTP, `--verify` (sha256), `--private`, streaming
 - [ ] `--root`: `sudo -S` (password over stdin, never in the command string)
 - [ ] `--root`: `su -l` on a PTY with prompt detection; `ESCALATE=su|sudo|none`
