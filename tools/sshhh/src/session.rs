@@ -2,7 +2,7 @@ use std::path::PathBuf;
 use std::sync::{Arc, Mutex, PoisonError};
 use std::time::Duration;
 
-use russh::client::{self, KeyboardInteractiveAuthResponse};
+use russh::client::{self, KeyboardInteractiveAuthResponse, Msg};
 use russh::keys::{self, HashAlg, PrivateKeyWithHashAlg, PublicKeyOrCertificate};
 use russh::{Channel, ChannelMsg, Disconnect, Sig};
 use russh_sftp::client::SftpSession;
@@ -285,7 +285,10 @@ impl Session {
     }
 
     pub async fn sftp(&self) -> Result<SftpSession, Error> {
-        let channel = self.open().await?;
+        Session::sftp_on(self.open().await?).await
+    }
+
+    pub async fn sftp_on(channel: Channel<Msg>) -> Result<SftpSession, Error> {
         channel.request_subsystem(true, "sftp").await.map_err(|e| Error::Refused(format!("sftp subsystem: {e}")))?;
         SftpSession::new(channel.into_stream()).await.map_err(|e| Error::Refused(format!("sftp: {e}")))
     }

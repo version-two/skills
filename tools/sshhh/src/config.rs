@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::dotenv;
 use crate::error::Error;
+use crate::policy::{self, Policy};
 
 pub const PROCESS_PREFIX: &str = "SSHHH_";
 const DEFAULT_PORT: u16 = 22;
@@ -45,6 +46,7 @@ pub struct Server {
     pub escalate: Option<Escalate>,
     pub auth: Option<Vec<AuthMethod>>,
     pub vault: Option<String>,
+    pub policy: Policy,
 }
 
 impl Server {
@@ -130,6 +132,7 @@ impl Config {
         let mut trusted: BTreeMap<String, String> = BTreeMap::new();
         let mut sources = Vec::new();
         let mut ignored = Vec::new();
+        let mut policy_entries: Vec<PolicyEntry> = Vec::new();
         let mut layer = |path: &Path, is_trusted: bool| -> Result<(), Error> {
             let text = std::fs::read_to_string(path)
                 .map_err(|e| Error::EnvRead { path: path.to_path_buf(), reason: e.kind().to_string() })?;
@@ -140,6 +143,8 @@ impl Config {
                     } else {
                         ignored.push(key);
                     }
+                } else if let Some(entry) = PolicyEntry::recognise(&key, &value)? {
+                    policy_entries.push(entry);
                 } else {
                     merged.insert(key, value);
                 }
@@ -184,6 +189,8 @@ impl Config {
                 let stripped = stripped.to_ascii_uppercase();
                 if SETTING_KEYS.contains(&stripped.as_str()) {
                     trusted.insert(stripped, value.clone());
+                } else if let Some(entry) = PolicyEntry::recognise(&stripped, value)? {
+                    policy_entries.push(entry);
                 } else {
                     merged.insert(stripped, value.clone());
                 }
@@ -192,10 +199,11 @@ impl Config {
             }
         }
 
-        if merged.is_empty() && trusted.is_empty() {
+        if merged.is_empty() && trusted.is_empty() && policy_entries.is_empty() {
             return Err(Error::NoConfig { searched: searched.join(", ") });
         }
         let mut cfg = build(&merged, sources)?;
+        cfg.apply_policies(&policy_entries)?;
         if let Some(alias) = ssh_server {
             cfg.default_alias = Some(normalize_alias(&alias));
         }
@@ -213,6 +221,27 @@ impl Config {
             });
         }
         Ok(cfg)
+    }
+
+    /// Entries arrive in layer order. Each one only adds restrictions, so a later layer or the
+    /// process environment can never lift what an earlier one set.
+    fn apply_policies(&mut self, entries: &[PolicyEntry]) -> Result<(), Error> {
+        for entry in entries {
+            let Some(server) = self.servers.get_mut(&entry.alias) else {
+                self.warnings.push(Warning {
+                    warning: "policy_without_server",
+                    key: entry.key.clone(),
+                    use_instead: format!("no server '{}' is configured; the setting has no effect", entry.alias),
+                });
+                continue;
+            };
+            server.policy.add_layer(entry.canonical, &entry.value).map_err(|reason| Error::InvalidValue {
+                alias: entry.alias.clone(),
+                key: entry.canonical,
+                reason,
+            })?;
+        }
+        Ok(())
     }
 
     pub fn aliases(&self) -> Vec<&str> {
@@ -242,6 +271,50 @@ impl Config {
     }
 }
 
+struct PolicyEntry {
+    key: String,
+    alias: String,
+    canonical: &'static str,
+    value: String,
+}
+
+const POLICY_LOOKALIKES: [&str; 13] = [
+    "READ_ONLY",
+    "READ-ONLY",
+    "WHITELIST",
+    "BLACKLIST",
+    "ALLOW_COMMAND",
+    "DENY_COMMAND",
+    "ALLOW_PATH",
+    "DENY_PATH",
+    "ALLOWED_COMMANDS",
+    "DENIED_COMMANDS",
+    "ALLOWED_PATHS",
+    "DENIED_PATHS",
+    "ALLOWLIST",
+];
+
+impl PolicyEntry {
+    /// A misspelt safety key must not silently leave a server unrestricted, so look-alikes fail.
+    fn recognise(key: &str, value: &str) -> Result<Option<PolicyEntry>, Error> {
+        match classify(key) {
+            Some((alias, canonical, _)) if policy::KEYS.contains(&canonical) => {
+                Ok(Some(PolicyEntry { key: key.to_owned(), alias, canonical, value: value.to_owned() }))
+            }
+            Some(_) => Ok(None),
+            None => {
+                let upper = key.to_ascii_uppercase();
+                if POLICY_LOOKALIKES.iter().any(|name| upper.ends_with(name)) {
+                    return Err(Error::Usage(format!(
+                        "{key}: looks like an access-policy setting but is not one; the keys are ALIAS_READONLY, ALIAS_ALLOW_COMMANDS, ALIAS_DENY_COMMANDS, ALIAS_ALLOW_PATHS and ALIAS_DENY_PATHS"
+                    )));
+                }
+                Ok(None)
+            }
+        }
+    }
+}
+
 struct Claimed<'a> {
     names: Vec<(&'a str, &'a str)>,
 }
@@ -265,6 +338,9 @@ fn build(map: &BTreeMap<String, String>, sources: Vec<PathBuf>) -> Result<Config
             continue;
         }
         let Some((alias, canonical, name)) = classify(key) else { continue };
+        if policy::KEYS.contains(&canonical) {
+            continue;
+        }
         if name != canonical {
             let use_instead = format!("{}{canonical}", &key[..key.len() - name.len()]);
             warnings.push(Warning { warning: "deprecated_key", key: key.clone(), use_instead });
@@ -337,6 +413,7 @@ fn build(map: &BTreeMap<String, String>, sources: Vec<PathBuf>) -> Result<Config
                 escalate,
                 auth,
                 vault,
+                policy: Policy::default(),
             },
         );
     }
@@ -379,7 +456,8 @@ fn classify(key: &str) -> Option<(String, &'static str, &'static str)> {
     let specs = KEYS
         .iter()
         .flat_map(|s| s.names.iter().map(move |n| (s.canonical, *n)))
-        .chain(vault_names);
+        .chain(vault_names)
+        .chain(policy::KEYS.iter().map(|k| (*k, *k)));
     for (canonical, name) in specs {
         if key == name {
             consider(DEFAULT_ALIAS.to_string(), canonical, name);
@@ -512,6 +590,67 @@ mod tests {
         assert_eq!((z.host.as_deref(), z.user(), z.port()), (Some("plain"), "local", 2222));
         assert_eq!(z.pass.as_ref().unwrap().expose_secret(), "g");
         assert_eq!(c.sources.len(), 3);
+    }
+
+    fn layered(global: &str, project: &str, local: &str, process: &[(&str, &str)]) -> Result<Config, Error> {
+        let dir = tempfile::tempdir().unwrap();
+        let home = dir.path().join("home");
+        let proj = dir.path().join("proj");
+        std::fs::create_dir_all(home.join(".config").join("sshhh")).unwrap();
+        std::fs::create_dir_all(proj.join(".local")).unwrap();
+        std::fs::write(home.join(".config/sshhh/servers.env"), global).unwrap();
+        std::fs::write(proj.join(".env"), project).unwrap();
+        std::fs::write(proj.join(".local/.env"), local).unwrap();
+        let process_env = process.iter().map(|(k, v)| (k.to_string(), v.to_string())).collect();
+        Config::load(&LoadOptions { env_file: None, cwd: proj, home: Some(home), process_env })
+    }
+
+    #[test]
+    fn readonly_set_anywhere_cannot_be_lowered_by_any_other_layer() {
+        let c = layered("ZEUS_READONLY=true\n", "ZEUS_HOST=h\nZEUS_READONLY=false\n", "ZEUS_READONLY=0\n", &[("SSHHH_ZEUS_READONLY", "no")]).unwrap();
+        assert!(c.select(Some("zeus")).unwrap().policy.readonly);
+        let c = layered("", "ZEUS_HOST=h\n", "", &[("SSHHH_ZEUS_READONLY", "true")]).unwrap();
+        assert!(c.select(Some("zeus")).unwrap().policy.readonly);
+        let c = layered("", "ZEUS_HOST=h\nZEUS_READONLY=true\n", "ZEUS_READONLY=\n", &[]).unwrap();
+        assert!(c.select(Some("zeus")).unwrap().policy.readonly);
+        let c = layered("", "ZEUS_HOST=h\nOTHER_HOST=o\n", "", &[("SSHHH_ZEUS_READONLY", "true")]).unwrap();
+        assert!(c.select(Some("zeus")).unwrap().policy.readonly);
+        assert!(!c.select(Some("other")).unwrap().policy.readonly);
+    }
+
+    #[test]
+    fn policy_lists_stack_across_layers_and_a_bare_key_belongs_to_default() {
+        let c = layered(
+            "ZEUS_ALLOW_PATHS=/var\nZEUS_DENY_COMMANDS=rm\n",
+            "ZEUS_HOST=h\nZEUS_ALLOW_PATHS=/var/log\nZEUS_DENY_COMMANDS=dd\nREADONLY=true\nHOST=d\n",
+            "",
+            &[],
+        )
+        .unwrap();
+        let p = &c.select(Some("zeus")).unwrap().policy;
+        assert_eq!(p.allow_paths, [vec!["/var".to_string()], vec!["/var/log".to_string()]]);
+        assert_eq!(p.deny_commands, ["rm", "dd"]);
+        assert!(!p.readonly);
+        assert!(c.select(Some("default")).unwrap().policy.readonly);
+    }
+
+    #[test]
+    fn invalid_policy_values_and_lookalike_keys_are_errors_not_silence() {
+        assert_eq!(layered("", "ZEUS_HOST=h\nZEUS_READONLY=maybe\n", "", &[]).unwrap_err().code(), "invalid_value");
+        assert_eq!(layered("", "ZEUS_HOST=h\nZEUS_ALLOW_PATHS=~/x\n", "", &[]).unwrap_err().code(), "invalid_value");
+        for key in ["ZEUS_READ_ONLY", "ZEUS_WHITELIST", "ZEUS_DENY_PATH", "ZEUS_ALLOWED_COMMANDS"] {
+            let err = layered("", &format!("ZEUS_HOST=h\n{key}=1\n"), "", &[]).unwrap_err();
+            assert_eq!(err.code(), "usage", "{key}");
+        }
+        assert!(layered("", "ZEUS_HOST=h\nALLOWED_ORIGINS=x\nAPP_READ_REPLICA=1\n", "", &[]).is_ok());
+    }
+
+    #[test]
+    fn a_policy_for_an_unknown_server_warns() {
+        let c = layered("ZUES_READONLY=true\n", "ZEUS_HOST=h\n", "", &[]).unwrap();
+        assert!(!c.select(Some("zeus")).unwrap().policy.readonly);
+        let w = c.warnings.iter().find(|w| w.warning == "policy_without_server").unwrap();
+        assert_eq!(w.key, "ZUES_READONLY");
     }
 
     #[test]

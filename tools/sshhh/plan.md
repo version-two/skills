@@ -25,6 +25,10 @@ Append-only. Only `[ ]` becomes `[x]` after verified completion; notes go in `<!
 - [ ] In-process russh server integration tests (CI has no sshd)
 - [ ] Plugin: `plugins/sshhh` (plugin.json, launcher, SKILL.md), marketplace entry, release workflow tag glob, README row
 - [ ] Tag `sshhh-v0.1.0`, release workflow green, launcher downloads and verifies the binary
+- [ ] `READONLY=true` per server (user request): enforced inside the engine, no flag or later config layer can lower it; refuses `put`, `--root`, output redirection and any command not listed in `ALLOW_COMMANDS`
+- [ ] Per-server access policy in the `.env` (user request): `ALLOW_COMMANDS`, `DENY_COMMANDS`, `ALLOW_PATHS`, `DENY_PATHS` (`;`-separated, globs; `none` disables); deny wins, every config layer can only tighten; enforced for `run`, `put`, `get`, `ls`, `cat` on the realpath of the server (symlinks resolved)
+- [ ] Read-only SFTP commands `ls` and `cat` so a read-only server stays inspectable <!-- NOTE: added by the READONLY request; not in the original surface -->
+- [ ] Policy limits documented honestly: command lists are checked on a parsed argv (no sandbox against a hostile account), bare relative words cannot be known to be files, whoever can supply a different `--env` can supply a different policy
 
 ## Blocked on the user
 

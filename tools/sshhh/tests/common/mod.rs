@@ -110,6 +110,7 @@ impl Fixture {
             escalate: None,
             auth: None,
             vault: None,
+            policy: Default::default(),
         }
     }
 

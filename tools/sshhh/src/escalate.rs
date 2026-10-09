@@ -125,6 +125,7 @@ mod tests {
             escalate,
             auth: None,
             vault: None,
+            policy: Default::default(),
         }
     }
 

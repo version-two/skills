@@ -7,6 +7,7 @@ use secrecy::{ExposeSecret, SecretString};
 use crate::config::{Server, Settings, infer_auth};
 use crate::creds::Credentials;
 use crate::error::Error;
+use crate::policy::{self, Policy};
 use crate::secrets::{BwItem, Reference, Secrets, Shape, Target, parse_reference};
 
 struct Picked {
@@ -97,6 +98,21 @@ impl Resolver {
         let root_pass = secret(self.pick(server.root_pass.as_ref().map(|s| s.expose_secret()), "ROOT_PASS", vault, Shape::Line).await?);
         let sudo_pass = secret(self.pick(server.sudo_pass.as_ref().map(|s| s.expose_secret()), "SUDO_PASS", vault, Shape::Line).await?);
         Ok(EscalationSecrets { root_user, root_pass, sudo_pass })
+    }
+
+    /// Policy kept in the vault item's custom fields. It is added to the `.env` policy and can
+    /// only restrict further; a failed fetch is an error, never an empty policy.
+    pub async fn vault_policy(&self, server: &Server) -> Result<Policy, Error> {
+        let mut policy = Policy::default();
+        let Some(item) = self.vault_item(server).await? else { return Ok(policy) };
+        for key in policy::KEYS {
+            if let Some(value) = item.custom(key)? {
+                policy
+                    .add_layer(key, value.expose_secret())
+                    .map_err(|reason| Error::InvalidValue { alias: server.alias.clone(), key, reason })?;
+            }
+        }
+        Ok(policy)
     }
 
     pub async fn credentials(&self, server: &Server) -> Result<Credentials, Error> {

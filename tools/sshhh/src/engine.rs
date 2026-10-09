@@ -1,9 +1,11 @@
 use std::collections::HashMap;
+use std::path::Path;
 use std::sync::{Arc, Mutex as StdMutex, PoisonError};
 use std::time::{Duration, Instant};
 
 use russh::Channel;
 use russh::client::Msg;
+use russh_sftp::client::SftpSession;
 use secrecy::ExposeSecret;
 use serde::{Deserialize, Serialize};
 use tokio::sync::{Mutex, OnceCell};
@@ -13,10 +15,12 @@ use crate::config::Server;
 use crate::creds::Credentials;
 use crate::error::Error;
 use crate::escalate::{self, Mechanism, RootMode};
+use crate::policy::Policy;
 use crate::redact::Redactor;
 use crate::resolve::{EscalationSecrets, Resolver};
 use crate::session::{ConnectOptions, HostKeyPolicy, Session, Stream};
 use crate::spec::{Context, ServerSpec};
+use crate::transfer::{self, Listing, Options, TransferReport};
 
 const TAIL: usize = 2048;
 const PROMPT_TIMEOUT: Duration = Duration::from_secs(15);
@@ -47,6 +51,8 @@ pub struct Held {
     pub login_user: String,
     pub alias: String,
     pub server: Server,
+    /// The `.env` policy plus whatever the vault item adds; both only ever restrict.
+    pub policy: Policy,
     resolver: Resolver,
     escalation: OnceCell<EscalationSecrets>,
     passwordless: OnceCell<bool>,
@@ -100,6 +106,8 @@ async fn connect(ctx: &Context, spec: &ServerSpec) -> Result<Held, Error> {
     let server = spec.to_server();
     let resolver = Resolver::new(&ctx.settings, ctx.env.clone(), ctx.home.clone(), ctx.cwd.clone());
     let creds = resolver.credentials(&server).await?;
+    let mut policy = spec.policy.clone();
+    policy.merge(&resolver.vault_policy(&server).await?);
     let opts = ConnectOptions {
         known_hosts: ctx.known_hosts.clone(),
         policy: if ctx.accept_new { HostKeyPolicy::AcceptNew } else { HostKeyPolicy::Strict },
@@ -112,6 +120,7 @@ async fn connect(ctx: &Context, spec: &ServerSpec) -> Result<Held, Error> {
         alias: spec.alias.clone(),
         base_secrets: base_secrets(spec, &creds),
         server,
+        policy,
         resolver,
         escalation: OnceCell::new(),
         passwordless: OnceCell::new(),
@@ -258,7 +267,9 @@ impl Engine {
         sink: Sink<'_>,
     ) -> Result<(RunReport, String), Error> {
         let started = Instant::now();
+        spec.policy.check_exec(&request.command, request.root.is_some())?;
         let (held, channel, reconnected) = self.open_channel(ctx, spec).await?;
+        held.policy.check_exec(&request.command, request.root.is_some())?;
         let mechanism = match request.root {
             Some(mode) => held.mechanism(mode).await?,
             None => Mechanism::Direct,
@@ -341,6 +352,102 @@ impl Engine {
             },
             held.login_user.clone(),
         ))
+    }
+
+    async fn open_sftp(&self, ctx: &Context, spec: &ServerSpec) -> Result<(Arc<Held>, SftpSession), Error> {
+        let (held, channel, _) = self.open_channel(ctx, spec).await?;
+        let sftp = Session::sftp_on(channel).await?;
+        Ok((held, sftp))
+    }
+
+    /// Runs one SFTP operation under the server's policy and records it in the audit log. A
+    /// read-only server refuses writes before anything connects.
+    async fn file_operation<T>(
+        &self,
+        ctx: &Context,
+        spec: &ServerSpec,
+        op: &'static str,
+        subject: &str,
+        writes: bool,
+        body: impl AsyncFnOnce(&SftpSession, &Policy) -> Result<T, Error>,
+    ) -> Result<(T, Option<String>), Error> {
+        let started = Instant::now();
+        let mut audit = open_audit(ctx)?;
+        let mut user = spec.user.clone().unwrap_or_else(|| "root".into());
+        let outcome = async {
+            if writes {
+                spec.policy.check_write_operation(op)?;
+            }
+            let (held, sftp) = self.open_sftp(ctx, spec).await?;
+            user.clone_from(&held.login_user);
+            if writes {
+                held.policy.check_write_operation(op)?;
+            }
+            let result = body(&sftp, &held.policy).await;
+            if result.is_err() && held.session.is_closed() {
+                self.evict(&ctx.session_key(spec), &held).await;
+            }
+            result
+        }
+        .await;
+        let logged = audit.write(&Entry {
+            alias: &spec.alias,
+            user: &user,
+            op,
+            mechanism: "none",
+            rc: outcome.as_ref().ok().map(|_| 0),
+            error: outcome.as_ref().err().map(Error::code),
+            duration_ms: u64::try_from(started.elapsed().as_millis()).unwrap_or(u64::MAX),
+            subject,
+            store_subject: ctx.audit_commands,
+        });
+        Ok((outcome?, logged.err()))
+    }
+
+    pub async fn put(&self, ctx: &Context, spec: &ServerSpec, local: &Path, remote: &str, opts: Options) -> Result<TransferReport, Error> {
+        let (mut report, warning) = self
+            .file_operation(ctx, spec, "put", remote, true, async |sftp, policy| transfer::put(sftp, policy, local, remote, opts).await)
+            .await?;
+        report.warnings.extend(warning);
+        Ok(report)
+    }
+
+    pub async fn get(&self, ctx: &Context, spec: &ServerSpec, remote: &str, local: &Path, opts: Options) -> Result<TransferReport, Error> {
+        let (mut report, warning) = self
+            .file_operation(ctx, spec, "get", remote, false, async |sftp, policy| transfer::get(sftp, policy, remote, local, opts).await)
+            .await?;
+        report.warnings.extend(warning);
+        Ok(report)
+    }
+
+    pub async fn ls(&self, ctx: &Context, spec: &ServerSpec, remote: &str) -> Result<Listing, Error> {
+        let (mut listing, warning) = self
+            .file_operation(ctx, spec, "ls", remote, false, async |sftp, policy| transfer::ls(sftp, policy, remote).await)
+            .await?;
+        listing.warnings.extend(warning);
+        Ok(listing)
+    }
+
+    pub async fn cat(&self, ctx: &Context, spec: &ServerSpec, remote: &str, sink: Sink<'_>) -> Result<TransferReport, Error> {
+        let values = self.acquire(ctx, spec).await?.0.redaction_values();
+        let mut redact = Redactor::new(values.iter().map(String::as_str));
+        let (mut report, warning) = self
+            .file_operation(ctx, spec, "cat", remote, false, async |sftp, policy| {
+                transfer::cat(sftp, policy, remote, &mut |bytes: &[u8]| {
+                    let clean = redact.push(bytes);
+                    if !clean.is_empty() {
+                        sink(Stream::Stdout, &clean);
+                    }
+                })
+                .await
+            })
+            .await?;
+        let rest = redact.finish();
+        if !rest.is_empty() {
+            sink(Stream::Stdout, &rest);
+        }
+        report.warnings.extend(warning);
+        Ok(report)
     }
 
     async fn sudo_is_passwordless(&self, held: &Arc<Held>) -> Result<bool, Error> {

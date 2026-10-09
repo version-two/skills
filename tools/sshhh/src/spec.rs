@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
 use crate::config::{AuthMethod, Escalate, Server, Settings};
+use crate::policy::Policy;
 use crate::secrets::{Target, parse_reference};
 
 /// A server as written in the `.env`, with references unresolved. It travels to the daemon, so
@@ -25,6 +26,7 @@ pub struct ServerSpec {
     pub escalate: Option<Escalate>,
     pub auth: Option<Vec<AuthMethod>>,
     pub vault: Option<String>,
+    pub policy: Policy,
 }
 
 fn reveal(secret: &Option<SecretString>) -> Option<String> {
@@ -47,6 +49,7 @@ impl ServerSpec {
             escalate: server.escalate,
             auth: server.auth.clone(),
             vault: server.vault.clone(),
+            policy: server.policy.clone(),
         }
     }
 
@@ -66,6 +69,7 @@ impl ServerSpec {
             escalate: self.escalate,
             auth: self.auth.clone(),
             vault: self.vault.clone(),
+            policy: self.policy.clone(),
         }
     }
 
@@ -153,6 +157,7 @@ mod tests {
             escalate: None,
             auth: None,
             vault: None,
+            policy: Policy::default(),
         }
     }
 
