@@ -239,9 +239,12 @@ async fn path_rules_hold_for_the_path_as_written_and_as_the_server_resolves_it()
     assert!(!e.f.fs.real("/etc/dropped").exists());
     assert_eq!(e.f.fs.read("/home/deploy/www/.env"), b"APP_KEY=1");
 
-    let listing = e.engine.ls(&e.f.context(e.home.path()), &spec, "/home/deploy/www").await.unwrap();
-    let names: Vec<&str> = listing.entries.iter().map(|x| x.name.as_str()).collect();
-    assert_eq!((names, listing.hidden_by_policy), (vec!["index.html", "new.html", "relative.html"], 1));
+    for dir in ["/home/deploy/www", "www", "~/www"] {
+        let listing = e.engine.ls(&e.f.context(e.home.path()), &spec, dir).await.unwrap();
+        let names: Vec<&str> = listing.entries.iter().map(|x| x.name.as_str()).collect();
+        assert_eq!((names, listing.hidden_by_policy), (vec!["index.html", "new.html", "relative.html"], 1), "{dir}");
+    }
+    assert_eq!(code(e.put(&spec, &local, "/etc/shadow", Options::default()).await), "policy_denied");
 }
 
 #[tokio::test]

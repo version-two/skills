@@ -241,6 +241,9 @@ impl Config {
                 reason,
             })?;
         }
+        for server in self.servers.values() {
+            server.policy.validate().map_err(|reason| Error::InvalidValue { alias: server.alias.clone(), key: "ALLOW_COMMANDS", reason })?;
+        }
         Ok(())
     }
 
@@ -643,6 +646,7 @@ mod tests {
             assert_eq!(err.code(), "usage", "{key}");
         }
         assert!(layered("", "ZEUS_HOST=h\nALLOWED_ORIGINS=x\nAPP_READ_REPLICA=1\n", "", &[]).is_ok());
+        assert_eq!(layered("", "ZEUS_HOST=h\nZEUS_READONLY=true\nZEUS_ALLOW_COMMANDS=*\n", "", &[]).unwrap_err().code(), "invalid_value");
     }
 
     #[test]

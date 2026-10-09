@@ -101,6 +101,15 @@ impl Policy {
         Ok(())
     }
 
+    /// A read-only server must not be handed a list that allows every command.
+    pub fn validate(&self) -> Result<(), String> {
+        let catch_all = self.allow_commands.iter().flatten().find(|p| p.chars().all(|c| c == '*' || c == '?' || c.is_whitespace()));
+        match (self.readonly, catch_all) {
+            (true, Some(pattern)) => Err(format!("ALLOW_COMMANDS entry '{pattern}' allows every command; list the read-only commands instead")),
+            _ => Ok(()),
+        }
+    }
+
     pub fn merge(&mut self, other: &Policy) {
         self.readonly |= other.readonly;
         self.allow_commands.extend(other.allow_commands.iter().cloned());
@@ -143,6 +152,7 @@ impl Policy {
         if !self.is_restricted() {
             return Ok(());
         }
+        self.validate().map_err(|reason| denied("READONLY", reason))?;
         if root && self.readonly {
             return Err(denied("READONLY", "privilege escalation is not available on a read-only server"));
         }
@@ -581,6 +591,14 @@ mod tests {
         assert_eq!(rule(listed.check_exec("ls > /tmp/out", false)), "READONLY");
         assert_eq!(rule(listed.check_exec("ls 2>&1 >> /tmp/out", false)), "READONLY");
         assert!(listed.check_exec("ls /x 2>/dev/null", false).is_ok());
+    }
+
+    #[test]
+    fn a_catch_all_allow_list_does_not_make_a_readonly_server_safe() {
+        let p = policy(&[("READONLY", "true"), ("ALLOW_COMMANDS", "ls;*")]);
+        assert!(p.validate().is_err());
+        assert_eq!(rule(p.check_exec("rm -rf /", false)), "READONLY");
+        assert!(policy(&[("ALLOW_COMMANDS", "*")]).validate().is_ok());
     }
 
     #[test]

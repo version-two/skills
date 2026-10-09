@@ -68,9 +68,9 @@ async fn remote_is_dir(sftp: &SftpSession, path: &str) -> Result<Option<bool>, E
 /// Checks `path` against the path rules both as written and as the server resolves it, so a
 /// symlink or `..` cannot lead out of the allowed area. The resolved path is checked in addition,
 /// never instead.
-async fn guard(sftp: &SftpSession, policy: &Policy, path: &str, access: Access) -> Result<(), Error> {
-    if !policy.path_policy() {
-        return Ok(());
+async fn guard(sftp: &SftpSession, policy: &Policy, path: &str, access: Access) -> Result<String, Error> {
+    if !policy.path_policy() && path.starts_with('/') {
+        return Ok(path.to_string());
     }
     let absolute = if path.starts_with('/') {
         path.to_string()
@@ -78,6 +78,9 @@ async fn guard(sftp: &SftpSession, policy: &Policy, path: &str, access: Access) 
         let here = sftp.canonicalize(".").await.map_err(|e| transfer("resolve", path, e))?;
         format!("{}/{path}", here.trim_end_matches('/'))
     };
+    if !policy.path_policy() {
+        return Ok(absolute);
+    }
     policy.check_path(&absolute, access)?;
     let segments = policy::normalize(&absolute).ok_or_else(|| transfer("resolve", path, "not an absolute path"))?;
     let lexical = format!("/{}", segments.join("/"));
@@ -89,7 +92,8 @@ async fn guard(sftp: &SftpSession, policy: &Policy, path: &str, access: Access) 
         let real_parent = sftp.canonicalize(parent).await.map_err(|e| transfer("resolve", parent, e))?;
         format!("{}/{name}", real_parent.trim_end_matches('/'))
     };
-    policy.check_path(&real, access)
+    policy.check_path(&real, access)?;
+    Ok(absolute)
 }
 
 fn basename(path: &str) -> &str {
@@ -186,6 +190,9 @@ pub async fn put(sftp: &SftpSession, policy: &Policy, local: &Path, remote: &str
     let name = local.file_name().and_then(|n| n.to_str()).ok_or_else(|| Error::Usage(format!("{} has no usable file name", local.display())))?;
 
     let mut target = expand(sftp, remote).await?;
+    if target.starts_with('/') {
+        policy.check_path(&target, Access::Write)?;
+    }
     let into_dir = target.ends_with('/') || remote_is_dir(sftp, &target).await? == Some(true);
     if into_dir {
         target = format!("{}/{name}", target.trim_end_matches('/'));
@@ -246,17 +253,16 @@ pub struct Listing {
 
 pub async fn ls(sftp: &SftpSession, policy: &Policy, remote: &str) -> Result<Listing, Error> {
     let path = expand(sftp, remote).await?;
-    guard(sftp, policy, &path, Access::Read).await?;
+    let absolute = guard(sftp, policy, &path, Access::Read).await?;
     let meta = sftp.metadata(path.as_str()).await.map_err(|e| transfer("stat", &path, e))?;
     if !meta.file_type().is_dir() {
         return Err(transfer("ls", &path, "is not a directory"));
     }
-    let base = path.trim_end_matches('/');
-    let absolute = base.starts_with('/');
+    let base = absolute.trim_end_matches('/');
     let (mut entries, mut hidden) = (Vec::new(), 0);
     for entry in sftp.read_dir(path.as_str()).await.map_err(|e| transfer("ls", &path, e))? {
         let name = entry.file_name();
-        if absolute && policy.check_path(&format!("{base}/{name}"), Access::Read).is_err() {
+        if policy.check_path(&format!("{base}/{name}"), Access::Read).is_err() {
             hidden += 1;
             continue;
         }

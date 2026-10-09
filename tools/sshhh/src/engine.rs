@@ -369,7 +369,7 @@ impl Engine {
         op: &'static str,
         subject: &str,
         writes: bool,
-        body: impl AsyncFnOnce(&SftpSession, &Policy) -> Result<T, Error>,
+        body: impl AsyncFnOnce(&SftpSession, &Held) -> Result<T, Error>,
     ) -> Result<(T, Option<String>), Error> {
         let started = Instant::now();
         let mut audit = open_audit(ctx)?;
@@ -383,7 +383,7 @@ impl Engine {
             if writes {
                 held.policy.check_write_operation(op)?;
             }
-            let result = body(&sftp, &held.policy).await;
+            let result = body(&sftp, &held).await;
             if result.is_err() && held.session.is_closed() {
                 self.evict(&ctx.session_key(spec), &held).await;
             }
@@ -406,7 +406,7 @@ impl Engine {
 
     pub async fn put(&self, ctx: &Context, spec: &ServerSpec, local: &Path, remote: &str, opts: Options) -> Result<TransferReport, Error> {
         let (mut report, warning) = self
-            .file_operation(ctx, spec, "put", remote, true, async |sftp, policy| transfer::put(sftp, policy, local, remote, opts).await)
+            .file_operation(ctx, spec, "put", remote, true, async |sftp, held| transfer::put(sftp, &held.policy, local, remote, opts).await)
             .await?;
         report.warnings.extend(warning);
         Ok(report)
@@ -414,7 +414,7 @@ impl Engine {
 
     pub async fn get(&self, ctx: &Context, spec: &ServerSpec, remote: &str, local: &Path, opts: Options) -> Result<TransferReport, Error> {
         let (mut report, warning) = self
-            .file_operation(ctx, spec, "get", remote, false, async |sftp, policy| transfer::get(sftp, policy, remote, local, opts).await)
+            .file_operation(ctx, spec, "get", remote, false, async |sftp, held| transfer::get(sftp, &held.policy, remote, local, opts).await)
             .await?;
         report.warnings.extend(warning);
         Ok(report)
@@ -422,30 +422,31 @@ impl Engine {
 
     pub async fn ls(&self, ctx: &Context, spec: &ServerSpec, remote: &str) -> Result<Listing, Error> {
         let (mut listing, warning) = self
-            .file_operation(ctx, spec, "ls", remote, false, async |sftp, policy| transfer::ls(sftp, policy, remote).await)
+            .file_operation(ctx, spec, "ls", remote, false, async |sftp, held| transfer::ls(sftp, &held.policy, remote).await)
             .await?;
         listing.warnings.extend(warning);
         Ok(listing)
     }
 
     pub async fn cat(&self, ctx: &Context, spec: &ServerSpec, remote: &str, sink: Sink<'_>) -> Result<TransferReport, Error> {
-        let values = self.acquire(ctx, spec).await?.0.redaction_values();
-        let mut redact = Redactor::new(values.iter().map(String::as_str));
         let (mut report, warning) = self
-            .file_operation(ctx, spec, "cat", remote, false, async |sftp, policy| {
-                transfer::cat(sftp, policy, remote, &mut |bytes: &[u8]| {
+            .file_operation(ctx, spec, "cat", remote, false, async |sftp, held| {
+                let values = held.redaction_values();
+                let mut redact = Redactor::new(values.iter().map(String::as_str));
+                let report = transfer::cat(sftp, &held.policy, remote, &mut |bytes: &[u8]| {
                     let clean = redact.push(bytes);
                     if !clean.is_empty() {
                         sink(Stream::Stdout, &clean);
                     }
                 })
-                .await
+                .await?;
+                let rest = redact.finish();
+                if !rest.is_empty() {
+                    sink(Stream::Stdout, &rest);
+                }
+                Ok(report)
             })
             .await?;
-        let rest = redact.finish();
-        if !rest.is_empty() {
-            sink(Stream::Stdout, &rest);
-        }
         report.warnings.extend(warning);
         Ok(report)
     }
