@@ -34,6 +34,7 @@ zeroize = "1"
 
 [target.'cfg(windows)'.dependencies]
 widestring = "1"
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_System_Console"] }
 
 [dev-dependencies]
 rand = "0.10"

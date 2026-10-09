@@ -17,7 +17,7 @@ use sshhh::transfer::Options;
     version,
     about = "Quiet, fast SSH for agents and scripts",
     long_about = "Runs commands and moves files on servers described by a .env, over a persistent connection held by a per-user daemon. Output is JSON with --json; failures of the tool itself exit 255.",
-    args_conflicts_with_subcommands = true
+    subcommand_precedence_over_arg = true
 )]
 pub struct Cli {
     #[command(flatten)]
@@ -25,7 +25,7 @@ pub struct Cli {
     #[command(subcommand)]
     pub command: Option<Command>,
     /// The remote command. A single word is passed to the remote shell as written; several words are quoted one by one. Put `--` before a command that starts with a subcommand name
-    #[arg(trailing_var_arg = true, allow_hyphen_values = true, value_name = "COMMAND")]
+    #[arg(trailing_var_arg = true, value_name = "COMMAND")]
     pub run: Vec<String>,
 }
 

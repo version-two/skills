@@ -435,7 +435,10 @@ impl Client {
         #[cfg(unix)]
         std::os::unix::process::CommandExt::process_group(&mut cmd, 0);
         #[cfg(windows)]
-        std::os::windows::process::CommandExt::creation_flags(&mut cmd, 0x0000_0008 | 0x0000_0200);
+        {
+            std::os::windows::process::CommandExt::creation_flags(&mut cmd, 0x0000_0008 | 0x0000_0200);
+            keep_std_handles_from_the_daemon();
+        }
         cmd.spawn().map(drop).map_err(|e| Error::Io(format!("cannot start the daemon ({}): {e}", self.exe.display())))
     }
 
@@ -512,6 +515,23 @@ impl Client {
         let mut ignore = |_: Stream, _: &[u8]| {};
         let request = Request::SetBwSession { session: session.expose_secret().to_owned() };
         self.call(request, None, true, &mut ignore).await.map(drop)
+    }
+}
+
+/// CreateProcess inherits every inheritable handle, so a daemon started by a caller whose stdout is
+/// a pipe would hold that pipe open and the caller's reader would never see end-of-file.
+#[cfg(windows)]
+fn keep_std_handles_from_the_daemon() {
+    use windows_sys::Win32::Foundation::{HANDLE_FLAG_INHERIT, INVALID_HANDLE_VALUE, SetHandleInformation};
+    use windows_sys::Win32::System::Console::{GetStdHandle, STD_ERROR_HANDLE, STD_INPUT_HANDLE, STD_OUTPUT_HANDLE};
+    for which in [STD_INPUT_HANDLE, STD_OUTPUT_HANDLE, STD_ERROR_HANDLE] {
+        // SAFETY: plain Win32 calls on this process's own standard handles; failure leaves them unchanged.
+        unsafe {
+            let handle = GetStdHandle(which);
+            if !handle.is_null() && handle != INVALID_HANDLE_VALUE {
+                SetHandleInformation(handle, HANDLE_FLAG_INHERIT, 0);
+            }
+        }
     }
 }
 

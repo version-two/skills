@@ -287,8 +287,14 @@ impl Engine {
     ) -> Result<(RunReport, String), Error> {
         let started = Instant::now();
         spec.policy.check_exec(&request.command, request.root.is_some())?;
+        if stdin.is_some() {
+            spec.policy.check_stdin()?;
+        }
         let (held, channel, reconnected) = self.open_channel(ctx, spec).await?;
         held.policy.check_exec(&request.command, request.root.is_some())?;
+        if stdin.is_some() {
+            held.policy.check_stdin()?;
+        }
         let mechanism = match request.root {
             Some(mode) => held.mechanism(mode).await?,
             None => Mechanism::Direct,

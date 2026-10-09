@@ -165,6 +165,15 @@ impl Policy {
         self.check_script(command, 0)
     }
 
+    /// What a command reads from standard input (a script for `sh -s`, a file body for `tee`)
+    /// cannot be checked, so no input is forwarded while a policy is set.
+    pub fn check_stdin(&self) -> Result<(), Error> {
+        if self.is_restricted() {
+            return Err(denied("STDIN", "input cannot be checked against the policy, so scripts and piped input are not available"));
+        }
+        Ok(())
+    }
+
     fn check_script(&self, script: &str, depth: u8) -> Result<(), Error> {
         let simples = parse_shell(script).map_err(|reason| denied("COMMAND_SYNTAX", format!("{reason}; the command cannot be checked against the policy")))?;
         for simple in simples {
@@ -573,6 +582,13 @@ mod tests {
         assert!(!p.readonly);
         p.add_layer("READONLY", "yes").unwrap();
         assert!(p.readonly);
+    }
+
+    #[test]
+    fn input_is_refused_only_while_a_policy_is_set() {
+        assert!(Policy::default().check_stdin().is_ok());
+        assert_eq!(rule(policy(&[("DENY_COMMANDS", "rm")]).check_stdin()), "STDIN");
+        assert_eq!(rule(policy(&[("DENY_PATHS", "/etc")]).check_stdin()), "STDIN");
     }
 
     #[test]
