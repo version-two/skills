@@ -517,7 +517,8 @@ impl Client {
 
 /// The daemon starts with an empty environment plus these, so nothing the first caller exported
 /// (BW_SESSION, tokens) ends up in a long-lived process.
-const SPAWN_ENV: [&str; 17] = [
+const SPAWN_ENV: [&str; 18] = [
+    "SSH_AUTH_SOCK",
     "PATH",
     "PATHEXT",
     "SYSTEMROOT",

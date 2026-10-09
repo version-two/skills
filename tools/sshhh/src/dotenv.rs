@@ -3,10 +3,22 @@ use std::path::Path;
 
 use crate::error::Error;
 
+pub struct Entry {
+    pub key: String,
+    pub value: String,
+    pub line: usize,
+    /// Byte range of the key as written, within the text after a leading BOM is removed.
+    pub key_range: std::ops::Range<usize>,
+}
+
 pub fn parse(text: &str, path: &Path) -> Result<BTreeMap<String, String>, Error> {
+    Ok(parse_entries(text, path)?.into_iter().map(|e| (e.key, e.value)).collect())
+}
+
+pub fn parse_entries(text: &str, path: &Path) -> Result<Vec<Entry>, Error> {
     let text = text.strip_prefix('\u{feff}').unwrap_or(text);
     let fail = |line: usize, reason: &'static str| Error::EnvParse { path: path.to_path_buf(), line, reason };
-    let mut out = BTreeMap::new();
+    let mut out = Vec::new();
     let lines: Vec<&str> = text.split('\n').collect();
     let mut i = 0;
     while i < lines.len() {
@@ -58,7 +70,8 @@ pub fn parse(text: &str, path: &Path) -> Result<BTreeMap<String, String>, Error>
             }
             _ => strip_inline_comment(rest).trim_end().to_string(),
         };
-        out.insert(key.to_ascii_uppercase(), value);
+        let start = key.as_ptr() as usize - text.as_ptr() as usize;
+        out.push(Entry { key: key.to_ascii_uppercase(), value, line: lineno, key_range: start..start + key.len() });
     }
     Ok(out)
 }

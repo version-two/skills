@@ -448,6 +448,15 @@ pub fn infer_auth(has_key: bool, has_password: bool) -> Vec<AuthMethod> {
     methods
 }
 
+/// The current spelling of a legacy key, `None` when the key is already current or unknown.
+pub fn modern_key(key: &str) -> Option<String> {
+    if GLOBAL_KEYS.contains(&key) {
+        return (key != "DEFAULT").then(|| "DEFAULT".to_string());
+    }
+    let (_, canonical, name) = classify(key)?;
+    (name != canonical).then(|| format!("{}{canonical}", &key[..key.len() - name.len()]))
+}
+
 fn classify(key: &str) -> Option<(String, &'static str, &'static str)> {
     let mut best: Option<(String, &'static str, &'static str)> = None;
     let mut consider = |alias: String, canonical: &'static str, name: &'static str| {

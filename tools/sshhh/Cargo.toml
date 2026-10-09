@@ -18,7 +18,7 @@ name = "sshhh"
 path = "src/main.rs"
 
 [dependencies]
-clap = { version = "4", features = ["derive"] }
+clap = { version = "4", features = ["derive", "env"] }
 futures = "0.3"
 getrandom = "0.4"
 interprocess = { version = "2.4", features = ["tokio"] }

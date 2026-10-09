@@ -115,11 +115,8 @@ impl Resolver {
         Ok(policy)
     }
 
-    pub async fn credentials(&self, server: &Server) -> Result<Credentials, Error> {
-        let vault = self.vault_item(server).await?;
-        let vault = vault.as_deref();
+    async fn endpoint_in(&self, server: &Server, vault: Option<&BwItem>) -> Result<(String, u16), Error> {
         let text = |picked: Option<Picked>| picked.map(|p| p.value);
-
         let host = text(self.pick(server.host.as_deref(), "HOST", vault, Shape::Line).await?)
             .ok_or_else(|| Error::MissingHost { alias: server.alias.clone() })?;
         let port = match server.port {
@@ -133,6 +130,21 @@ impl Resolver {
                 None => server.port(),
             },
         };
+        Ok((host.expose_secret().trim().to_owned(), port))
+    }
+
+    /// Host and port only; nothing else is fetched from the vault item's secrets.
+    pub async fn endpoint(&self, server: &Server) -> Result<(String, u16), Error> {
+        let vault = self.vault_item(server).await?;
+        self.endpoint_in(server, vault.as_deref()).await
+    }
+
+    pub async fn credentials(&self, server: &Server) -> Result<Credentials, Error> {
+        let vault = self.vault_item(server).await?;
+        let vault = vault.as_deref();
+        let text = |picked: Option<Picked>| picked.map(|p| p.value);
+
+        let (host, port) = self.endpoint_in(server, vault).await?;
         let user = text(self.pick(server.user.as_deref(), "USER", vault, Shape::Line).await?)
             .map(|u| u.expose_secret().to_owned())
             .unwrap_or_else(|| server.user().to_owned());
@@ -148,7 +160,7 @@ impl Resolver {
         let auth = server.auth.clone().unwrap_or_else(|| infer_auth(key.is_some(), pass.is_some()));
         Ok(Credentials {
             alias: server.alias.clone(),
-            host: host.expose_secret().trim().to_owned(),
+            host,
             port,
             user,
             auth,

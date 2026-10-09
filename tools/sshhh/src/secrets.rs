@@ -327,6 +327,19 @@ pub async fn unlock_bitwarden(settings: &Settings) -> Result<SecretString, Error
     Ok(SecretString::from(key))
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct BwStatus {
+    pub version: String,
+    pub state: String,
+    pub server_url: String,
+}
+
+impl BwStatus {
+    pub fn on_server(&self, expected: &str) -> bool {
+        normalize_server(&self.server_url) == normalize_server(expected)
+    }
+}
+
 pub struct Secrets {
     env: BTreeMap<String, String>,
     home: Option<PathBuf>,
@@ -348,6 +361,19 @@ impl Secrets {
 
     pub fn set_bw_session(&mut self, session: SecretString) {
         self.bw.session = Some(session);
+    }
+
+    pub async fn bw_status(&self) -> Result<BwStatus, Error> {
+        let reference = "bw://";
+        let version = self.bw.run(reference, &["--version"]).await?;
+        let status = self.bw.run(reference, &["status"]).await?;
+        let status: serde_json::Value =
+            serde_json::from_slice(&status).map_err(|_| unavailable("bw", reference, "bw_bad_output", "`bw status` did not return JSON"))?;
+        Ok(BwStatus {
+            version: String::from_utf8_lossy(&version).trim().to_string(),
+            state: status.get("status").and_then(|v| v.as_str()).unwrap_or("unknown").to_string(),
+            server_url: status.get("serverUrl").and_then(|v| v.as_str()).unwrap_or(BW_CLOUD).to_string(),
+        })
     }
 
     pub async fn bw_item(&self, reference: &str, item: &str) -> Result<Arc<BwItem>, Error> {

@@ -82,6 +82,23 @@ pub async fn probe(host: &str, port: u16, timeout: Duration) -> Result<PublicKey
     }
 }
 
+fn line_hosts(line: &str) -> Option<&str> {
+    let mut fields = line.split_whitespace();
+    let first = fields.next().filter(|f| !f.starts_with('#'))?;
+    if first.starts_with('@') { fields.next() } else { Some(first) }
+}
+
+/// Whether a plain entry for `host:port` exists; hashed entries cannot be matched.
+pub fn has_entry(path: &Path, host: &str, port: u16) -> Result<bool, Error> {
+    let text = match std::fs::read_to_string(path) {
+        Ok(text) => text,
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => return Ok(false),
+        Err(e) => return Err(Error::Io(format!("{}: {}", path.display(), e.kind()))),
+    };
+    let pattern = host_pattern(host, port);
+    Ok(text.lines().filter_map(line_hosts).any(|hosts| hosts.split(',').any(|p| p.eq_ignore_ascii_case(&pattern))))
+}
+
 /// Removes every plain entry for `host:port`; hashed entries cannot be matched and are left alone.
 pub fn forget(path: &Path, host: &str, port: u16) -> Result<usize, Error> {
     let text = match std::fs::read_to_string(path) {
@@ -93,13 +110,7 @@ pub fn forget(path: &Path, host: &str, port: u16) -> Result<usize, Error> {
     let mut kept = String::with_capacity(text.len());
     let mut removed = 0;
     for line in text.split_inclusive('\n') {
-        let mut fields = line.split_whitespace();
-        let first = fields.next().filter(|f| !f.starts_with('#'));
-        let hosts = match first {
-            Some(marker) if marker.starts_with('@') => fields.next(),
-            other => other,
-        };
-        let Some(hosts) = hosts.filter(|h| h.split(',').any(|p| p.eq_ignore_ascii_case(&pattern))) else {
+        let Some(hosts) = line_hosts(line).filter(|h| h.split(',').any(|p| p.eq_ignore_ascii_case(&pattern))) else {
             kept.push_str(line);
             continue;
         };
@@ -138,5 +149,18 @@ mod tests {
         assert!(left.contains("other.test ssh-ed25519 AAAA3") && !left.contains("10.0.0.1"));
         assert_eq!(forget(&path, "nowhere.test", 22).unwrap(), 0);
         assert_eq!(forget(&dir.path().join("missing"), "x", 22).unwrap(), 0);
+        assert!(!has_entry(&dir.path().join("missing"), "x", 22).unwrap());
+    }
+
+    #[test]
+    fn has_entry_matches_plain_entries_by_host_and_port() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("known_hosts");
+        std::fs::write(&path, "# c\nexample.test ssh-ed25519 AAAA1\n[example.test]:2222,10.0.0.1 ssh-ed25519 AAAA2\n@cert-authority *.corp ssh-ed25519 AAAA3\n").unwrap();
+        assert!(has_entry(&path, "example.test", 22).unwrap());
+        assert!(has_entry(&path, "EXAMPLE.test", 2222).unwrap());
+        assert!(!has_entry(&path, "example.test", 2200).unwrap());
+        assert!(has_entry(&path, "10.0.0.1", 22).unwrap());
+        assert!(!has_entry(&path, "10.0.0.1", 2222).unwrap());
     }
 }

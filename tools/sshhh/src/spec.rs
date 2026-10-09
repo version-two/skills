@@ -90,6 +90,10 @@ impl ServerSpec {
             .collect()
     }
 
+    pub fn uses_bitwarden(&self) -> bool {
+        self.values().into_iter().flatten().any(|v| matches!(parse_reference(v), Ok(Some(r)) if matches!(r.target, Target::Bitwarden { .. })))
+    }
+
     /// Values that are literal secrets, known without resolving anything.
     pub fn literal_secrets(&self) -> Vec<&str> {
         [&self.pass, &self.key_pass, &self.root_pass, &self.sudo_pass]
