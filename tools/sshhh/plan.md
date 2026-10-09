@@ -30,7 +30,8 @@ Append-only. Only `[ ]` becomes `[x]` after verified completion; notes go in `<!
 
 - [x] Plugin: `plugins/sshhh` (plugin.json, launcher, SKILL.md), marketplace entry, release workflow tag glob, README row <!-- NOTE: JSON and shell syntax checked; static musl build, tests and clippy --locked pass in WSL; the launcher download is verified only by the release run -->
 
-- [ ] Tag `sshhh-v0.1.0`, release workflow green, launcher downloads and verifies the binary
+- [x] Tag `sshhh-v0.1.0`, release workflow green, launcher downloads and verifies the binary <!-- NOTE: first run failed on a Linux-only test race (text file busy on the copied bw stub); fixed in 694ec4e and the tag moved before any release existed. Launcher checked on Windows against the published asset. -->
+
 - [x] `READONLY=true` per server (user request): enforced inside the engine, no flag or later config layer can lower it; refuses `put`, `--root`, output redirection and any command not listed in `ALLOW_COMMANDS` <!-- NOTE: engine and config verified by tests; CLI flags are added in main.rs and none of them touches the policy. A catch-all ALLOW_COMMANDS entry is rejected under READONLY. -->
 
 - [x] Per-server access policy in the `.env` (user request): `ALLOW_COMMANDS`, `DENY_COMMANDS`, `ALLOW_PATHS`, `DENY_PATHS` (`;`-separated, globs; `none` disables); deny wins, every config layer can only tighten; enforced for `run`, `put`, `get`, `ls`, `cat` on the realpath of the server (symlinks resolved)
