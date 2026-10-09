@@ -438,7 +438,7 @@ async fn authenticate(handle: &mut client::Handle<Client>, creds: &Credentials) 
 }
 
 fn method_names(methods: &russh::MethodSet) -> String {
-    methods.iter().map(|m| <&str>::from(m)).collect::<Vec<_>>().join(", ")
+    methods.iter().map(<&str>::from).collect::<Vec<_>>().join(", ")
 }
 
 async fn keyboard_interactive(

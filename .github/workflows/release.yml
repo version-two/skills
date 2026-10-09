@@ -5,6 +5,7 @@ on:
     tags:
       - "bazos-v*"
       - "alza-v*"
+      - "sshhh-v*"
 
 permissions:
   contents: write

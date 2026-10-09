@@ -163,6 +163,19 @@ async fn usage_errors_are_json_with_exit_255() {
 }
 
 #[tokio::test]
+async fn file_commands_refuse_escalation_and_stdin_instead_of_ignoring_them() {
+    let cli = Cli::new("").await;
+    let local = cli.file("x.txt", b"x");
+    let base = ["--no-daemon", "--accept-new", "--json"];
+    for flag in ["--root", "--sudo", "--su", "--stdin"] {
+        for words in [vec!["put", str_of(&local), "/home/deploy/x.txt"], vec!["get", "/home/deploy/x.txt", str_of(&local)], vec!["ls", "/home/deploy"], vec!["cat", "/home/deploy/x.txt"]] {
+            let out = cli.run(&[&base[..], &[flag], &words[..]].concat()).await;
+            assert_eq!((out.code, out.error_code().as_str()), (255, "usage"), "{flag} {words:?}: {}", out.stderr);
+        }
+    }
+}
+
+#[tokio::test]
 async fn an_unknown_host_key_fails_until_trusted_and_a_wrong_fingerprint_trusts_nothing() {
     let cli = Cli::new("").await;
     let out = cli.run(&["--no-daemon", "echo hi"]).await;

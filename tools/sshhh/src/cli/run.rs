@@ -297,13 +297,22 @@ pub async fn script(global: &Global, file: &str, args: &[String], tr: &Catalog) 
     finish(drive(&p, global, Kind::Run, Op::Run(request), Some(body)).await, global, Kind::Run, tr)
 }
 
+fn login_user_only(global: &Global, what: &str) -> Result<(), Error> {
+    if global.root_mode().is_some() || global.stdin {
+        return Err(Error::Usage(format!("{what} works as the login user over SFTP; --root, --sudo, --su and --stdin apply to commands and scripts only")));
+    }
+    Ok(())
+}
+
 pub async fn put(global: &Global, local: PathBuf, remote: String, opts: Options, tr: &Catalog) -> Result<u8, Error> {
+    login_user_only(global, "put")?;
     let p = prepare(global)?;
     let op = Op::Put { local: absolute(local, &p.setup.cwd), remote, opts };
     finish(drive(&p, global, Kind::Put, op, None).await, global, Kind::Put, tr)
 }
 
 pub async fn get(global: &Global, remote: String, local: PathBuf, opts: Options, tr: &Catalog) -> Result<u8, Error> {
+    login_user_only(global, "get")?;
     let p = prepare(global)?;
     if p.specs.len() != 1 {
         return Err(Error::Usage("get downloads from one server; select it with -s".into()));
@@ -313,11 +322,13 @@ pub async fn get(global: &Global, remote: String, local: PathBuf, opts: Options,
 }
 
 pub async fn ls(global: &Global, remote: String, tr: &Catalog) -> Result<u8, Error> {
+    login_user_only(global, "ls")?;
     let p = prepare(global)?;
     finish(drive(&p, global, Kind::Ls, Op::Ls { remote }, None).await, global, Kind::Ls, tr)
 }
 
 pub async fn cat(global: &Global, remote: String, tr: &Catalog) -> Result<u8, Error> {
+    login_user_only(global, "cat")?;
     let p = prepare(global)?;
     let done = drive(&p, global, Kind::Cat, Op::Cat { remote }, None).await;
     if global.json && done.iter().any(|d| d.outcome.is_ok() && std::str::from_utf8(&d.capture.stdout).is_err()) {

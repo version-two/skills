@@ -1,0 +1,14 @@
+{
+  "name": "sshhh",
+  "version": "0.1.0",
+  "description": "Run commands and move files on servers over SSH with a bundled CLI: multi-server .env, vault-backed credentials, persistent connections, sudo/su, SFTP, read-only and allow/deny policies.",
+  "author": {
+    "name": "Version Two s.r.o.",
+    "email": "info@versiontwo.sk",
+    "url": "https://www.versiontwo.sk"
+  },
+  "homepage": "https://github.com/version-two/skills",
+  "repository": "https://github.com/version-two/skills",
+  "license": "MIT",
+  "keywords": ["ssh", "sftp", "sudo", "servers", "bitwarden", "devops"]
+}

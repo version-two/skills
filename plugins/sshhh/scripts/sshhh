@@ -1,0 +1,70 @@
+#!/bin/sh
+set -eu
+
+TOOL=sshhh
+VERSION=0.1.0
+REPO=version-two/skills
+
+fail() {
+  msg=$(printf '%s' "$1" | tr '\n\r\t' '   ' | sed 's/\\/\\\\/g; s/"/\\"/g')
+  printf '{"error":"install_error","message":"%s"}\n' "$msg" >&2
+  exit 6
+}
+
+fetch() {
+  if command -v curl >/dev/null 2>&1; then
+    err=$(curl -fsSL --retry 2 -o "$2" "$1" 2>&1) || fail "download failed: $1: $err"
+  elif command -v wget >/dev/null 2>&1; then
+    err=$(wget -nv -O "$2" "$1" 2>&1) || fail "download failed: $1: $err"
+  else
+    fail "curl or wget is required to download $TOOL"
+  fi
+}
+
+case "$(uname -s)" in
+  Linux) os=linux ;;
+  Darwin) os=macos ;;
+  MINGW*|MSYS*|CYGWIN*) os=windows ;;
+  *) fail "unsupported OS: $(uname -s)" ;;
+esac
+
+case "$(uname -m)" in
+  x86_64|amd64) arch=x86_64 ;;
+  arm64|aarch64) arch=aarch64 ;;
+  *) fail "unsupported CPU architecture: $(uname -m)" ;;
+esac
+
+ext=
+if [ "$os" = windows ]; then
+  [ "$arch" = x86_64 ] || fail "no Windows build for $arch"
+  ext=.exe
+fi
+
+asset="$TOOL-$VERSION-$os-$arch$ext"
+dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+bin="$dir/.bin/$asset"
+
+if [ ! -x "$bin" ]; then
+  if command -v sha256sum >/dev/null 2>&1; then
+    hasher=sha256sum
+  elif command -v shasum >/dev/null 2>&1; then
+    hasher="shasum -a 256"
+  else
+    fail "sha256sum or shasum is required to verify $TOOL"
+  fi
+  url="https://github.com/$REPO/releases/download/$TOOL-v$VERSION/$asset"
+  mkdir -p "$dir/.bin" || fail "cannot create $dir/.bin"
+  tmp="$bin.$$.tmp"
+  trap 'rm -f "$tmp" "$tmp.sha256"' EXIT
+  fetch "$url" "$tmp"
+  fetch "$url.sha256" "$tmp.sha256"
+  expected=$(cut -d' ' -f1 < "$tmp.sha256")
+  actual=$($hasher "$tmp" | cut -d' ' -f1)
+  [ -n "$expected" ] && [ "$expected" = "$actual" ] || fail "checksum mismatch for $asset"
+  chmod +x "$tmp"
+  mv -f "$tmp" "$bin"
+  rm -f "$tmp.sha256"
+  trap - EXIT
+fi
+
+exec "$bin" "$@"

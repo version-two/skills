@@ -6,7 +6,7 @@
     "url": "https://www.versiontwo.sk"
   },
   "metadata": {
-    "description": "Claude Code skills by Version Two s.r.o.: bazos.sk / bazos.cz and Alza search CLIs, a large-build subagent orchestration method, and flaunch release tooling."
+    "description": "Claude Code skills by Version Two s.r.o.: bazos.sk / bazos.cz and Alza search CLIs, an SSH CLI for agents, a large-build subagent orchestration method, and flaunch release tooling."
   },
   "plugins": [
     {
@@ -22,6 +22,13 @@
       "description": "Search Alza (alza.sk, .cz, .hu, .at, .de) products with a bundled CLI: parametric filters, prices, stock, product details and reviews.",
       "category": "search",
       "tags": ["alza", "e-commerce", "prices", "slovakia", "czechia"]
+    },
+    {
+      "name": "sshhh",
+      "source": "./plugins/sshhh",
+      "description": "Run commands and move files on servers over SSH with a bundled CLI: multi-server .env, Bitwarden-backed credentials, persistent connections, sudo/su, SFTP, read-only and allow/deny policies.",
+      "category": "development",
+      "tags": ["ssh", "sftp", "sudo", "servers", "bitwarden", "devops"]
     },
     {
       "name": "subagent-build-orchestrator",
