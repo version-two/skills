@@ -1,4 +1,6 @@
 mod common;
+#[path = "common/stub.rs"]
+mod stub;
 
 use std::time::Duration;
 
@@ -144,12 +146,7 @@ async fn stop_ends_the_daemon_and_removes_the_token() {
 async fn the_stored_bw_session_is_handed_to_bw_for_later_calls() {
     let e = Env::new().await;
     let dir = tempfile::tempdir().unwrap();
-    let exe = std::env::current_exe().unwrap();
-    let name = format!("bw_stub{}", std::env::consts::EXE_SUFFIX);
-    let stub = exe.parent().unwrap().parent().unwrap().join("examples").join(&name);
-    assert!(stub.is_file(), "build the example first: {}", stub.display());
-    let bin = dir.path().join(format!("bw{}", std::env::consts::EXE_SUFFIX));
-    std::fs::copy(&stub, &bin).unwrap();
+    let bin = stub::install_bw_stub(dir.path());
     std::fs::create_dir(dir.path().join("data")).unwrap();
     std::fs::write(dir.path().join("data").join("locked"), "").unwrap();
     let item = serde_json::json!({ "name": "box", "login": { "username": USER, "password": PASSWORD } });

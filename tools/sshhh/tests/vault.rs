@@ -1,6 +1,9 @@
 use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
+#[path = "common/stub.rs"]
+mod stub;
+
 use secrecy::ExposeSecret;
 use serde_json::{Value, json};
 use sshhh::config::{AuthMethod, Config, LoadOptions, Settings};
@@ -14,10 +17,7 @@ struct Bw {
 impl Bw {
     fn new() -> Bw {
         let dir = tempfile::tempdir().unwrap();
-        let exe = std::env::current_exe().unwrap();
-        let stub = exe.parent().unwrap().parent().unwrap().join("examples").join(format!("bw_stub{}", std::env::consts::EXE_SUFFIX));
-        assert!(stub.is_file(), "build the example first: {}", stub.display());
-        std::fs::copy(&stub, dir.path().join(format!("bw{}", std::env::consts::EXE_SUFFIX))).unwrap();
+        stub::install_bw_stub(dir.path());
         std::fs::create_dir(dir.path().join("data")).unwrap();
         Bw { dir }
     }

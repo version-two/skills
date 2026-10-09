@@ -9,6 +9,9 @@ fn main() {
     let data: PathBuf = exe.parent().expect("exe dir").join("data");
     let args: Vec<String> = std::env::args().skip(1).collect();
     let var = |name: &str| std::env::var(name).unwrap_or_default();
+    if args == ["--selftest"] {
+        return;
+    }
 
     let mut log = std::fs::OpenOptions::new().create(true).append(true).open(data.join("calls.log")).expect("log");
     writeln!(log, "{} | noint={} session={} appdata={}", args.join(" "), var("BW_NOINTERACTION"), var("BW_SESSION"), var("BITWARDENCLI_APPDATA_DIR")).unwrap();
