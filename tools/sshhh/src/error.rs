@@ -58,10 +58,13 @@ pub enum Error {
     EscalationFailed { mechanism: &'static str, reason: String },
     #[error("secret {reference} is unavailable ({reason}): {detail}")]
     SecretUnavailable { provider: &'static str, reference: String, reason: &'static str, detail: String },
+    /// A failure reported by the daemon, carried over with its original code.
+    #[error("{message}")]
+    Remote { code: String, message: String },
 }
 
 impl Error {
-    pub fn code(&self) -> &'static str {
+    pub fn code(&self) -> &str {
         match self {
             Error::Usage(_) => "usage",
             Error::EnvRead { .. } => "env_unreadable",
@@ -90,6 +93,7 @@ impl Error {
             Error::VerifyFailed { .. } => "verify_failed",
             Error::EscalationFailed { .. } => "escalation_failed",
             Error::SecretUnavailable { .. } => "secret_unavailable",
+            Error::Remote { code, .. } => code,
         }
     }
 

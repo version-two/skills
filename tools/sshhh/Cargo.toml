@@ -20,7 +20,9 @@ path = "src/main.rs"
 [dependencies]
 clap = { version = "4", features = ["derive"] }
 futures = "0.3"
-russh = { version = "0.64", default-features = false, features = ["ring", "flate2", "rsa"] }
+getrandom = "0.4"
+interprocess = { version = "2.4", features = ["tokio"] }
+russh ={ version = "0.64", default-features = false, features = ["ring", "flate2", "rsa"] }
 russh-sftp = "3"
 secrecy = { version = "0.10", features = ["serde"] }
 serde = { version = "1", features = ["derive"] }
@@ -29,6 +31,9 @@ sha2 = "0.11"
 thiserror = "2"
 tokio = { version = "1", features = ["macros", "rt-multi-thread", "time", "io-util", "io-std", "fs", "process", "net", "sync", "signal"] }
 zeroize = "1"
+
+[target.'cfg(windows)'.dependencies]
+widestring = "1"
 
 [dev-dependencies]
 rand = "0.10"

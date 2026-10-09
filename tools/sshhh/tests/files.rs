@@ -60,8 +60,8 @@ impl Env {
     }
 }
 
-fn code<T: std::fmt::Debug>(result: Result<T, Error>) -> &'static str {
-    result.unwrap_err().code()
+fn code<T: std::fmt::Debug>(result: Result<T, Error>) -> String {
+    result.unwrap_err().code().to_owned()
 }
 
 #[tokio::test]

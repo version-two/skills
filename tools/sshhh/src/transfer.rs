@@ -6,7 +6,7 @@ use std::time::{Instant, SystemTime, UNIX_EPOCH};
 use russh_sftp::client::SftpSession;
 use russh_sftp::client::error::Error as SftpError;
 use russh_sftp::protocol::{FileAttributes, OpenFlags, StatusCode};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 
@@ -17,7 +17,7 @@ use crate::spec::hex;
 const CHUNK: usize = 256 * 1024;
 static COUNTER: AtomicU64 = AtomicU64::new(0);
 
-#[derive(Debug, Clone, Copy, Default)]
+#[derive(Debug, Clone, Copy, Default, Serialize, Deserialize)]
 pub struct Options {
     pub verify: bool,
     pub private: bool,
@@ -326,23 +326,10 @@ async fn create_local(path: &Path, private: bool) -> std::io::Result<tokio::fs::
 async fn create_local(path: &Path, private: bool) -> std::io::Result<tokio::fs::File> {
     let file = tokio::fs::OpenOptions::new().write(true).create_new(true).open(path).await?;
     if private {
-        restrict_to_owner(path).await?;
+        let owned = path.to_path_buf();
+        tokio::task::spawn_blocking(move || crate::private::restrict_to_owner(&owned)).await.map_err(std::io::Error::other)??;
     }
     Ok(file)
-}
-
-#[cfg(not(unix))]
-async fn restrict_to_owner(path: &Path) -> std::io::Result<()> {
-    let var = |name: &str| std::env::var(name).map_err(|_| std::io::Error::other(format!("{name} is not set; cannot restrict the file")));
-    let account = format!("{}\\{}", var("USERDOMAIN")?, var("USERNAME")?);
-    let status = tokio::process::Command::new("icacls")
-        .arg(path)
-        .args(["/inheritance:r", "/grant:r"])
-        .arg(format!("{account}:F"))
-        .stdout(std::process::Stdio::null())
-        .status()
-        .await?;
-    if status.success() { Ok(()) } else { Err(std::io::Error::other(format!("icacls exited with {status}"))) }
 }
 
 async fn download(sftp: &SftpSession, remote: &str, temp: &Path, expected: Option<u64>, private: bool) -> Result<(u64, String), Error> {

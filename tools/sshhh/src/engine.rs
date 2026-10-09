@@ -44,6 +44,13 @@ pub struct RunReport {
     pub warnings: Vec<String>,
 }
 
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct SessionInfo {
+    pub alias: String,
+    pub user: String,
+    pub idle_secs: u64,
+}
+
 pub type Sink<'a> = &'a mut (dyn FnMut(Stream, &[u8]) + Send);
 
 pub struct Held {
@@ -161,6 +168,18 @@ impl Engine {
         live
     }
 
+    pub async fn sessions(&self) -> Vec<SessionInfo> {
+        let slots: Vec<Slot> = self.slots.lock().await.values().cloned().collect();
+        let mut out = Vec::new();
+        for slot in slots {
+            if let Some(held) = slot.lock().await.as_ref().filter(|h| !h.session.is_closed()) {
+                out.push(SessionInfo { alias: held.alias.clone(), user: held.login_user.clone(), idle_secs: held.idle().as_secs() });
+            }
+        }
+        out.sort_by(|a, b| a.alias.cmp(&b.alias));
+        out
+    }
+
     pub async fn sweep(&self, idle: Duration) -> usize {
         let slots: Vec<(String, Slot)> = self.slots.lock().await.iter().map(|(k, s)| (k.clone(), s.clone())).collect();
         let mut dropped = Vec::new();
@@ -248,7 +267,7 @@ impl Engine {
             op: "run",
             mechanism,
             rc: outcome.as_ref().ok().map(|(r, _)| r.rc),
-            error: outcome.as_ref().err().map(Error::code),
+            error: outcome.as_ref().err().map(|e| e.code().to_owned()),
             duration_ms: u64::try_from(started.elapsed().as_millis()).unwrap_or(u64::MAX),
             subject: &request.command,
             store_subject: ctx.audit_commands,
@@ -396,7 +415,7 @@ impl Engine {
             op,
             mechanism: "none",
             rc: outcome.as_ref().ok().map(|_| 0),
-            error: outcome.as_ref().err().map(Error::code),
+            error: outcome.as_ref().err().map(|e| e.code().to_owned()),
             duration_ms: u64::try_from(started.elapsed().as_millis()).unwrap_or(u64::MAX),
             subject,
             store_subject: ctx.audit_commands,

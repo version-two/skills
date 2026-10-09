@@ -300,6 +300,33 @@ impl Bitwarden {
     }
 }
 
+/// Runs `bw unlock --raw` on the caller's terminal so the master password is typed there, and
+/// returns the session key it prints.
+pub async fn unlock_bitwarden(settings: &Settings) -> Result<SecretString, Error> {
+    let bin = settings.bw_bin.clone().unwrap_or_else(|| "bw".to_string());
+    let mut cmd = Command::new(&bin);
+    cmd.args(["unlock", "--raw"]).stdin(Stdio::inherit()).stdout(Stdio::piped()).stderr(Stdio::inherit()).kill_on_drop(true);
+    if let Some(dir) = &settings.bw_appdata {
+        cmd.env("BITWARDENCLI_APPDATA_DIR", dir);
+    }
+    let output = match cmd.output().await {
+        Ok(output) => output,
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
+            return Err(unavailable("bw", "bw://", "bw_not_installed", format!("cannot run '{bin}'; install the native Bitwarden CLI or set BW_BIN")));
+        }
+        Err(e) => return Err(unavailable("bw", "bw://", "bw_spawn_failed", e.kind().to_string())),
+    };
+    let stdout = Zeroizing::new(output.stdout);
+    if !output.status.success() {
+        return Err(unavailable("bw", "bw://", "bw_failed", "`bw unlock` did not succeed"));
+    }
+    let key = String::from_utf8_lossy(&stdout).trim().to_string();
+    if key.is_empty() {
+        return Err(unavailable("bw", "bw://", "bw_bad_output", "`bw unlock --raw` printed no session key"));
+    }
+    Ok(SecretString::from(key))
+}
+
 pub struct Secrets {
     env: BTreeMap<String, String>,
     home: Option<PathBuf>,

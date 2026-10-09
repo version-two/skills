@@ -14,7 +14,7 @@ pub struct Entry<'a> {
     pub op: &'static str,
     pub mechanism: &'a str,
     pub rc: Option<i32>,
-    pub error: Option<&'static str>,
+    pub error: Option<String>,
     pub duration_ms: u64,
     pub subject: &'a str,
     pub store_subject: bool,
