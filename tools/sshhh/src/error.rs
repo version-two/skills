@@ -48,6 +48,8 @@ pub enum Error {
     CommandTimeout { secs: u64 },
     #[error("local I/O failed: {0}")]
     Io(String),
+    #[error("{mechanism} escalation failed: {reason}")]
+    EscalationFailed { mechanism: &'static str, reason: String },
     #[error("secret {reference} is unavailable ({reason}): {detail}")]
     SecretUnavailable { provider: &'static str, reference: String, reason: &'static str, detail: String },
 }
@@ -77,6 +79,7 @@ impl Error {
             Error::Refused(_) => "refused",
             Error::CommandTimeout { .. } => "command_timeout",
             Error::Io(_) => "io_error",
+            Error::EscalationFailed { .. } => "escalation_failed",
             Error::SecretUnavailable { .. } => "secret_unavailable",
         }
     }

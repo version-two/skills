@@ -4,9 +4,11 @@ use std::time::Duration;
 
 use russh::client::{self, KeyboardInteractiveAuthResponse};
 use russh::keys::{self, HashAlg, PrivateKeyWithHashAlg, PublicKeyOrCertificate};
-use russh::{ChannelMsg, Disconnect, Sig};
-use secrecy::ExposeSecret;
+use russh::{Channel, ChannelMsg, Disconnect, Sig};
+use russh_sftp::client::SftpSession;
+use secrecy::{ExposeSecret, SecretString};
 use tokio::io::AsyncWriteExt;
+use zeroize::Zeroize;
 
 use crate::config::AuthMethod;
 use crate::creds::Credentials;
@@ -65,9 +67,13 @@ impl client::Handler for Client {
                 match keys::known_hosts::check_known_hosts_path(&self.host, self.port, key, &self.known_hosts) {
                     Ok(true) => return Ok(true),
                     Ok(false) if self.policy == HostKeyPolicy::AcceptNew => {
-                        match keys::known_hosts::learn_known_hosts_path(&self.host, self.port, key, &self.known_hosts) {
+                        let learned = crate::hostkeys::ensure_parent(&self.known_hosts).map_err(|e| e.to_string()).and_then(|()| {
+                            keys::known_hosts::learn_known_hosts_path(&self.host, self.port, key, &self.known_hosts)
+                                .map_err(|e| e.to_string())
+                        });
+                        match learned {
                             Ok(()) => return Ok(true),
-                            Err(e) => HostKeyFault::Unusable(e.to_string()),
+                            Err(reason) => HostKeyFault::Unusable(reason),
                         }
                     }
                     Ok(false) => HostKeyFault::Unknown { fingerprint },
@@ -133,6 +139,15 @@ impl Session {
         let _ = self.handle.disconnect(Disconnect::ByApplication, "", "en").await;
     }
 
+    fn lost(&self, reason: impl ToString) -> Error {
+        Error::ConnectionLost { host: self.host.clone(), reason: reason.to_string() }
+    }
+
+    /// A failure here means nothing was sent yet, so the caller may reconnect and retry.
+    pub async fn open(&self) -> Result<Channel<client::Msg>, Error> {
+        self.handle.channel_open_session().await.map_err(|e| self.lost(e))
+    }
+
     pub async fn exec(
         &self,
         command: &str,
@@ -140,25 +155,35 @@ impl Session {
         timeout: Duration,
         sink: &mut (dyn FnMut(Stream, &[u8]) + Send),
     ) -> Result<ExecOutcome, Error> {
-        let lost = |reason: String| Error::ConnectionLost { host: self.host.clone(), reason };
-        let mut channel = self.handle.channel_open_session().await.map_err(|e| lost(e.to_string()))?;
-        channel.exec(true, command).await.map_err(|e| lost(e.to_string()))?;
+        let channel = self.open().await?;
+        self.run(channel, command, stdin, timeout, sink).await
+    }
 
+    pub async fn run(
+        &self,
+        mut channel: Channel<client::Msg>,
+        command: &str,
+        stdin: Option<Vec<u8>>,
+        timeout: Duration,
+        sink: &mut (dyn FnMut(Stream, &[u8]) + Send),
+    ) -> Result<ExecOutcome, Error> {
+        channel.exec(true, command).await.map_err(|e| self.lost(e))?;
         match stdin.filter(|bytes| !bytes.is_empty()) {
-            Some(bytes) => {
+            Some(mut bytes) => {
                 let mut writer = channel.make_writer();
                 tokio::spawn(async move {
                     if writer.write_all(&bytes).await.is_ok() {
                         let _ = writer.shutdown().await;
                     }
+                    bytes.zeroize();
                 });
             }
-            None => channel.eof().await.map_err(|e| lost(e.to_string()))?,
+            None => channel.eof().await.map_err(|e| self.lost(e))?,
         }
 
         let mut status = None;
         let mut signal = None;
-        let run = async {
+        let drive = async {
             loop {
                 match channel.wait().await {
                     Some(ChannelMsg::Data { data }) => sink(Stream::Stdout, &data),
@@ -171,11 +196,144 @@ impl Session {
                 }
             }
         };
-        if tokio::time::timeout(timeout, run).await.is_err() {
-            let _ = channel.close().await;
-            return Err(Error::CommandTimeout { secs: timeout.as_secs() });
+        match tokio::time::timeout(timeout, drive).await {
+            Err(_) => {
+                let _ = channel.close().await;
+                return Err(Error::CommandTimeout { secs: timeout.as_secs() });
+            }
+            Ok(Err(e)) => return Err(e),
+            Ok(Ok(())) => {}
         }
-        run_outcome(status, signal).ok_or_else(|| lost("channel closed without an exit status".into()))
+        run_outcome(status, signal).ok_or_else(|| self.lost("channel closed without an exit status"))
+    }
+
+    /// Runs `command` on a PTY, answers the first password prompt with `password` and streams the
+    /// rest as stdout (a PTY has no separate stderr). `su` refuses to read a password without one.
+    pub async fn run_with_password_prompt(
+        &self,
+        mut channel: Channel<client::Msg>,
+        command: &str,
+        password: &SecretString,
+        prompt_timeout: Duration,
+        timeout: Duration,
+        sink: &mut (dyn FnMut(Stream, &[u8]) + Send),
+    ) -> Result<ExecOutcome, Error> {
+        channel.request_pty(true, "dumb", 200, 50, 0, 0, &[]).await.map_err(|e| self.lost(e))?;
+        channel.exec(true, command).await.map_err(|e| self.lost(e))?;
+
+        let mut status = None;
+        let mut signal = None;
+        let mut prompt = Some(Vec::new());
+        let mut lines = LineEndings::default();
+        let deadline = tokio::time::Instant::now() + timeout;
+        let prompt_deadline = tokio::time::Instant::now() + prompt_timeout;
+        loop {
+            let limit = if prompt.is_some() { prompt_deadline.min(deadline) } else { deadline };
+            let next = match tokio::time::timeout_at(limit, channel.wait()).await {
+                Ok(msg) => msg,
+                Err(_) if prompt.is_some() && tokio::time::Instant::now() < deadline => {
+                    let _ = channel.close().await;
+                    return Err(Error::EscalationFailed {
+                        mechanism: "su",
+                        reason: format!("no password prompt within {} s", prompt_timeout.as_secs()),
+                    });
+                }
+                Err(_) => {
+                    let _ = channel.close().await;
+                    return Err(Error::CommandTimeout { secs: timeout.as_secs() });
+                }
+            };
+            match next {
+                Some(ChannelMsg::Data { data }) | Some(ChannelMsg::ExtendedData { data, .. }) => match prompt.as_mut() {
+                    Some(seen) => {
+                        seen.extend_from_slice(&data);
+                        if ends_with_password_prompt(seen) {
+                            let mut line = password.expose_secret().as_bytes().to_vec();
+                            line.push(b'\n');
+                            let sent = channel.data(&line[..]).await;
+                            line.zeroize();
+                            sent.map_err(|e| self.lost(e))?;
+                            prompt = None;
+                            lines.skip_leading_newline();
+                        }
+                    }
+                    None => {
+                        let clean = lines.normalise(&data);
+                        if !clean.is_empty() {
+                            sink(Stream::Stdout, &clean);
+                        }
+                    }
+                },
+                Some(ChannelMsg::ExitStatus { exit_status }) => status = Some(exit_status),
+                Some(ChannelMsg::ExitSignal { signal_name, .. }) => signal = Some(signal_name),
+                Some(ChannelMsg::Failure) => return Err(Error::Refused("pty or exec request denied".into())),
+                Some(ChannelMsg::Close) | None => break,
+                Some(_) => {}
+            }
+        }
+        if let Some(seen) = prompt {
+            let clean = lines.normalise(&seen);
+            if !clean.is_empty() {
+                sink(Stream::Stdout, &clean);
+            }
+        }
+        let tail = lines.finish();
+        if !tail.is_empty() {
+            sink(Stream::Stdout, &tail);
+        }
+        run_outcome(status, signal).ok_or_else(|| self.lost("channel closed without an exit status"))
+    }
+
+    pub async fn sftp(&self) -> Result<SftpSession, Error> {
+        let channel = self.open().await?;
+        channel.request_subsystem(true, "sftp").await.map_err(|e| Error::Refused(format!("sftp subsystem: {e}")))?;
+        SftpSession::new(channel.into_stream()).await.map_err(|e| Error::Refused(format!("sftp: {e}")))
+    }
+}
+
+fn ends_with_password_prompt(seen: &[u8]) -> bool {
+    let text = String::from_utf8_lossy(seen);
+    text.trim_end().to_ascii_lowercase().ends_with("password:")
+}
+
+/// A PTY turns every `\n` into `\r\n`; chunks may split the pair.
+#[derive(Default)]
+struct LineEndings {
+    pending_cr: bool,
+    skip_newline: bool,
+}
+
+impl LineEndings {
+    fn skip_leading_newline(&mut self) {
+        self.skip_newline = true;
+    }
+
+    fn normalise(&mut self, chunk: &[u8]) -> Vec<u8> {
+        let mut out = Vec::with_capacity(chunk.len());
+        for &byte in chunk {
+            if self.skip_newline {
+                if byte == b'\r' || byte == b'\n' {
+                    continue;
+                }
+                self.skip_newline = false;
+            }
+            if self.pending_cr {
+                self.pending_cr = false;
+                if byte != b'\n' {
+                    out.push(b'\r');
+                }
+            }
+            if byte == b'\r' {
+                self.pending_cr = true;
+            } else {
+                out.push(byte);
+            }
+        }
+        out
+    }
+
+    fn finish(&mut self) -> Vec<u8> {
+        if std::mem::take(&mut self.pending_cr) { vec![b'\r'] } else { Vec::new() }
     }
 }
 

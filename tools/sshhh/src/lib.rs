@@ -1,7 +1,13 @@
+pub mod audit;
 pub mod config;
 pub mod creds;
 pub mod dotenv;
+pub mod engine;
 pub mod error;
+pub mod escalate;
+pub mod hostkeys;
+pub mod redact;
 pub mod resolve;
 pub mod secrets;
 pub mod session;
+pub mod spec;

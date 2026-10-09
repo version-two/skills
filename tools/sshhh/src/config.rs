@@ -2,7 +2,7 @@ use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
 use secrecy::SecretString;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
 use crate::dotenv;
 use crate::error::Error;
@@ -13,7 +13,7 @@ const DEFAULT_USER: &str = "root";
 const GLOBAL_KEYS: [&str; 3] = ["DEFAULT", "DEFAULT_SERVER", "DEFAULT_TARGET"];
 const DEFAULT_ALIAS: &str = "default";
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Escalate {
     Su,
@@ -21,7 +21,7 @@ pub enum Escalate {
     None,
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum AuthMethod {
     Key,
@@ -63,7 +63,7 @@ impl Server {
 
 /// Tool settings that can launch binaries or pick servers; honoured only from the global
 /// file, an explicit `--env` file or the process environment, never from a project `.env`.
-#[derive(Debug, Default, Clone, PartialEq, Eq)]
+#[derive(Debug, Default, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Settings {
     pub bw_bin: Option<String>,
     pub bw_appdata: Option<PathBuf>,

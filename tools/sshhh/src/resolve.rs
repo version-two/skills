@@ -14,6 +14,12 @@ struct Picked {
     material: bool,
 }
 
+pub struct EscalationSecrets {
+    pub root_user: String,
+    pub root_pass: Option<SecretString>,
+    pub sudo_pass: Option<SecretString>,
+}
+
 pub struct Resolver {
     secrets: Secrets,
     home: Option<PathBuf>,
@@ -79,6 +85,18 @@ impl Resolver {
             Err(e) => return Err(unusable("certificate", e)),
         };
         Ok((SecretString::from(text), cert))
+    }
+
+    pub async fn escalation(&self, server: &Server) -> Result<EscalationSecrets, Error> {
+        let vault = self.vault_item(server).await?;
+        let vault = vault.as_deref();
+        let secret = |picked: Option<Picked>| picked.map(|p| p.value);
+        let root_user = secret(self.pick(server.root_user.as_deref(), "ROOT_USER", vault, Shape::Line).await?)
+            .map(|u| u.expose_secret().to_owned())
+            .unwrap_or_else(|| server.root_user().to_owned());
+        let root_pass = secret(self.pick(server.root_pass.as_ref().map(|s| s.expose_secret()), "ROOT_PASS", vault, Shape::Line).await?);
+        let sudo_pass = secret(self.pick(server.sudo_pass.as_ref().map(|s| s.expose_secret()), "SUDO_PASS", vault, Shape::Line).await?);
+        Ok(EscalationSecrets { root_user, root_pass, sudo_pass })
     }
 
     pub async fn credentials(&self, server: &Server) -> Result<Credentials, Error> {

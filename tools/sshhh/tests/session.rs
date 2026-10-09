@@ -118,7 +118,7 @@ async fn keyboard_interactive_answers_with_the_password() {
 #[tokio::test]
 async fn key_auth_plain_and_encrypted() {
     let key = new_key();
-    let f = start(Behaviour { authorized_key: Some(key.public_key().clone()), allow_password: false, kbdint: false }).await;
+    let f = start(Behaviour { authorized_key: Some(key.public_key().clone()), allow_password: false, ..Default::default() }).await;
     let mut creds = f.creds();
     creds.auth = vec![AuthMethod::Key];
     creds.pass = None;
