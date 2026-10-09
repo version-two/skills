@@ -26,7 +26,7 @@
     {
       "name": "sshhh",
       "source": "./plugins/sshhh",
-      "description": "Run commands and move files on servers over SSH with a bundled CLI: multi-server .env, Bitwarden-backed credentials, persistent connections, sudo/su, SFTP, read-only and allow/deny policies.",
+      "description": "Run commands and move files on servers over SSH with a bundled CLI: multi-server .env, vault-backed credentials, persistent connections, sudo/su, SFTP, read-only and allow/deny policies.",
       "category": "development",
       "tags": ["ssh", "sftp", "sudo", "servers", "bitwarden", "devops"]
     },

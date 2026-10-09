@@ -55,7 +55,7 @@ A transfer is written to a `.part` file and renamed when complete. `--verify` ha
 
 ## Servers: the `.env`
 
-Aliases come from key prefixes: `ZEUS_HOST` makes the alias `zeus`. Bare keys (`HOST=...`) form the alias `default`. Lookup, later wins per key: `~/.config/sshhh/servers.env`, the nearest `.env` walking up from the current directory, `.local/.env`, then process environment variables prefixed `SSHHH_` (`SSHHH_ZEUS_PORT=2222`). `--env FILE` (or `SSHHH_ENV`) reads only that file. `DEFAULT=zeus` or `SSH_SERVER=zeus` picks the alias used without `-s`. The alias `ssh` is reserved.
+Aliases come from key prefixes: `ZEUS_HOST` makes the alias `zeus`. Bare keys (`HOST=...`) form the alias `default`. Lookup, later wins per key: `~/.config/sshhh/servers.env`, the nearest `.env` walking up from the current directory, `.local/.env`, then process environment variables prefixed `SSHHH_` (`SSHHH_ZEUS_PORT=2222`). `--env FILE` (or `SSHHH_ENV`) reads only that file. `DEFAULT=zeus` in a file, or `SSH_SERVER=zeus` in the process environment, picks the alias used without `-s`; with one server configured no choice is needed. The alias `ssh` is reserved.
 
 ```
 DEFAULT=zeus
@@ -84,7 +84,7 @@ Passwords reach the remote side only on the channel's standard input or the term
 
 Values can be references: `bw://ITEM[/FIELD]` (Bitwarden CLI, cloud or self-hosted; FIELD is `password` by default, or `username`, `totp`, `notes`, `uri`, or a custom field name; percent-encode `/` in names), `env://NAME`, `file://PATH`. A failed lookup fails the call; nothing falls back to another value. Other vault schemes are refused with `not_implemented`.
 
-Bitwarden: the `bw` CLI must be installed and logged in (`bw login`) on the server `bw config server` points to. The vault must be unlocked: `$S unlock bw` asks for the master password on the terminal once and keeps the session in the background process only. If a call fails with `vault_locked`, tell the user to run that command; do not try to unlock it yourself. Tool settings `BW_BIN`, `BW_APPDATA` and `BW_SERVER` (expected server URL) are honoured only in `~/.config/sshhh/servers.env`, an explicit `--env` file or `SSHHH_`-prefixed environment variables, never in a project `.env`.
+Bitwarden: the `bw` CLI must be installed and logged in (`bw login`) on the server `bw config server` points to. The vault must be unlocked: `$S unlock bw` asks for the master password on the terminal once and keeps the session in the background process only. If a call fails with `secret_unavailable` and the message says `(vault_locked)`, tell the user to run that command; do not try to unlock it yourself. Tool settings `BW_BIN`, `BW_APPDATA` and `BW_SERVER` (expected server URL) are honoured only in `~/.config/sshhh/servers.env`, an explicit `--env` file or `SSHHH_`-prefixed environment variables, never in a project `.env`.
 
 Legacy key names (`SSH_HOST`, `IP`, `PASSWORD`, `CERT`, ...) still work and print a `deprecated_key` warning on stderr. `$S import <dir-or-file> --dry-run` shows the rewrite to the current names, without `--dry-run` it writes it.
 

@@ -278,6 +278,9 @@ pub async fn command(global: &Global, words: Vec<String>, tr: &Catalog) -> Resul
 }
 
 pub async fn script(global: &Global, file: &str, args: &[String], tr: &Catalog) -> Result<u8, Error> {
+    if global.stdin {
+        return Err(Error::Usage("script sends the script itself as standard input; use `script -` to read it from stdin".into()));
+    }
     let p = prepare(global)?;
     let body = if file == "-" {
         read_stdin().await?

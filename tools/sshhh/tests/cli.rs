@@ -176,6 +176,14 @@ async fn file_commands_refuse_escalation_and_stdin_instead_of_ignoring_them() {
 }
 
 #[tokio::test]
+async fn a_script_refuses_the_stdin_flag_instead_of_ignoring_it() {
+    let cli = Cli::new("").await;
+    let script = cli.file("s.sh", b"echo hi\n");
+    let out = cli.run(&["--no-daemon", "--accept-new", "--json", "--stdin", "script", str_of(&script)]).await;
+    assert_eq!((out.code, out.error_code().as_str()), (255, "usage"), "{}", out.stderr);
+}
+
+#[tokio::test]
 async fn an_unknown_host_key_fails_until_trusted_and_a_wrong_fingerprint_trusts_nothing() {
     let cli = Cli::new("").await;
     let out = cli.run(&["--no-daemon", "echo hi"]).await;
