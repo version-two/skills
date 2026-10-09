@@ -1,0 +1,35 @@
+[package]
+name = "sshhh-cli"
+version = "0.1.0"
+edition = "2024"
+description = "Quiet, fast SSH for agents and scripts: multi-server .env, vault-backed credentials, persistent connections, sudo/su, SFTP, JSON output"
+authors = ["Version Two s.r.o. <info@versiontwo.sk>", "Mario Chamuty"]
+homepage = "https://www.versiontwo.sk"
+repository = "https://github.com/version-two/skills"
+license = "MIT"
+publish = false
+
+[lib]
+name = "sshhh"
+path = "src/lib.rs"
+
+[[bin]]
+name = "sshhh"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+futures = "0.3"
+russh = { version = "0.64", default-features = false, features = ["ring", "flate2", "rsa"] }
+russh-sftp = "3"
+secrecy = "0.10"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.11"
+thiserror = "2"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time", "io-util", "io-std", "fs", "process", "net", "sync", "signal"] }
+zeroize = "1"
+
+[dev-dependencies]
+rand = "0.10"
+tempfile = "3"
