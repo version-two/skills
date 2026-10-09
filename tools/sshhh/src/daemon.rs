@@ -189,7 +189,8 @@ fn listener(paths: &Paths) -> Result<Listener, Error> {
     #[cfg(windows)]
     let options = {
         use interprocess::os::windows::{local_socket::ListenerOptionsExt, security_descriptor::SecurityDescriptor};
-        let sddl = widestring::U16CString::from_str("D:P(A;;GA;;;OW)").map_err(|e| Error::Io(e.to_string()))?;
+        let sid = crate::private::current_user_sid().map_err(io("cannot determine the current user"))?;
+        let sddl = widestring::U16CString::from_str(format!("D:P(A;;GA;;;{sid})")).map_err(|e| Error::Io(e.to_string()))?;
         options.security_descriptor(SecurityDescriptor::deserialize(&sddl).map_err(io("daemon pipe ACL"))?)
     };
     options.create_tokio().map_err(io("cannot create the daemon socket"))

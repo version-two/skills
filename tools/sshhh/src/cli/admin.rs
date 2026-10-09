@@ -309,12 +309,7 @@ pub fn import(global: &Global, path: &Path, dry_run: bool, tr: &Catalog) -> Resu
     let plan = import::plan(&text, &file)?;
     let written = !dry_run && !plan.changes.is_empty();
     if written {
-        let tmp = file.with_file_name(format!("{}.sshhh-tmp", file.file_name().map_or_else(|| ".env".into(), |n| n.to_string_lossy())));
-        private::write_private(&tmp, plan.text.as_bytes()).map_err(|e| Error::Io(format!("{}: {}", tmp.display(), e.kind())))?;
-        std::fs::rename(&tmp, &file).map_err(|e| {
-            let _ = std::fs::remove_file(&tmp);
-            Error::Io(format!("{}: {}", file.display(), e.kind()))
-        })?;
+        private::write_private(&file, plan.text.as_bytes()).map_err(|e| Error::Io(format!("{}: {}", file.display(), e.kind())))?;
     }
     if global.json {
         print_json(&json!({ "file": file.display().to_string(), "changes": plan.changes, "written": written }));
