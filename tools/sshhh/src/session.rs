@@ -398,7 +398,7 @@ async fn authenticate(handle: &mut client::Handle<Client>, creds: &Credentials) 
                 match keyboard_interactive(handle, &creds.user, pass.expose_secret()).await.map_err(lost)? {
                     KeyboardInteractiveAuthResponse::Success => return Ok(()),
                     KeyboardInteractiveAuthResponse::Failure { remaining_methods, .. } => {
-                        server_methods = format!("{remaining_methods:?}");
+                        server_methods = method_names(&remaining_methods);
                         continue;
                     }
                     KeyboardInteractiveAuthResponse::InfoRequest { .. } => continue,
@@ -430,11 +430,15 @@ async fn authenticate(handle: &mut client::Handle<Client>, creds: &Credentials) 
         match result {
             russh::client::AuthResult::Success => return Ok(()),
             russh::client::AuthResult::Failure { remaining_methods, .. } => {
-                server_methods = format!("{remaining_methods:?}");
+                server_methods = method_names(&remaining_methods);
             }
         }
     }
     Err(Error::AuthFailed { user: creds.user.clone(), tried: tried.join(", "), server_methods })
+}
+
+fn method_names(methods: &russh::MethodSet) -> String {
+    methods.iter().map(|m| <&str>::from(m)).collect::<Vec<_>>().join(", ")
 }
 
 async fn keyboard_interactive(
