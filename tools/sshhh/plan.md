@@ -28,7 +28,8 @@ Append-only. Only `[ ]` becomes `[x]` after verified completion; notes go in `<!
 - [x] In-process russh server integration tests (CI has no sshd) <!-- NOTE: exec, escalation and a filesystem-backed SFTP server; suite verified on Windows and on Linux (WSL) -->
 <!-- NOTE: a real sshd run (WSL Ubuntu) for sudo and su is still open, tracked below -->
 
-- [ ] Plugin: `plugins/sshhh` (plugin.json, launcher, SKILL.md), marketplace entry, release workflow tag glob, README row
+- [x] Plugin: `plugins/sshhh` (plugin.json, launcher, SKILL.md), marketplace entry, release workflow tag glob, README row <!-- NOTE: JSON and shell syntax checked; static musl build, tests and clippy --locked pass in WSL; the launcher download is verified only by the release run -->
+
 - [ ] Tag `sshhh-v0.1.0`, release workflow green, launcher downloads and verifies the binary
 - [x] `READONLY=true` per server (user request): enforced inside the engine, no flag or later config layer can lower it; refuses `put`, `--root`, output redirection and any command not listed in `ALLOW_COMMANDS` <!-- NOTE: engine and config verified by tests; CLI flags are added in main.rs and none of them touches the policy. A catch-all ALLOW_COMMANDS entry is rejected under READONLY. -->
 
